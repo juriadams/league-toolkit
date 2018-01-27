@@ -61,6 +61,40 @@ hr {
 }
 
 /*
+    SCROLL BAR
+*/
+
+/* width */
+::-webkit-scrollbar {
+    width: 7px;
+    border-radius: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar * {
+    background:transparent;
+}
+
+::-webkit-scrollbar-track-piece:start {
+    background: transparent url(https://i.4da.ms/Gch1r6.png) repeat-y !important;
+}
+
+::-webkit-scrollbar-track-piece:end {
+    background: transparent url(https://i.4da.ms/Gch1r6.png) repeat-y !important;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #9b722c;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #d4b373;
+}
+
+/*
     BUTTONS
 */
 
