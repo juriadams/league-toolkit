@@ -1,9 +1,4 @@
 body {
-  /* background: #020d16;
-  background: -moz-linear-gradient(top, #020d16 0%, #092835 100%);
-  background: -webkit-linear-gradient(top, #020d16 0%,#092835 100%);
-  background: linear-gradient(to bottom, #020d16 0%,#092835 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#020d16', endColorstr='#092835',GradientType=0 );*/
   background: url(https://i.4da.ms/Gch1r6.png);
   background-position: center;
   background-size: cover;
@@ -11,7 +6,7 @@ body {
   font-family: 'Patua One', cursive;
   text-transform: uppercase;
   width: 100%;
-  height: 100%;
+  height: 95%;
   margin: 0 auto;
   text-align: center;
 }
@@ -22,7 +17,7 @@ p {
 
 .title {
   text-align: center;
-  margin-top: 200px;
+  margin-top: 150px;
   margin-bottom: 50px;
 }
 
@@ -66,7 +61,7 @@ hr {
 }
 
 .getstarted {
-  margin-top: 10px;
+  margin-top: -10px;
 }
 
 /*
@@ -114,7 +109,7 @@ button {
   /* font-family: 'Beaufort', 'Times New Roman', serif; */
   text-transform: uppercase;
   color: #CDBE91;
-  font-weight: bold;
+  font-weight: 100;
   letter-spacing: 1px;
   white-space: nowrap;
   padding: 9px 21px;
@@ -285,7 +280,50 @@ select {
   -moz-appearance:none;
 }
 
-
 /*
-    CHECKBOX
+    SECTIONS
 */
+
+.sections {
+  margin-bottom: 100px;
+}
+
+/* Style the tab */
+.tab {
+  margin-top: 10px;
+  margin-left: 15px;
+  overflow: hidden;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  background-color: transparent;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  color: #fff;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  color: #fff;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border-top: none;
+}
