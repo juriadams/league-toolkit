@@ -26,11 +26,13 @@ Copyright (c) 2018 by 4dams. All Rights Reserved.
 
       <div class="sections">
 
-        <div class="tab">
-          <button class="tablinks" onclick="openTab(event, 'Home')" id="defaultOpen">Home</button>
-          <button class="tablinks" onclick="openTab(event, 'Profile')">Profile</button>
-          <button class="tablinks" onclick="openTab(event, 'Queue')">Queue</button>
-          <button class="tablinks" onclick="openTab(event, 'Miscellaneous')">Miscellaneous</button>
+        <div class="tab-container">
+          <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'Home')" id="defaultOpen">Home</button>
+            <button class="tablinks" onclick="openTab(event, 'Profile')">Profile</button>
+            <button class="tablinks" onclick="openTab(event, 'Queue')">Queue</button>
+            <button class="tablinks" onclick="openTab(event, 'Miscellaneous')">Miscellaneous</button>
+          </div>
         </div>
 
         <!-- TABS AND THEIR CONTENTS -->
@@ -54,167 +56,181 @@ Copyright (c) 2018 by 4dams. All Rights Reserved.
 
         <div id="Profile" class="tabcontent">
 
-          <!-- CUSTOM RANK -->
-          <div class="center">
+          <div class="box">
 
-            <p>Custom Rank</p>
+            <!-- CUSTOM RANK -->
+            <div class="center">
 
-            <div class="center-area">
+              <p>Custom Rank</p>
+
+              <div class="center-area">
+
+                <div>
+                  <select onchange="tierChange()" id="tier" class="dropdown tier center-area">
+                    <div class="options">
+                      <option value="UNRANKED">Unranked</option>
+                      <option value="BRONZE">Bronze</option>
+                      <option value="SILVER">Silver</option>
+                      <option value="GOLD">Gold</option>
+                      <option value="PLATINUM">Platinum</option>
+                      <option value="DIAMOND">Diamond</option>
+                      <option value="MASTER">Master</option>
+                      <option value="CHALLENGER">Challenger</option>
+                    </div>
+                  </select>
+                </div>
+
+                <div>
+                  <select onchange="divisionChange()" id="division" class="dropdown division center-area">
+                    <option value="V">V</option>
+                    <option value="IV">IV</option>
+                    <option value="III">III</option>
+                    <option value="II">II</option>
+                    <option value="I">I</option>
+                  </select>
+                </div>
+
+              </div>
+
+              <button type="button" onClick="submitTierDivison()">Save</button>
+
+            </div>
+            <hr>
+
+            <!-- CUSTOM RANKED LEAGUE NAME -->
+            <div class="center">
+
+              <p>Custom Ranked League Name</p>
 
               <div>
-                <select onchange="tierChange()" id="tier" class="dropdown tier center-area">
-                  <div class="options">
-                    <option value="UNRANKED">Unranked</option>
-                    <option value="BRONZE">Bronze</option>
-                    <option value="SILVER">Silver</option>
-                    <option value="GOLD">Gold</option>
-                    <option value="PLATINUM">Platinum</option>
-                    <option value="DIAMOND">Diamond</option>
-                    <option value="MASTER">Master</option>
-                    <option value="CHALLENGER">Challenger</option>
-                  </div>
+                <textarea rows="1" cols="20" placeholder="Bard's Awesome Dudes" id="leagueName" class="center-area"></textarea>
+              </div>
+
+              <button type="button" onClick="submitLeagueName()">Save</button>
+
+            </div>
+            <hr>
+
+            <!-- CUSTOM LEVEL -->
+            <div class="center">
+
+              <p>Custom Level</p>
+
+              <div>
+                <textarea rows="1" cols="10" placeholder="1337" id="level" class="center-area"></textarea>
+              </div>
+
+              <button type="button" onClick="submitLevel()">Save</button>
+
+            </div>
+            <hr>
+
+            <!-- CUSTOM STATUS MESSAGE -->
+            <div class="center">
+
+              <p>Custom Status Message (infinite length)</p>
+
+              <div>
+                <textarea rows="2" cols="35" placeholder="Most dedicated support player EUW!" id="status" class="center-area"></textarea>
+              </div>
+
+              <button type="button" onClick="submitStatus()">Save</button>
+
+            </div>
+            <hr>
+
+            <!-- CUSTOM AVAILABILIY -->
+            <div class="center">
+
+              <p>Custom Availability</p>
+
+              <div>
+                <select id="availability" class="dropdown">
+                  <option value="chat">Online</option>
+                  <option value="away">Do Not Disturb</option>
+                  <option value="mobile">Mobile</option>
+                  <option value="offline">Offline</option>
+                  <option value="" disabled>In Queue</option>
+                  <option value="" disabled>In Champ Select</option>
+                  <option value="inGame" disabled>In Game</option>
                 </select>
               </div>
 
+              <button type="button" onClick="submitAvailability()">Save</button>
+
+            </div>
+            <hr>
+
+            <!-- CUSTOM SUMMONER NAME -->
+            <div class="center">
+
+              <p>Custom Summoner Name (local)</p>
+
               <div>
-                <select onchange="divisionChange()" id="division" class="dropdown division center-area">
-                  <option value="V">V</option>
-                  <option value="IV">IV</option>
-                  <option value="III">III</option>
-                  <option value="II">II</option>
-                  <option value="I">I</option>
-                </select>
+                <textarea rows="1" cols="20" placeholder="Scarlet" id="summoner" class="center-area"></textarea>
               </div>
 
-            </div>
+              <button type="button" onClick="submitSummoner()">Save</button>
 
-            <button type="button" onClick="submitTierDivison()">Save</button>
+            </div>
+            <hr>
+
+            <!-- CUSTOM SUMMONER ICON -->
+            <div class="center">
+
+              <p>Custom Summoner Icon (local)</p>
+
+              <div>
+                <textarea rows="1" cols="20" placeholder="Icon ID" id="icon" class="center-area"></textarea>
+              </div>
+
+              <button type="button" onClick="submitIcon()">Save</button>
+
+            </div>
+            <hr>
+
+            <!-- CUSTOM RANKED WINS/LOSSES -->
+            <div class="center">
+
+              <p>Custom Ranked Wins/Losses</p>
+
+              <div>
+                <textarea rows="1" cols="5" placeholder="Wins" id="wins" class="center-area"></textarea> <textarea rows="1" cols="5" placeholder="Losses" id="losses" class="center-area"></textarea>
+              </div>
+
+              <button type="button" onClick="submitWinsLosses()">Save</button>
+
+            </div>
+            <hr>
 
           </div>
-          <hr>
-
-          <!-- CUSTOM RANKED LEAGUE NAME -->
-          <div class="center">
-
-            <p>Custom Ranked League Name</p>
-
-            <div>
-              <textarea rows="1" cols="20" placeholder="Bard's Awesome Dudes" id="leagueName" class="center-area"></textarea>
-            </div>
-
-            <button type="button" onClick="submitLeagueName()">Save</button>
-
-          </div>
-          <hr>
-
-          <!-- CUSTOM LEVEL -->
-          <div class="center">
-
-            <p>Custom Level</p>
-
-            <div>
-              <textarea rows="1" cols="10" placeholder="1337" id="level" class="center-area"></textarea>
-            </div>
-
-            <button type="button" onClick="submitLevel()">Save</button>
-
-          </div>
-          <hr>
-
-          <!-- CUSTOM STATUS MESSAGE -->
-          <div class="center">
-
-            <p>Custom Status Message (infinite length)</p>
-
-            <div>
-              <textarea rows="2" cols="35" placeholder="Most dedicated support player EUW!" id="status" class="center-area"></textarea>
-            </div>
-
-            <button type="button" onClick="submitStatus()">Save</button>
-
-          </div>
-          <hr>
-
-          <!-- CUSTOM AVAILABILIY -->
-          <div class="center">
-
-            <p>Custom Availability</p>
-
-            <div>
-              <select id="availability" class="dropdown">
-                <option value="chat">Online</option>
-                <option value="away">Do Not Disturb</option>
-                <option value="mobile">Mobile</option>
-                <option value="offline">Offline</option>
-                <option value="" disabled>In Queue</option>
-                <option value="" disabled>In Champ Select</option>
-                <option value="inGame" disabled>In Game</option>
-              </select>
-            </div>
-
-            <button type="button" onClick="submitAvailability()">Save</button>
-
-          </div>
-          <hr>
-
-          <!-- CUSTOM SUMMONER NAME -->
-          <div class="center">
-
-            <p>Custom Summoner Name (local)</p>
-
-            <div>
-              <textarea rows="1" cols="20" placeholder="Scarlet" id="summoner" class="center-area"></textarea>
-            </div>
-
-            <button type="button" onClick="submitSummoner()">Save</button>
-
-          </div>
-          <hr>
-
-          <!-- CUSTOM SUMMONER ICON -->
-          <div class="center">
-
-            <p>Custom Summoner Icon (local)</p>
-
-            <div>
-              <textarea rows="1" cols="20" placeholder="Icon ID" id="icon" class="center-area"></textarea>
-            </div>
-
-            <button type="button" onClick="submitIcon()">Save</button>
-
-          </div>
-          <hr>
-
-          <!-- CUSTOM RANKED WINS/LOSSES -->
-          <div class="center">
-
-            <p>Custom Ranked Wins/Losses</p>
-
-            <div>
-              <textarea rows="1" cols="5" placeholder="Wins" id="wins" class="center-area"></textarea> <textarea rows="1" cols="5" placeholder="Losses" id="losses" class="center-area"></textarea>
-            </div>
-
-            <button type="button" onClick="submitWinsLosses()">Save</button>
-
-          </div>
-          <hr>
 
         </div>
 
         <div id="Queue" class="tabcontent">
-          <h3>W I P</h3>
-          <p>More on "Queue" coming soon!</p>
+
+          <div class="box">
+
+            <p>W I P</p>
+            <p>More on "Queue" coming soon!</p>
+
+          </div>
+
         </div>
 
         <div id="Miscellaneous" class="tabcontent">
 
-          <!-- RESTORE PROFILE -->
-          <div class="center">
+          <div class="box">
 
-            <p>Restore default profile</p>
+            <!-- RESTORE PROFILE -->
+            <div class="center">
 
-            <div>
-              <button type="button" id="reset" onClick="eventReset()">Restore Profile</button>
+              <p>Restore default profile</p>
+
+              <div>
+                <button type="button" id="reset" onClick="eventReset()">Restore Profile</button>
+              </div>
+
             </div>
 
           </div>

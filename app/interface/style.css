@@ -5,10 +5,10 @@ body {
   background-attachment: fixed;
   font-family: 'Patua One', cursive;
   text-transform: uppercase;
-  width: 100%;
-  height: 95%;
   margin: 0 auto;
   text-align: center;
+  position: fixed;
+  width: 100%;
 }
 
 p {
@@ -17,7 +17,7 @@ p {
 
 .title {
   text-align: center;
-  margin-top: 150px;
+  margin-top: 225px;
   margin-bottom: 50px;
 }
 
@@ -68,32 +68,28 @@ hr {
     SCROLL BAR
 */
 
-/* width */
 ::-webkit-scrollbar {
     width: 7px;
     border-radius: 5px;
 }
 
-/* Track */
 ::-webkit-scrollbar * {
     background:transparent;
 }
 
 ::-webkit-scrollbar-track-piece:start {
-    background: transparent url(https://i.4da.ms/Gch1r6.png) repeat-y !important;
+    background:transparent;
 }
 
 ::-webkit-scrollbar-track-piece:end {
-    background: transparent url(https://i.4da.ms/Gch1r6.png) repeat-y !important;
+    background:transparent;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
     background: #9b722c;
     border-radius: 10px;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #d4b373;
 }
@@ -289,7 +285,22 @@ select {
 }
 
 /* Style the tab */
+
+.tab-container {
+  position: fixed;
+  top: 0px;
+  margin: 0px auto;
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  height: 75px;
+
+  background: -moz-linear-gradient(top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.06) 91%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0.06) 91%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0.06) 91%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
 .tab {
+  margin: 0px auto;
   margin-top: 10px;
   margin-left: 15px;
   overflow: hidden;
@@ -313,17 +324,23 @@ select {
 
 /* Change background color of buttons on hover */
 .tab button:hover {
-  color: #fff;
+  color: #f0e6d2;
 }
 
 /* Create an active/current tablink class */
 .tab button.active {
-  color: #fff;
+  color: #f0e6d2;
 }
 
 /* Style the tab content */
 .tabcontent {
   display: none;
-  padding: 6px 12px;
   border-top: none;
+  margin-top: 90px;
+}
+
+.box {
+  height: 570px;
+  overflow-y: scroll;
+  margin-right: 10px;
 }
