@@ -1,0 +1,248 @@
+body {
+  /* background: #020d16;
+  background: -moz-linear-gradient(top, #020d16 0%, #092835 100%);
+  background: -webkit-linear-gradient(top, #020d16 0%,#092835 100%);
+  background: linear-gradient(to bottom, #020d16 0%,#092835 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#020d16', endColorstr='#092835',GradientType=0 );*/
+  background: url(https://i.4da.ms/Gch1r6.png);
+  background-position: center;
+  background-size: cover;
+  font-family: 'Patua One', cursive;
+  text-transform: uppercase;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+p {
+  color: #cdbe91;
+}
+
+.title {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+h1 {
+  color: #fff;
+  font-weight: 100;
+  font-size: 59px;
+  margin-bottom: 5px;
+}
+
+hr {
+  width: 350px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  border: 1px solid #cdbe91;
+}
+
+.left {
+  float: left;
+  margin: 2px;
+}
+
+.center {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.center-area {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3px;
+}
+
+.end {
+  margin-bottom: 50px;
+}
+
+/*
+    BUTTONS
+*/
+
+button {
+  display: inline-block;
+  position: relative;
+  font-family: 'Patua One', cursive;
+  /* font-family: 'Beaufort', 'Times New Roman', serif; */
+  text-transform: uppercase;
+  color: #CDBE91;
+  font-weight: bold;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  padding: 9px 21px;
+  cursor: pointer;
+  box-shadow: 0 0 1px 1px #010A13, inset 0 0 1px 1px #010A13;
+  background: #1E2328;
+  border: 2px solid transparent;
+  border-image: linear-gradient(to top, #785B28 0%, #C89C3C 55%, #C8A355 71%, #C8AA6E 100%);
+  border-image-slice: 1;
+  transition: opacity 300ms linear;
+  margin-top: 5px;
+  transition: color 100ms linear;
+}
+
+button:hover {
+  color: #F0E6D2;
+  border: 2px solid transparent;
+  border-image:
+    linear-gradient(to top,
+    rgb(78.4%, 61.2%, 23.5%) 0%,
+    rgb(86.3%, 75.7%, 53.3%) 50%,
+    rgb(88.2%, 78.8%, 59.6%) 71%,
+    rgb(94.1%, 90.2%, 84.7%) 100%
+    );
+  border-image-slice: 1;
+  -webkit-box-shadow: 0px 0px 13px 0px rgba(205,190,145,0.39);
+  -moz-box-shadow: 0px 0px 13px 0px rgba(205,190,145,0.39);
+  box-shadow: 0px 0px 13px 0px rgba(205,190,145,0.39);
+  transition: color 100ms linear;
+  /* filter: blur(4px); */
+}
+
+button:active {
+  color: #E4E1D8;
+  border-image: linear-gradient(to top, #FFFFFF 0%, #FFFFFF 33%, #FFFFFF 66%, #FFFFFF 100%);
+  border-image-slice: 1;
+  color: #5C5B57;
+  transition: color 100ms linear;
+  animation: none;
+}
+
+button:focus {
+  outline: 0;
+}
+
+button:after {
+  transition: all 0.8s
+}
+
+
+/*
+    TEXT FIELDS
+*/
+
+textarea {
+  overflow:hidden;
+  white-space: nowrap;
+  resize: none;
+  font-family: 'Open Sans', sans-serif;
+  padding: 10px 10px;
+  color: rgb(62.7%, 60.8%, 54.9%);
+  display: block;
+  box-sizing: border-box;
+  border: 1px solid #785A28;
+  background-color: rgba(0,0,0,0.7);
+  appearance: none;
+  outline: none;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.25) inset,0 0 0 1px rgba(0,0,0,0.25);
+}
+
+textarea:focus {
+  background: linear-gradient(to bottom, rgba(7, 16, 25, 0.7), rgba(32, 39, 44, 0.7));
+  border-image: linear-gradient(to bottom, #785a28, #c8aa6e) 1 stretch;
+}
+
+/*
+    DROPDOWNS
+*/
+
+.dropdown {
+  display: inline-block;
+	position: relative;
+	cursor: pointer;
+	width: 200px;
+	font-family: 'Open Sans', sans-serif;
+	color: rgb(62.7%, 60.8%, 54.9%);;
+	letter-spacing: 0.025rem;
+	outline: none;
+
+  padding: 10px 14px;
+  background-color: rgba(30,35,40,0.5);
+  border: 1px solid transparent;
+  border-image: linear-gradient(to top,#695625 0%,#A9852D 23%,#B88D35 93%,#C8AA6E 100%) 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dropdown:active {
+  background: rgba(30,35,40,0.5);
+  color: #463714;
+  border: 1px solid #463714;
+}
+
+.dropdown:focus {
+  background: linear-gradient(to top,rgba(88,83,66,0.5),rgba(30,35,40,0.5));
+  border: 1px solid transparent;
+  border-image: linear-gradient(to top,#c89b3c,#f0e6d2) 1;
+}
+
+.options {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  max-height: 250px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: #010a13;
+  border: 1px solid transparent;
+  -o-border-image: linear-gradient(0deg,#695625,#463714) 1;
+  border-image: -webkit-linear-gradient(bottom,#695625,#463714) 1;
+  border-image: linear-gradient(0deg,#695625,#463714) 1;
+  z-index: 10;
+}
+
+option {
+  position: relative;
+    color: #cdbe91;
+    cursor: pointer;
+    overflow-x: hidden;
+    padding: 9px;
+    border-top: 1px solid #1f2123;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+option:focus {
+  color: rgb(94.1%, 90.2%, 82.4%);
+  background-color: rgb(11.8%, 13.7%, 15.7%);
+}
+
+option:active {
+  color: rgb(27.5%, 21.6%, 7.8%);
+  background-color: rgba(30,35,40,0.5);
+}
+
+option:selected {
+  padding-right: 1.25em;
+  padding-right: calc(1.25em + 10px);
+}
+
+.tier {
+  width: 150px;
+}
+
+.division {
+  width: 40px;
+  margin-top: 4px;
+}
+
+select {
+  border-radius: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-appearance:none;
+  -moz-appearance:none;
+}
+
+
+/*
+    CHECKBOX
+*/
