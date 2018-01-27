@@ -66,11 +66,12 @@ app.on('ready', function() {
 
 	// Creating main window of the app
 	mainWindow = new BrowserWindow({
-		width: 750,
-		height: 600,
+		width: 1280,
+		height: 720,
 		frame: true,
 		resizable: false,
 		movable: true,
+		radii: [5,5,5,5],
 		icon: path.join(__dirname, 'assets/icon.png')
 	});
 

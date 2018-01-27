@@ -7,6 +7,7 @@ body {
   background: url(https://i.4da.ms/Gch1r6.png);
   background-position: center;
   background-size: cover;
+  background-attachment: fixed;
   font-family: 'Patua One', cursive;
   text-transform: uppercase;
   width: 100%;
@@ -21,7 +22,7 @@ p {
 
 .title {
   text-align: center;
-  margin-top: 50px;
+  margin-top: 200px;
   margin-bottom: 50px;
 }
 
@@ -58,6 +59,14 @@ hr {
 
 .end {
   margin-bottom: 50px;
+}
+
+.controls {
+  color: #fff;
+}
+
+.getstarted {
+  margin-top: 10px;
 }
 
 /*
