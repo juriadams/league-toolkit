@@ -72,6 +72,16 @@ function eventReset() {
   ipcRenderer.send('reset');
 }
 
+function exit_app() {
+  ipcRenderer.send('exit_app');
+}
+
+function minimize_app() {
+  ipcRenderer.send('minimize_app');
+}
+
+
+
 /*
     SECTIONS
 */
@@ -79,6 +89,22 @@ function eventReset() {
 function openTab(evt, tabName) {
     // Declare all variables
     var i, tabcontent, tablinks;
+
+    if (tabName == "Home") {
+      document.getElementById("selected").style.marginLeft = "0px";
+    }
+
+    if (tabName == "Profile") {
+      document.getElementById("selected").style.marginLeft = "118px";
+    }
+
+    if (tabName == "Queue") {
+      document.getElementById("selected").style.marginLeft = "238px";
+    }
+
+    if (tabName == "Miscellaneous") {
+      document.getElementById("selected").style.marginLeft = "388px";
+    }
 
     // Get all elements with class="tabcontent" and hide them
     tabcontent = document.getElementsByClassName("tabcontent");

@@ -92,6 +92,14 @@ ipcMain.on('reset', function() {
 	LocalSummoner.reset();
 });
 
+ipcMain.on('exit_app', function(){
+  app.quit();
+});
+
+ipcMain.on('minimize_app', function(){
+  mainWindow.minimize();
+});
+
 
 ipcMain.on('submitTierDivison', (event, tier, division) => {
 	console.log(tier);

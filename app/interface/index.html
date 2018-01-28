@@ -15,11 +15,6 @@ Copyright (c) 2018 by 4dams. All Rights Reserved.
 
   <body>
 
-    <!-- <div class="controls">
-      <i class="material-icons" class="icon">remove</i>
-      <i class="material-icons" class="icon">clear</i>
-    </div> -->
-
     <div class="content">
 
       <!-- BEGIN SECTIONS -->
@@ -27,11 +22,18 @@ Copyright (c) 2018 by 4dams. All Rights Reserved.
       <div class="sections">
 
         <div class="tab-container">
+          <img src="http://i.4da.ms/fslkk3.png" id="selected" class="selected"></img>
           <div class="tab">
             <button class="tablinks" onclick="openTab(event, 'Home')" id="defaultOpen">Home</button>
             <button class="tablinks" onclick="openTab(event, 'Profile')">Profile</button>
             <button class="tablinks" onclick="openTab(event, 'Queue')">Queue</button>
             <button class="tablinks" onclick="openTab(event, 'Miscellaneous')">Miscellaneous</button>
+          </div>
+
+          <div class="controls">
+            <button onclick="minimize_app();"><i class="material-icons icon">remove</i></button>
+            <button><i class="material-icons icon">bug_report</i></button>
+            <button onclick="exit_app();"><i class="material-icons icon">clear</i></button>
           </div>
         </div>
 

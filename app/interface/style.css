@@ -17,7 +17,7 @@ p {
 
 .title {
   text-align: center;
-  margin-top: 225px;
+  margin-top: 250px;
   margin-bottom: 50px;
 }
 
@@ -58,6 +58,45 @@ hr {
 
 .controls {
   color: #fff;
+  float: right;
+  margin-right: 5px;
+  margin-top: -70px;
+}
+
+.icon {
+  font-size: 20px !important;
+}
+
+/* Style the buttons that are used to open the tab content */
+.controls button {
+  background-color: transparent;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 4px 4px;
+  transition: 0.3s;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  font-size: 8px;
+  margin-left: 10px;
+}
+
+/* Change background color of buttons on hover */
+.controls button:hover {
+  color: #f0e6d2;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+/* Create an active/current tablink class */
+.controls button.active {
+  color: #f0e6d2;
 }
 
 .getstarted {
@@ -291,8 +330,9 @@ select {
   top: 0px;
   margin: 0px auto;
   width: 100%;
+  border-top: 2px solid #735828;
   border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-  height: 75px;
+  height: 100px;
 
   background: -moz-linear-gradient(top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.06) 91%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
   background: -webkit-linear-gradient(top, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0.06) 91%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
@@ -301,9 +341,14 @@ select {
 
 .tab {
   margin: 0px auto;
-  margin-top: 10px;
+  margin-top: 20px;
   margin-left: 15px;
   overflow: hidden;
+}
+
+.selected {
+  position: absolute;
+  left: -10px;
 }
 
 /* Style the buttons that are used to open the tab content */
@@ -319,7 +364,7 @@ select {
   -moz-box-shadow: none;
   box-shadow: none;
   font-size: 16px;
-  margin-left: 10px;
+  margin-left: 28px;
 }
 
 /* Change background color of buttons on hover */
@@ -336,11 +381,11 @@ select {
 .tabcontent {
   display: none;
   border-top: none;
-  margin-top: 90px;
+  margin-top: 115px;
 }
 
 .box {
-  height: 570px;
+  height: 545px;
   overflow-y: scroll;
   margin-right: 10px;
 }
