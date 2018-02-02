@@ -1,7 +1,4 @@
 # LeagueToolkit
+## This project is still in development.
 
-# Required Packages
-
-- Electron
-- Request
-- LCU-Connector
+[!](http://i.4da.ms/PirCfa.png)
