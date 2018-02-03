@@ -143,6 +143,7 @@ function openTab(evt, tabName) {
 // Event listeners
 
 function autoUpdate() {
+  isActive = true;
   setTimeout(function() {
     setInterval(function() {
       if (!isActive) return;
