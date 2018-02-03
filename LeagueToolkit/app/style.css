@@ -11,7 +11,7 @@ body {
   width: 100%;
 }
 
-p {
+.option-name {
   font-size: 25px;
   color: #f0e6d2;
   margin-bottom: 10px;
@@ -415,4 +415,29 @@ select {
   position: absolute;
   top: 23px;
   left: 54px;
+}
+
+.offset {
+  margin-top: 20px !important;
+}
+
+.info-bp {
+  text-align: center;
+  margin-top: -10px;
+  font-size: 15px;
+  color: #f0e6d2;
+  margin-bottom: 10px;
+}
+
+.info-status {
+  margin-top: -5px;
+  margin-left: 90px;
+}
+
+.info-name {
+  text-align: center;
+  margin-top: -175px;
+  font-size: 25px;
+  color: #f0e6d2;
+  margin-bottom: 10px;
 }
