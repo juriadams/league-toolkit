@@ -4,7 +4,7 @@ This project is still under heavy development.
 
 ## Interface Preview
 
-![Preview](http://i.4da.ms/sZG8xY.png)
+![Preview](https://i.imgur.com/kCmvWml.png)
 
 ## Disclaimer
 
