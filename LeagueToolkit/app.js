@@ -299,6 +299,11 @@ ipcMain.on('submitWinsLosses', (event, wins, losses) => {
 
 });
 
+ipcMain.on('profileUpdate', (event, wins, losses) => {
+	getLocalSummoner();
+	event.returnValue = LocalSummoner.getProfileData();
+});
+
 var autoAccept = function() {
 
 	//if (autoaccept) {
