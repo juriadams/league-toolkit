@@ -6,7 +6,6 @@ class Summoner {
 		
 		// class data
 		data = JSON.parse(data)
-		console.log(data)
 		this.APIRoutes = APIRoutes;
 		this.level = this.level || data.summonerLevel;
 		this.name = this.name || data.displayName;
@@ -17,15 +16,12 @@ class Summoner {
 
 	receivedRankedStats(data) {
 		let rankedData = data.rankedData[0]; // 5 vs 5 solo-duo
-		console.log(rankedData)
 		this.division = rankedData.division;
 		this.wins = rankedData.wins;
 		this.rankedTier = rankedData.rankedTier;
 		this.leagueName = rankedData.leagueName;
 		this.rankerQueue = rankedData.rankedQueue;
 		this.lp = rankedData.lp;
-
-		console.log(this.division)
 	}
 
 	getProfileData() {
@@ -41,7 +37,6 @@ class Summoner {
 
 	getRankedStats() {
 		let rankedUrl = this.APIRoutes.Route("getRankedStats", this.ID);
-		console.log(rankedUrl)
 		let body = {
 			url: rankedUrl,
 			"rejectUnauthorized": false,
