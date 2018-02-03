@@ -100,7 +100,6 @@ ipcMain.on('minimize_app', function(){
   mainWindow.minimize();
 });
 
-
 ipcMain.on('submitTierDivison', (event, tier, division) => {
 	console.log(tier);
 	console.log(division);

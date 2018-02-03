@@ -12,7 +12,9 @@ body {
 }
 
 p {
-  color: #cdbe91;
+  font-size: 25px;
+  color: #f0e6d2;
+  margin-bottom: 10px;
 }
 
 .title {
@@ -385,7 +387,7 @@ select {
 
 .box {
   float: right;
-  width: 925px;
+  width: 950px;
   height: 593px;
   overflow-y: scroll;
   margin-right: 10px;
@@ -400,4 +402,17 @@ select {
 .float-left {
   float: left;
   margin-right: 5px;
+}
+
+.option {
+  margin-bottom: 50px;
+}
+
+.summonericon {
+  border-radius: 50%;
+  width: 140px;
+  height: 140px;
+  position: absolute;
+  top: 23px;
+  left: 54px;
 }

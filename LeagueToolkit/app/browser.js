@@ -80,8 +80,6 @@ function minimize_app() {
   ipcRenderer.send('minimize_app');
 }
 
-
-
 /*
     SECTIONS
 */
