@@ -142,11 +142,14 @@ function openTab(evt, tabName) {
 
 function attachEventListeners() {
   setTimeout(function() {
-     profileUpdate(); // update profile data without having to press update button.
-   }, 3000)
+    setInterval(function() {
+      profileUpdate(); // update profile data without having to press update button.
+    }, 1000)
+   }, 2000)
  
 
   let profileUpdateElement = document.getElementById("profileUpdate");
+  if (!profileUpdateElement) return;
   profileUpdateElement.addEventListener("click", profileUpdate);
 }
 window.addEventListener("load", attachEventListeners, false);
