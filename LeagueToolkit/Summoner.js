@@ -3,10 +3,10 @@ class Summoner {
 	constructor(data, APIRoutes) {
 		// Modules
 		this.request = require("request");
+		
+		// class data
 		data = JSON.parse(data)
 		console.log(data)
-
-		// class data
 		this.APIRoutes = APIRoutes;
 		this.level = this.level || data.summonerLevel;
 		this.name = this.name || data.displayName;
@@ -16,7 +16,7 @@ class Summoner {
 	}
 
 	receivedRankedStats(data) {
-		let rankedData = data.rankedData[0];
+		let rankedData = data.rankedData[0]; // 5 vs 5 solo-duo
 		console.log(rankedData)
 		this.division = rankedData.division;
 		this.wins = rankedData.wins;
@@ -26,6 +26,17 @@ class Summoner {
 		this.lp = rankedData.lp;
 
 		console.log(this.division)
+	}
+
+	getProfileData() {
+		let arr = {
+			name: this.name,
+			iconID: this.iconID,
+			leagueName: this.leagueName,
+			leagueWins: this.wins,
+			rankedTier: this.rankedTier + " " + this.division
+		}
+		return arr
 	}
 
 	getRankedStats() {
