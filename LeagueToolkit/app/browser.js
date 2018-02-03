@@ -87,11 +87,14 @@ async function profileUpdate() {
   try {
     data = ipcRenderer.sendSync("profileUpdate");
     if (!data) return;
+    let rankedTier = data.rankedTier || document.getElementById("profileRankedTier").innerHTML;
+    let leagueName = data.leagueName || document.getElementById("profileLeagueName").innerHTML;
+    let profileWL = data.leagueWins + " Wins" || document.getElementById("profileWL").innerHTML;
+
     document.getElementById("profileName").innerHTML = data.name;
-    document.getElementById("profileRankedTier").innerHTML = data.rankedTier;
-    document.getElementById("profileLeagueName").innerHTML = data.leagueName;
-    document.getElementById("profileLeagueName").innerHTML = data.leagueName;
-    document.getElementById("profileWL").innerHTML = data.leagueWins + "W/?L";
+    document.getElementById("profileRankedTier").innerHTML = rankedTier;
+    document.getElementById("profileLeagueName").innerHTML = leagueName;
+    document.getElementById("profileWL").innerHTML = profileWL;
     document.getElementById("profileSummonerIcon").src = "http://ddragon.leagueoflegends.com/cdn/8.1.1/img/profileicon/" + data.iconID + ".png";
     
   } catch(e) {
