@@ -27,7 +27,7 @@ Copyright (c) 2018 by 4dams. All Rights Reserved.
           <div class="tab">
             <button class="tablinks" onclick="openTab(event, 'Home')" id="defaultOpen">Home</button>
             <button class="tablinks" onclick="openTab(event, 'Profile')">Profile</button>
-            <button class="tablinks" onclick="openTab(event, 'Queue')">Queue</button>
+            <button class="tablinks" onclick="openTab(event, 'Champ Select')">Champ Select</button>
             <button class="tablinks" onclick="openTab(event, 'Miscellaneous')">Miscellaneous</button>
           </div>
 
@@ -40,7 +40,7 @@ Copyright (c) 2018 by 4dams. All Rights Reserved.
 
         <!-- TABS AND THEIR CONTENTS -->
 
-        <div id="Home" class="tabcontent">
+        <div id="Home" class="tabcontent center">
 
           <!-- PROGRAM TITLE -->
           <div class="title">
@@ -49,6 +49,7 @@ Copyright (c) 2018 by 4dams. All Rights Reserved.
             <img src="https://i.4da.ms/dF3Ffv.png">
 
           </div>
+
           <button type="button" onclick="openTab(event, 'Profile')" class="getstarted">Get Started</button>
 
         </div>
@@ -59,16 +60,20 @@ Copyright (c) 2018 by 4dams. All Rights Reserved.
 
         <div id="Profile" class="tabcontent">
 
+          <div class="info">
+            <img src="assets/info.png">
+          </div>
+
           <div class="box">
 
             <!-- CUSTOM RANK -->
-            <div class="center">
+            <div>
 
               <p>Custom Rank</p>
 
-              <div class="center-area">
+              <div>
 
-                <div>
+                <div class="float-left">
                   <select onchange="tierChange()" id="tier" class="dropdown tier center-area">
                     <div class="options">
                       <option value="UNRANKED">Unranked</option>
@@ -82,7 +87,6 @@ Copyright (c) 2018 by 4dams. All Rights Reserved.
                     </div>
                   </select>
                 </div>
-
                 <div>
                   <select onchange="divisionChange()" id="division" class="dropdown division center-area">
                     <option value="V">V</option>
@@ -98,52 +102,48 @@ Copyright (c) 2018 by 4dams. All Rights Reserved.
               <button type="button" onClick="submitTierDivison()">Save</button>
 
             </div>
-            <hr>
 
             <!-- CUSTOM RANKED LEAGUE NAME -->
-            <div class="center">
+            <div>
 
               <p>Custom Ranked League Name</p>
 
               <div>
-                <textarea rows="1" cols="20" placeholder="Bard's Awesome Dudes" id="leagueName" class="center-area"></textarea>
+                <textarea rows="1" cols="20" placeholder="Bard's Awesome Dudes" id="leagueName"></textarea>
               </div>
 
               <button type="button" onClick="submitLeagueName()">Save</button>
 
             </div>
-            <hr>
 
             <!-- CUSTOM LEVEL -->
-            <div class="center">
+            <div>
 
               <p>Custom Level</p>
 
               <div>
-                <textarea rows="1" cols="10" placeholder="1337" id="level" class="center-area"></textarea>
+                <textarea rows="1" cols="10" placeholder="1337" id="level"></textarea>
               </div>
 
               <button type="button" onClick="submitLevel()">Save</button>
 
             </div>
-            <hr>
 
             <!-- CUSTOM STATUS MESSAGE -->
-            <div class="center">
+            <div>
 
               <p>Custom Status Message (infinite length)</p>
 
               <div>
-                <textarea rows="2" cols="35" placeholder="Most dedicated support player EUW!" id="status" class="center-area"></textarea>
+                <textarea rows="2" cols="35" placeholder="Most dedicated support player EUW!" id="status"></textarea>
               </div>
 
               <button type="button" onClick="submitStatus()">Save</button>
 
             </div>
-            <hr>
 
             <!-- CUSTOM AVAILABILIY -->
-            <div class="center">
+            <div>
 
               <p>Custom Availability</p>
 
@@ -162,60 +162,56 @@ Copyright (c) 2018 by 4dams. All Rights Reserved.
               <button type="button" onClick="submitAvailability()">Save</button>
 
             </div>
-            <hr>
 
             <!-- CUSTOM SUMMONER NAME -->
-            <div class="center">
+            <div>
 
               <p>Custom Summoner Name (local)</p>
 
               <div>
-                <textarea rows="1" cols="20" placeholder="Scarlet" id="summoner" class="center-area"></textarea>
+                <textarea rows="1" cols="20" placeholder="Scarlet" id="summoner"></textarea>
               </div>
 
               <button type="button" onClick="submitSummoner()">Save</button>
 
             </div>
-            <hr>
 
             <!-- CUSTOM SUMMONER ICON -->
-            <div class="center">
+            <div>
 
               <p>Custom Summoner Icon (local)</p>
 
               <div>
-                <textarea rows="1" cols="20" placeholder="Icon ID" id="icon" class="center-area"></textarea>
+                <textarea rows="1" cols="20" placeholder="Icon ID" id="icon"></textarea>
               </div>
 
               <button type="button" onClick="submitIcon()">Save</button>
 
             </div>
-            <hr>
 
             <!-- CUSTOM RANKED WINS/LOSSES -->
-            <div class="center">
+            <div>
 
               <p>Custom Ranked Wins/Losses</p>
 
               <div>
-                <textarea rows="1" cols="5" placeholder="Wins" id="wins" class="center-area"></textarea> <textarea rows="1" cols="5" placeholder="Losses" id="losses" class="center-area"></textarea>
+                <textarea rows="1" cols="5" placeholder="Wins" id="wins" class="float-left"></textarea> <textarea rows="1" cols="5" placeholder="Losses" id="losses"></textarea>
               </div>
 
               <button type="button" onClick="submitWinsLosses()">Save</button>
 
             </div>
-            <hr>
 
           </div>
 
         </div>
 
-        <div id="Queue" class="tabcontent">
+        <div id="Champ Select" class="tabcontent">
 
           <div class="box">
 
             <p>W I P</p>
-            <p>More on "Queue" coming soon!</p>
+            <p>More on "Champ Select" coming soon!</p>
 
           </div>
 

@@ -6,7 +6,7 @@ body {
   font-family: 'Patua One', cursive;
   text-transform: uppercase;
   margin: 0 auto;
-  text-align: center;
+  /* text-align: center; */
   position: fixed;
   width: 100%;
 }
@@ -41,8 +41,7 @@ hr {
 }
 
 .center {
-  width: 50%;
-  margin: 0 auto;
+  text-align: center;
 }
 
 .center-area {
@@ -385,7 +384,20 @@ select {
 }
 
 .box {
+  float: right;
+  width: 925px;
   height: 593px;
   overflow-y: scroll;
   margin-right: 10px;
+}
+
+.info {
+  position: absolute;
+  margin-left: 35px;
+  margin-top: 25px;
+}
+
+.float-left {
+  float: left;
+  margin-right: 5px;
 }

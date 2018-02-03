@@ -98,12 +98,12 @@ function openTab(evt, tabName) {
       document.getElementById("selected").style.marginLeft = "118px";
     }
 
-    if (tabName == "Queue") {
-      document.getElementById("selected").style.marginLeft = "238px";
+    if (tabName == "Champ Select") {
+      document.getElementById("selected").style.marginLeft = "270px";
     }
 
     if (tabName == "Miscellaneous") {
-      document.getElementById("selected").style.marginLeft = "388px";
+      document.getElementById("selected").style.marginLeft = "458px";
     }
 
     // Get all elements with class="tabcontent" and hide them
