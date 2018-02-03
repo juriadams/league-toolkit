@@ -195,6 +195,13 @@ button:after {
   transition: all 0.8s
 }
 
+#profileUpdate {
+  padding: 3px 10px;
+  position: absolute;
+  margin-left: 35%;
+  margin-top: 40px;
+}
+
 
 /*
     TEXT FIELDS
