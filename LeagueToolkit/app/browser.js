@@ -80,6 +80,22 @@ function minimize_app() {
   ipcRenderer.send('minimize_app');
 }
 
+async function profileUpdate() {
+  let data;
+  try {
+    data = ipcRenderer.sendSync("profileUpdate");
+
+    document.getElementById("profileName").innerHTML = data.name;
+    document.getElementById("profileRankedTier").innerHTML = data.rankedTier;
+    document.getElementById("profileLeagueName").innerHTML = data.leagueName;
+    document.getElementById("profileLeagueName").innerHTML = data.leagueName;
+    document.getElementById("profileWL").innerHTML = data.leagueWins + "W/?L";
+    document.getElementById("profileSummonerIcon").src = "http://ddragon.leagueoflegends.com/cdn/8.1.1/img/profileicon/" + data.iconID + ".png";
+    
+  } catch(e) {
+    console.log("Error: " + e);
+  }
+}
 /*
     SECTIONS
 */
@@ -120,3 +136,17 @@ function openTab(evt, tabName) {
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " active";
 }
+
+
+// Event listeners
+
+function attachEventListeners() {
+  setTimeout(function() {
+     profileUpdate(); // update profile data without having to press update button.
+   }, 3000)
+ 
+
+  let profileUpdateElement = document.getElementById("profileUpdate");
+  profileUpdateElement.addEventListener("click", profileUpdate);
+}
+window.addEventListener("load", attachEventListeners, false);
