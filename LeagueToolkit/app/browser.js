@@ -5,6 +5,8 @@
 const electron = require('electron');
 const {ipcRenderer} = electron;
 
+var isActive;
+
 var selectedTier = "UNRANKED";
 var selectedDivision = "V";
 var selectedLevel;
@@ -84,7 +86,7 @@ async function profileUpdate() {
   let data;
   try {
     data = ipcRenderer.sendSync("profileUpdate");
-
+    if (!data) return;
     document.getElementById("profileName").innerHTML = data.name;
     document.getElementById("profileRankedTier").innerHTML = data.rankedTier;
     document.getElementById("profileLeagueName").innerHTML = data.leagueName;
@@ -140,16 +142,22 @@ function openTab(evt, tabName) {
 
 // Event listeners
 
-function attachEventListeners() {
+function autoUpdate() {
   setTimeout(function() {
     setInterval(function() {
+      if (!isActive) return;
       profileUpdate(); // update profile data without having to press update button.
     }, 1000)
    }, 2000)
- 
-
-  let profileUpdateElement = document.getElementById("profileUpdate");
-  if (!profileUpdateElement) return;
-  profileUpdateElement.addEventListener("click", profileUpdate);
 }
-window.addEventListener("load", attachEventListeners, false);
+
+window.addEventListener("load", autoUpdate, false);
+
+
+window.onfocus = function () { 
+  isActive = true; 
+}; 
+
+window.onblur = function () { 
+  isActive = false; 
+};
