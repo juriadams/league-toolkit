@@ -234,7 +234,6 @@ textarea:focus {
 	color: rgb(62.7%, 60.8%, 54.9%);;
 	letter-spacing: 0.025rem;
 	outline: none;
-
   padding: 10px 14px;
   background-color: rgba(30,35,40,0.5);
   border: 1px solid transparent;
@@ -242,6 +241,11 @@ textarea:focus {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
 
 .dropdown:active {
@@ -256,45 +260,23 @@ textarea:focus {
   border-image: linear-gradient(to top,#c89b3c,#f0e6d2) 1;
 }
 
-.options {
-  position: absolute;
-  top: 100%;
-  width: 100%;
-  max-height: 250px;
-  overflow-y: auto;
-  overflow-x: hidden;
+.dropdown option {
+  position: relative;
+  color: #cdbe91;
+  cursor: pointer;
+  padding: 9px;
+  border-top: 1px solid #1f2123;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   background: #010a13;
-  border: 1px solid transparent;
   -o-border-image: linear-gradient(0deg,#695625,#463714) 1;
   border-image: -webkit-linear-gradient(bottom,#695625,#463714) 1;
   border-image: linear-gradient(0deg,#695625,#463714) 1;
-  z-index: 10;
+  font-size: 13px;
 }
 
-option {
-  position: relative;
-    color: #cdbe91;
-    cursor: pointer;
-    overflow-x: hidden;
-    padding: 9px;
-    border-top: 1px solid #1f2123;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-option:focus {
-  color: rgb(94.1%, 90.2%, 82.4%);
-  background-color: rgb(11.8%, 13.7%, 15.7%);
-}
-
-option:active {
-  color: rgb(27.5%, 21.6%, 7.8%);
-  background-color: rgba(30,35,40,0.5);
-}
-
-option:selected {
-  padding-right: 1.25em;
-  padding-right: calc(1.25em + 10px);
+.dropdown option:hover {
+  background-color: #fff;
 }
 
 .tier {
@@ -303,17 +285,7 @@ option:selected {
 
 .division {
   width: 40px;
-  margin-top: 4px;
-}
-
-select {
-  border-radius: 0;
-  margin: 0;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-appearance:none;
-  -moz-appearance:none;
+  margin-top: 3px;
 }
 
 /*
@@ -441,4 +413,3 @@ select {
   color: #f0e6d2;
   margin-bottom: 10px;
 }
-
