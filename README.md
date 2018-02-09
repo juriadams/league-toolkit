@@ -4,7 +4,7 @@ This project is still under heavy development.
 
 ## Interface Preview
 
-![Preview](http://i.4da.ms/Vn4lfo.png)
+![Preview](https://github.com/4dams/LeagueToolkit/blob/master/LeagueToolkit/assets/preview.png)
 
 ## Disclaimer
 
