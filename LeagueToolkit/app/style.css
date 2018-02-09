@@ -402,8 +402,9 @@ textarea:focus {
 }
 
 .info-status {
-  margin-top: -5px;
-  margin-left: 90px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto
 }
 
 .info-name {
