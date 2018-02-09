@@ -9,7 +9,7 @@ More information will follow very soon.
 
 ## Development Progress
 
-You can see what we're currently working on and what's still left to do on our ["Projects"-page](https://github.com/4dams/LeagueToolkit/projects/1).
+You can see what we're currently working on and what's still left to do on this repositorys [project page](https://github.com/4dams/LeagueToolkit/projects/1).
 
 ## Disclaimer
 
