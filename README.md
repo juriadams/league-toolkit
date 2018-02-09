@@ -1,6 +1,7 @@
 # LeagueToolkit
 
 This project is still under heavy development.
+More information will follow very soon.
 
 ## Interface Preview
 
