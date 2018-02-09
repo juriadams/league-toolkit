@@ -1,6 +1,6 @@
 # LeagueToolkit
 
-This project is still under heavy development.
+This project is still under heavy development.</br>
 More information will follow very soon.
 
 ## Interface Preview
