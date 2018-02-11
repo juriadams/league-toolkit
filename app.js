@@ -8,10 +8,10 @@ var request = require('request');
 var LCUConnector = require('lcu-connector');
 var connector = new LCUConnector();
 
-var APIClient = require("./APIRoutes");
-var Summoner = require("./Summoner");
+var APIClient = require("./routes");
+var Summoner = require("./summoner");
 var LocalSummoner;
-var APIRoutes;
+var routes;
 
 
 // Extracting some stuff from electron
@@ -31,19 +31,19 @@ var passwordAuth; // NOT THE ACCOUNT PASSWORD.
 var requestUrl;
 
 function getLocalSummoner() {
-	let url = APIRoutes.Route("localSummoner");
+	let url = routes.Route("localSummoner");
 	let body = {
 		url: url,
 		"rejectUnauthorized": false,
 		headers: {
-			Authorization: APIRoutes.getAuth()
+			Authorization: routes.getAuth()
 		}
 	};
 	let callback = function(error, response, body) {
 		//console.log('error:', error);
 		//console.log('statusCode:', response && response.statusCode);
 		//console.log('body:', body);
-		LocalSummoner = new Summoner(body, APIRoutes);
+		LocalSummoner = new Summoner(body, routes);
 	};
 
 	request.get(body, callback);
@@ -51,14 +51,14 @@ function getLocalSummoner() {
 
 connector.on('connect', (data) => {
 	requestUrl = data.protocol + '://' + data.address + ':' + data.port;
-	APIRoutes = new APIClient(requestUrl, data.username, data.password);
+	routes = new APIClient(requestUrl, data.username, data.password);
 
 	getLocalSummoner();
 
 	userAuth = data.username;
 	passwordAuth = data.password;
 
-	console.log('Request base url set to: ' + APIRoutes.getAPIBase());
+	console.log('Request base url set to: ' + routes.getAPIBase());
 });
 
 // Listen for the app to be ready
@@ -104,12 +104,12 @@ ipcMain.on('submitTierDivison', (event, tier, division) => {
 	console.log(tier);
 	console.log(division);
 
-	let url = APIRoutes.Route("submitTierDivison");
+	let url = routes.Route("submitTierDivison");
 	let body = {
 		url: url,
 		"rejectUnauthorized": false,
 		headers: {
-			Authorization: APIRoutes.getAuth()
+			Authorization: routes.getAuth()
 		},
 		json: {
 			"lol": {
@@ -130,13 +130,13 @@ ipcMain.on('submitTierDivison', (event, tier, division) => {
 
 ipcMain.on('submitLevel', (event, level) => {
 
-	let url = APIRoutes.Route("submitLevel");
+	let url = routes.Route("submitLevel");
 	let desiredLevel = level.toString();
 	let body = {
 		url: url,
 		"rejectUnauthorized": false,
 		headers: {
-			Authorization: APIRoutes.getAuth()
+			Authorization: routes.getAuth()
 		},
 		json: {
 			"lol": {
@@ -156,12 +156,12 @@ ipcMain.on('submitLevel', (event, level) => {
 
 ipcMain.on('submitStatus', (event, status) => {
 
-	let url = APIRoutes.Route("submitStatus");
+	let url = routes.Route("submitStatus");
 	let body = {
 		url: url,
 		"rejectUnauthorized": false,
 		headers: {
-			Authorization: APIRoutes.getAuth()
+			Authorization: routes.getAuth()
 		},
 		json: {
 			"statusMessage": status
@@ -179,12 +179,12 @@ ipcMain.on('submitStatus', (event, status) => {
 
 ipcMain.on('submitLeagueName', (event, leagueName) => {
 
-	let url = APIRoutes.Route("submitLeagueName");
+	let url = routes.Route("submitLeagueName");
 	let body = {
 		url: url,
 		"rejectUnauthorized": false,
 		headers: {
-			Authorization: APIRoutes.getAuth()
+			Authorization: routes.getAuth()
 		},
 		json: {
 			"lol": {
@@ -204,12 +204,12 @@ ipcMain.on('submitLeagueName', (event, leagueName) => {
 
 ipcMain.on('submitAvailability', (event, availability) => {
 
-	let url = APIRoutes.Route("submitAvailability");
+	let url = routes.Route("submitAvailability");
 	let body = {
 		url: url,
 		"rejectUnauthorized": false,
 		headers: {
-			Authorization: APIRoutes.getAuth()
+			Authorization: routes.getAuth()
 		},
 		json: {
 			"availability": availability
@@ -227,12 +227,12 @@ ipcMain.on('submitAvailability', (event, availability) => {
 
 ipcMain.on('submitIcon', (event, icon) => {
 
-	let url = APIRoutes.Route("submitIcon");
+	let url = routes.Route("submitIcon");
 	let body = {
 		url: url,
 		"rejectUnauthorized": false,
 		headers: {
-			Authorization: APIRoutes.getAuth()
+			Authorization: routes.getAuth()
 		},
 		json: {
 			"icon": icon
@@ -250,12 +250,12 @@ ipcMain.on('submitIcon', (event, icon) => {
 
 ipcMain.on('submitSummoner', (event, name) => {
 
-	let url = APIRoutes.Route("submitSummoner");
+	let url = routes.Route("submitSummoner");
 	let body = {
 		url: url,
 		"rejectUnauthorized": false,
 		headers: {
-			Authorization: APIRoutes.getAuth()
+			Authorization: routes.getAuth()
 		},
 		json: {
 			"name": name
@@ -273,14 +273,14 @@ ipcMain.on('submitSummoner', (event, name) => {
 
 ipcMain.on('submitWinsLosses', (event, wins, losses) => {
 
-	let url = APIRoutes.Route("submitWinsLosses");
+	let url = routes.Route("submitWinsLosses");
 	let desiredWins = wins.toString();
 	let desiredLosses = losses.toString();
 	let body = {
 		url: url,
 		"rejectUnauthorized": false,
 		headers: {
-			Authorization: APIRoutes.getAuth()
+			Authorization: routes.getAuth()
 		},
 		json: {
 			"lol": {
@@ -310,12 +310,12 @@ var autoAccept = function() {
 
 	setInterval(function() {
 
-		let url = APIRoutes.Route("autoAccept");
+		let url = routes.Route("autoAccept");
 		let body = {
 			url: url,
 			"rejectUnauthorized": false,
 			headers: {
-				Authorization: APIRoutes.getAuth()
+				Authorization: routes.getAuth()
 			},
 		};
 		let callback = function(error, response, body) {
@@ -335,12 +335,12 @@ var autoAccept = function() {
 
 					console.log('\n\nFOUND GAME\n\n')
 
-					let acceptUrl = APIRoutes.Route("accept");
+					let acceptUrl = routes.Route("accept");
 					let acceptBody = {
 						url: acceptUrl,
 						"rejectUnauthorized": false,
 						headers: {
-							Authorization: APIRoutes.getAuth()
+							Authorization: routes.getAuth()
 						},
 						json: {}
 					}

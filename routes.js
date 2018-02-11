@@ -1,4 +1,4 @@
-class APIRoutes {
+class routes {
 
 	constructor(base, username, password) {
 		if (!base) throw "Invalid base URL..";
@@ -80,4 +80,4 @@ class APIRoutes {
 	}
 }
 
-module.exports = APIRoutes;
+module.exports = routes;

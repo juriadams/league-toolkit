@@ -1,9 +1,9 @@
-class Summoner {
+class summoner {
 
 	constructor(data, APIRoutes) {
 		// Modules
 		this.request = require("request");
-		
+
 		// class data
 		data = JSON.parse(data)
 		this.APIRoutes = APIRoutes;
@@ -101,4 +101,4 @@ class Summoner {
 
 }
 
-module.exports = Summoner;
+module.exports = summoner;
