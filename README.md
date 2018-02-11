@@ -5,7 +5,7 @@ More information will follow very soon.
 
 ## Interface Preview
 
-![Preview](https://github.com/4dams/LeagueToolkit/blob/master/LeagueToolkit/assets/preview.png)
+![Preview](https://github.com/4dams/LeagueToolkit/blob/master/LeagueToolkit/images/preview.png)
 
 ## Development Progress
 
