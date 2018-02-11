@@ -39,14 +39,7 @@ function submitLevel() {
 
 function submitStatus() {
   status = document.getElementById("status").value;
-
-  if (document.getElementById("underlined").checked) {
-    var finalStatus = status + '‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾';
-  } else {
-    var finalStatus = status;
-  }
-
-  ipcRenderer.send('submitStatus', finalStatus);
+  ipcRenderer.send('submitStatus', status);
 }
 
 function submitAvailability() {
@@ -96,7 +89,7 @@ async function profileUpdate() {
     document.getElementById("profileLeagueName").innerHTML = leagueName;
     document.getElementById("profileWL").innerHTML = profileWL;
     document.getElementById("profileSummonerIcon").src = "http://ddragon.leagueoflegends.com/cdn/8.1.1/img/profileicon/" + data.iconID + ".png";
-    
+
   } catch(e) {
     console.log("Error: " + e);
   }
@@ -158,10 +151,10 @@ function autoUpdate() {
 window.addEventListener("load", autoUpdate, false);
 
 
-window.onfocus = function () { 
-  isActive = true; 
-}; 
+window.onfocus = function () {
+  isActive = true;
+};
 
-window.onblur = function () { 
-  isActive = false; 
+window.onblur = function () {
+  isActive = false;
 };
