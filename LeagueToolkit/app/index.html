@@ -4,84 +4,84 @@ Copyright (c) 2018 by 4dams. All Rights Reserved.
 
 <html>
 
-  <head>
-    <title>League Toolkit</title>
-    <script src="browser.js"></script>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css?family=Patua+One" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=EB+Garamond:700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  </head>
+<head>
+  <title>League Toolkit</title>
+  <script src="browser.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Patua+One" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=EB+Garamond:700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
 
-  <body>
+<body>
 
-    <div class="content">
+  <div class="content">
 
-      <!-- BEGIN SECTIONS -->
+    <!-- BEGIN SECTIONS -->
 
-      <div class="sections">
+    <div class="sections">
 
-        <div class="tab-container">
-          <img src="assets/ui/selected.png" id="selected" class="selected"></img>
-          <div class="tab">
-            <button class="tablinks" onclick="openTab(event, 'Home')" id="defaultOpen">Home</button>
-            <button class="tablinks" onclick="openTab(event, 'Profile')">Profile</button>
-            <button class="tablinks" onclick="openTab(event, 'Champ Select')">Champ Select</button>
-            <button class="tablinks" onclick="openTab(event, 'Miscellaneous')">Miscellaneous</button>
-          </div>
-
-          <div class="controls">
-            <button onclick="minimize_app();"><i class="material-icons icon">remove</i></button>
-            <button><i class="material-icons icon">bug_report</i></button>
-            <button onclick="exit_app();"><i class="material-icons icon">clear</i></button>
-          </div>
+      <div class="tab-container">
+        <img src="assets/ui/selected.png" id="selected" class="selected"></img>
+        <div class="tab">
+          <button class="tablinks" onclick="openTab(event, 'Home')" id="defaultOpen">Home</button>
+          <button class="tablinks" onclick="openTab(event, 'Profile')">Profile</button>
+          <button class="tablinks" onclick="openTab(event, 'Champ Select')">Champ Select</button>
+          <button class="tablinks" onclick="openTab(event, 'Miscellaneous')">Miscellaneous</button>
         </div>
 
-        <!-- TABS AND THEIR CONTENTS -->
+        <div class="controls">
+          <button onclick="minimize_app();"><i class="material-icons icon">remove</i></button>
+          <button><i class="material-icons icon">bug_report</i></button>
+          <button onclick="exit_app();"><i class="material-icons icon">clear</i></button>
+        </div>
+      </div>
 
-        <div id="Home" class="tabcontent center">
+      <!-- TABS AND THEIR CONTENTS -->
 
-          <!-- PROGRAM TITLE -->
-          <div class="title">
+      <div id="Home" class="tabcontent center">
 
-            <h1>LEAGUE TOOLKIT</h1>
-            <img src="assets/ui/underline.png">
+        <!-- PROGRAM TITLE -->
+        <div class="title">
 
-          </div>
-
-          <button type="button" onclick="openTab(event, 'Profile')" class="getstarted">Get Started</button>
+          <h1>LEAGUE TOOLKIT</h1>
+          <img src="assets/ui/underline.png">
 
         </div>
 
-        <script>
-          document.getElementById("defaultOpen").click();
-        </script>
+        <button type="button" onclick="openTab(event, 'Profile')" class="getstarted">Get Started</button>
 
-        <div id="Profile" class="tabcontent">
+      </div>
 
-          <div class="info">
-            <img src="assets/ui/info.png">
-            <img src="assets/ui/default_icon.png" class="summonericon" id="profileSummonerIcon">
-            <p class="info-name" id="profileName">Updating...</p>
-            <img src="assets/states/online.png" class="info-status">
-            <p class="info-bp offset" id="profileRankedTier">Updating...</p>
-            <p class="info-bp" id="profileLeagueName">Updating...</p>
-            <p class="info-bp" id="profileWL">Updating...</p>
+      <script>
+        document.getElementById("defaultOpen").click();
+      </script>
 
-          </div>
+      <div id="Profile" class="tabcontent">
 
-          <div class="box">
+        <div class="info">
+          <img src="assets/ui/info.png">
+          <img src="assets/ui/default_icon.png" class="summonericon" id="profileSummonerIcon">
+          <p class="info-name" id="profileName">Updating...</p>
+          <img src="assets/states/online.png" class="info-status">
+          <p class="info-bp offset" id="profileRankedTier">Updating...</p>
+          <p class="info-bp" id="profileLeagueName">Updating...</p>
+          <p class="info-bp" id="profileWL">Updating...</p>
 
-            <!-- CUSTOM RANK -->
-            <div class="option">
+        </div>
 
-              <p class="option-name">Custom Rank</p>
+        <div class="box">
 
-              <div>
+          <!-- CUSTOM RANK -->
+          <div class="option">
 
-                <div class="float-left">
-                  <select onchange="tierChange()" id="tier" class="dropdown tier center-area">
+            <p class="option-name">Custom Rank</p>
+
+            <div>
+
+              <div class="float-left">
+                <select onchange="tierChange()" id="tier" class="dropdown tier center-area">
                     <option value="UNRANKED">Unranked</option>
                     <option value="BRONZE">Bronze</option>
                     <option value="SILVER">Silver</option>
@@ -91,69 +91,69 @@ Copyright (c) 2018 by 4dams. All Rights Reserved.
                     <option value="MASTER">Master</option>
                     <option value="CHALLENGER">Challenger</option>
                   </select>
-                </div>
-                <div>
-                  <select onchange="divisionChange()" id="division" class="dropdown division center-area">
+              </div>
+              <div>
+                <select onchange="divisionChange()" id="division" class="dropdown division center-area">
                     <option value="V">V</option>
                     <option value="IV">IV</option>
                     <option value="III">III</option>
                     <option value="II">II</option>
                     <option value="I">I</option>
                   </select>
-                </div>
-
               </div>
-
-              <button type="button" onClick="submitTierDivison()">Save</button>
 
             </div>
 
-            <!-- CUSTOM RANKED LEAGUE NAME -->
-            <div class="option">
+            <button type="button" onClick="submitTierDivison()">Save</button>
 
-              <p class="option-name">Custom Ranked League Name</p>
+          </div>
 
-              <div>
-                <textarea rows="1" cols="20" placeholder="Bard's Awesome Dudes" id="leagueName"></textarea>
-              </div>
+          <!-- CUSTOM RANKED LEAGUE NAME -->
+          <div class="option">
 
-              <button type="button" onClick="submitLeagueName()">Save</button>
+            <p class="option-name">Custom Ranked League Name</p>
 
+            <div>
+              <textarea rows="1" cols="20" placeholder="Bard's Awesome Dudes" id="leagueName"></textarea>
             </div>
 
-            <!-- CUSTOM LEVEL -->
-            <div class="option">
+            <button type="button" onClick="submitLeagueName()">Save</button>
 
-              <p class="option-name">Custom Level</p>
+          </div>
 
-              <div>
-                <textarea rows="1" cols="10" placeholder="1337" id="level"></textarea>
-              </div>
+          <!-- CUSTOM LEVEL -->
+          <div class="option">
 
-              <button type="button" onClick="submitLevel()">Save</button>
+            <p class="option-name">Custom Level</p>
 
+            <div>
+              <textarea rows="1" cols="10" placeholder="1337" id="level"></textarea>
             </div>
 
-            <!-- CUSTOM STATUS MESSAGE -->
-            <div class="option">
+            <button type="button" onClick="submitLevel()">Save</button>
 
-              <p class="option-name">Custom Status Message (infinite length)</p>
+          </div>
 
-              <div>
-                <textarea rows="2" cols="35" placeholder="Most dedicated support player EUW!" id="status"></textarea>
-              </div>
+          <!-- CUSTOM STATUS MESSAGE -->
+          <div class="option">
 
-              <button type="button" onClick="submitStatus()">Save</button>
+            <p class="option-name">Custom Status Message (infinite length)</p>
 
+            <div>
+              <textarea rows="2" cols="35" placeholder="Most dedicated support player EUW!" id="status"></textarea>
             </div>
 
-            <!-- CUSTOM AVAILABILIY -->
-            <div class="option">
+            <button type="button" onClick="submitStatus()">Save</button>
 
-              <p class="option-name">Custom Availability</p>
+          </div>
 
-              <div>
-                <select id="availability" class="dropdown">
+          <!-- CUSTOM AVAILABILIY -->
+          <div class="option">
+
+            <p class="option-name">Custom Availability</p>
+
+            <div>
+              <select id="availability" class="dropdown">
                   <option value="chat">Online</option>
                   <option value="away">Do Not Disturb</option>
                   <option value="mobile">Mobile</option>
@@ -162,89 +162,87 @@ Copyright (c) 2018 by 4dams. All Rights Reserved.
                   <option value="" disabled>In Champ Select</option>
                   <option value="inGame" disabled>In Game</option>
                 </select>
-              </div>
-
-              <button type="button" onClick="submitAvailability()">Save</button>
-
             </div>
 
-            <!-- CUSTOM SUMMONER NAME -->
-            <div class="option">
+            <button type="button" onClick="submitAvailability()">Save</button>
 
-              <p class="option-name">Custom Summoner Name (local)</p>
+          </div>
 
-              <div>
-                <textarea rows="1" cols="20" placeholder="Scarlet" id="summoner"></textarea>
-              </div>
+          <!-- CUSTOM SUMMONER NAME -->
+          <div class="option">
 
-              <button type="button" onClick="submitSummoner()">Save</button>
+            <p class="option-name">Custom Summoner Name (local)</p>
 
+            <div>
+              <textarea rows="1" cols="20" placeholder="Scarlet" id="summoner"></textarea>
             </div>
 
-            <!-- CUSTOM SUMMONER ICON -->
-            <div class="option">
+            <button type="button" onClick="submitSummoner()">Save</button>
 
-              <p class="option-name">Custom Summoner Icon (local)</p>
+          </div>
 
-              <div>
-                <textarea rows="1" cols="20" placeholder="Icon ID" id="icon"></textarea>
-              </div>
+          <!-- CUSTOM SUMMONER ICON -->
+          <div class="option">
 
-              <button type="button" onClick="submitIcon()">Save</button>
+            <p class="option-name">Custom Summoner Icon (local)</p>
 
+            <div>
+              <textarea rows="1" cols="20" placeholder="Icon ID" id="icon"></textarea>
             </div>
 
-            <!-- CUSTOM RANKED WINS/LOSSES -->
-            <div class="option">
+            <button type="button" onClick="submitIcon()">Save</button>
 
-              <p class="option-name">Custom Ranked Wins/Losses</p>
+          </div>
 
-              <div>
-                <textarea rows="1" cols="5" placeholder="Wins" id="wins" class="float-left"></textarea> <textarea rows="1" cols="5" placeholder="Losses" id="losses"></textarea>
-              </div>
+          <!-- CUSTOM RANKED WINS/LOSSES -->
+          <div class="option">
 
-              <button type="button" onClick="submitWinsLosses()">Save</button>
+            <p class="option-name">Custom Ranked Wins/Losses</p>
 
+            <div>
+              <textarea rows="1" cols="5" placeholder="Wins" id="wins" class="float-left"></textarea> <textarea rows="1" cols="5" placeholder="Losses" id="losses"></textarea>
             </div>
+
+            <button type="button" onClick="submitWinsLosses()">Save</button>
 
           </div>
 
         </div>
 
-        <div id="Champ Select" class="tabcontent">
+      </div>
 
-          <div class="info">
-            <img src="assets/ui/info.png">
-            <img src="assets/maps/sr.png" class="summonericon" id="profileSummonerIcon">
-            <p class="info-name" id="profileName">IN GAME</p>
-            <img src="assets/states/online.png" class="info-status">
-            <p class="info-bp offset" id="profileRankedTier">SUMMONER'S RIFT</p>
-            <p class="info-bp" id="profileLeagueName">XAYAH</p>
-            <p class="info-bp" id="profileWL">12:42</p>
-          </div>
+      <div id="Champ Select" class="tabcontent">
 
-          <div class="box">
+        <div class="info">
+          <img src="assets/ui/info.png">
+          <img src="assets/maps/sr.png" class="summonericon" id="profileSummonerIcon">
+          <p class="info-name" id="profileName">IN GAME</p>
+          <img src="assets/states/online.png" class="info-status">
+          <p class="info-bp offset" id="profileRankedTier">SUMMONER'S RIFT</p>
+          <p class="info-bp" id="profileLeagueName">XAYAH</p>
+          <p class="info-bp" id="profileWL">12:42</p>
+        </div>
 
-            <p>W I P</p>
-            <p>More on "Champ Select" coming soon!</p>
+        <div class="box">
 
-          </div>
+          <p>W I P</p>
+          <p>More on "Champ Select" coming soon!</p>
 
         </div>
 
-        <div id="Miscellaneous" class="tabcontent">
+      </div>
 
-          <div class="box">
+      <div id="Miscellaneous" class="tabcontent">
 
-            <!-- RESTORE PROFILE -->
-            <div class="center">
+        <div class="box">
 
-              <p>Restore default profile</p>
+          <!-- RESTORE PROFILE -->
+          <div class="center">
 
-              <div>
-                <button type="button" id="reset" onClick="eventReset()">Restore Profile</button>
-              </div>
+            <p>Restore default profile</p>
 
+            <div>
+              <button type="button" id="reset" onClick="eventReset()">Restore Profile</button>
             </div>
 
           </div>
@@ -253,9 +251,12 @@ Copyright (c) 2018 by 4dams. All Rights Reserved.
 
       </div>
 
-      <!-- END SECTIONS -->
-
     </div>
 
-  </body>
+    <!-- END SECTIONS -->
+
+  </div>
+
+</body>
+
 </html>
