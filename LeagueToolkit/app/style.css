@@ -414,3 +414,14 @@ textarea:focus {
   color: #f0e6d2;
   margin-bottom: 10px;
 }
+
+/*
+    CHECKBOXES
+*/
+
+
+.options {
+  margin: 10px;
+  margin-left: 0px;
+  color: #fff;
+}
