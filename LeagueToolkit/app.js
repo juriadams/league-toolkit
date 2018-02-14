@@ -304,6 +304,16 @@ ipcMain.on('profileUpdate', (event, wins, losses) => {
 	event.returnValue = LocalSummoner.getProfileData();
 });
 
+
+function IsJsonString(str) {
+    try {
+        JSON.parse(str);
+    } catch (e) {
+        return false;
+    }
+    return true;
+}
+
 var autoAccept = function() {
 
 	//if (autoaccept) {
@@ -319,7 +329,7 @@ var autoAccept = function() {
 			},
 		};
 		let callback = function(error, response, body) {
-			if (!body) return;
+			if (!body || !IsJsonString(body)) return;
 			var data = JSON.parse(body);
 
 			// console.log(data["state"]);
