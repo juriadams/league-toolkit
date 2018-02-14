@@ -319,7 +319,7 @@ var autoAccept = function() {
 	//if (autoaccept) {
 
 	setInterval(function() {
-		if (!Route) return;
+		if (!routes) return;
 		
 		let url = routes.Route("autoAccept");
 		let body = {
