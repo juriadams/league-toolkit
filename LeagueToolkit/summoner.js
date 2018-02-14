@@ -5,6 +5,8 @@ class summoner {
 		this.request = require("request");
 
 		// class data
+
+		if (!this.IsJsonString(data)) return;
 		data = JSON.parse(data)
 		this.APIRoutes = APIRoutes;
 		this.level = this.level || data.summonerLevel;
@@ -23,6 +25,15 @@ class summoner {
 		this.rankerQueue = rankedData.rankedQueue;
 		this.lp = rankedData.lp;
 	}
+
+	IsJsonString(str) {
+    try {
+        JSON.parse(str);
+    } catch (e) {
+        return false;
+    }
+    return true;
+}
 
 	getProfileData() {
 		let arr = {
@@ -45,6 +56,7 @@ class summoner {
 			}
 		};
 		let callback = (error, response, body) => {
+			if (!response) return;
 			if (response.statusCode == 200) {
 				body = JSON.parse(body);
 				this.receivedRankedStats(body);
