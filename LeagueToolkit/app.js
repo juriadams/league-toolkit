@@ -319,7 +319,8 @@ var autoAccept = function() {
 	//if (autoaccept) {
 
 	setInterval(function() {
-
+		if (!Route) return;
+		
 		let url = routes.Route("autoAccept");
 		let body = {
 			url: url,
