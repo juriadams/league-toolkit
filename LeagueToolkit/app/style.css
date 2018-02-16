@@ -1,5 +1,5 @@
 body {
-  background: url(https://i.4da.ms/Gch1r6.png);
+  background: linear-gradient(to bottom, rgba(125,185,232,0) -1%,rgba(50,96,122,0) 65%,rgba(10,49,64,0.8) 100%), url(https://i.4da.ms/Gch1r6.png);
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
@@ -306,10 +306,7 @@ textarea:focus {
   border-top: 2px solid #735828;
   border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   height: 100px;
-
-  background: -moz-linear-gradient(top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.06) 91%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0.06) 91%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0.06) 91%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  background: linear-gradient(to bottom, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 80%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
 
 .tab {
