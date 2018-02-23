@@ -1,6 +1,7 @@
 //
 // Copyright (c) 2018 by 4dams. All Rights Reserved.
 //
+
 var electron = require('electron');
 var url = require('url');
 var path = require('path');
@@ -320,7 +321,7 @@ var autoAccept = function() {
 
 	setInterval(function() {
 		if (!routes) return;
-		
+
 		let url = routes.Route("autoAccept");
 		let body = {
 			url: url,

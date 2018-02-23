@@ -9,6 +9,7 @@ body {
   /* text-align: center; */
   position: fixed;
   width: 100%;
+  user-select: none;
 }
 
 .option-name {
@@ -17,6 +18,12 @@ body {
   margin-bottom: 10px;
 }
 
+.suboption-name {
+  /* font-size: 25px; */
+  color: #cdbe91;
+  margin-bottom: 5px;
+  margin-top: 25px;
+}
 .title {
   text-align: center;
   margin-top: 250px;
@@ -416,9 +423,32 @@ textarea:focus {
     CHECKBOXES
 */
 
-
 .options {
+  font-family: 'Roboto';
+  text-transform: none;
   margin: 10px;
   margin-left: 0px;
-  color: #fff;
+  color: #a09b8c;
+}
+
+.options:hover {
+  color: #ceccc4;
+}
+
+.warning {
+  /* box-shadow: 0px 0px 13px -1px rgba(230,33,66,0.7); */
+  color: rgba(230,33,66,0.7) !important;
+  border: 1px solid rgba(230,33,66,0.7);
+}
+
+.warning:hover {
+  /* box-shadow: 0px 0px 13px -1px rgba(230,33,66,0.7); */
+  color: rgba(230,33,66,0.7) !important;
+  border: 1px solid rgba(230,33,66,0.7);
+}
+
+.warning-sign {
+  position: fixed;
+  margin-top: 7px;
+  margin-left: 5px;
 }

@@ -8,6 +8,7 @@ Copyright (c) 2018 by 4dams. All Rights Reserved.
   <title>League Toolkit</title>
   <script src="browser.js"></script>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Patua+One" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=EB+Garamond:700" rel="stylesheet">
@@ -23,7 +24,7 @@ Copyright (c) 2018 by 4dams. All Rights Reserved.
     <div class="sections">
 
       <div class="tab-container">
-        <img src="assets/ui/selected.png" id="selected" class="selected"></img>
+        <img src="assets/ui/selected.png" id="selected" class="selected" draggable="false"></img>
         <div class="tab">
           <button class="tablinks" onclick="openTab(event, 'Home')" id="defaultOpen">Home</button>
           <button class="tablinks" onclick="openTab(event, 'Profile')">Profile</button>
@@ -46,7 +47,7 @@ Copyright (c) 2018 by 4dams. All Rights Reserved.
         <div class="title">
 
           <h1>LEAGUE TOOLKIT</h1>
-          <img src="assets/ui/underline.png">
+          <img src="assets/ui/underline.png" draggable="false">
 
         </div>
 
@@ -61,17 +62,17 @@ Copyright (c) 2018 by 4dams. All Rights Reserved.
       <div id="Profile" class="tabcontent">
 
         <div class="info">
-          <img src="assets/ui/info.png">
-          <img src="assets/ui/default_icon.png" class="summonericon" id="profileSummonerIcon">
+          <img src="assets/ui/info.png" draggable="false">
+          <img src="assets/ui/default_icon.png" class="summonericon" id="profileSummonerIcon" draggable="false">
           <p class="info-name" id="profileName">Updating...</p>
-          <img src="assets/states/online.png" class="info-status">
+          <img src="assets/states/online.png" class="info-status" draggable="false">
           <p class="info-bp offset" id="profileRankedTier">Updating...</p>
           <p class="info-bp" id="profileLeagueName">Updating...</p>
           <p class="info-bp" id="profileWL">Updating...</p>
 
         </div>
 
-        <div class="box">
+        <div class="box ">
 
           <!-- CUSTOM RANK -->
           <div class="option">
@@ -143,8 +144,10 @@ Copyright (c) 2018 by 4dams. All Rights Reserved.
               <textarea rows="2" cols="35" placeholder="Most dedicated support player EUW!" id="status"></textarea>
             </div>
 
-            <div class="options">
+            <div class="options float-left">
               <label><input id="italics" type="checkbox">Italics</label>
+            </div>
+            <div class="options">
               <label><input id="bold" type="checkbox">Bold</label>
             </div>
 
@@ -165,7 +168,7 @@ Copyright (c) 2018 by 4dams. All Rights Reserved.
                   <option value="offline">Offline</option>
                   <option value="" disabled>In Queue</option>
                   <option value="" disabled>In Champ Select</option>
-                  <option value="inGame" disabled>In Game</option>
+                  <option value="" disabled>In Game</option>
                 </select>
             </div>
 
@@ -219,19 +222,56 @@ Copyright (c) 2018 by 4dams. All Rights Reserved.
       <div id="Champ Select" class="tabcontent">
 
         <div class="info">
-          <img src="assets/ui/info.png">
-          <img src="assets/maps/ha.png" class="summonericon" id="profileSummonerIcon">
-          <p class="info-name" id="profileName">IN GAME</p>
-          <img src="assets/states/online.png" class="info-status">
-          <p class="info-bp offset" id="profileRankedTier">SUMMONER'S RIFT</p>
-          <p class="info-bp" id="profileLeagueName">XAYAH</p>
-          <p class="info-bp" id="profileWL">12:42</p>
+          <img src="assets/ui/info.png" draggable="false">
+          <img src="assets/maps/sr.png" class="summonericon" id="profileSummonerIcon" draggable="false">
+          <p class="info-name" id="profileName">Updating...</p>
+          <img src="assets/states/ingame.png" class="info-status" draggable="false">
+          <p class="info-bp offset">SUMMONER'S RIFT</p>
+          <p class="info-bp">Bard</p>
+          <p class="info-bp">12:42</p>
         </div>
 
-        <div class="box">
+        <div class="box ">
 
-          <p>W I P</p>
-          <p>More on "Champ Select" coming soon!</p>
+          <!-- QUEUE -->
+
+          <p class="option-name">Queue</p>
+
+          <p class="suboption-name">Automatically Accept</p>
+          <div class="options">
+            <label><input type="checkbox">Enabled</label>
+          </div>
+
+          <!-- CHAMP SELECT -->
+
+          <p class="option-name">Champion Select</p>
+
+          <p class="suboption-name">Auto Ban Champion</p>
+          <img src="assets/ui/warning.png" class="warning-sign" draggable="false">
+          <div>
+            <textarea rows="1" cols="25" placeholder="" class="warning"></textarea>
+          </div>
+          <div class="options">
+            <label><input type="checkbox">Enabled</label>
+          </div>
+
+          <p class="suboption-name">Auto Pick Champion</p>
+          <img src="assets/ui/warning.png" class="warning-sign" draggable="false">
+          <div>
+            <textarea rows="1" cols="25" placeholder="" class="warning"></textarea>
+          </div>
+          <div class="options">
+            <label><input type="checkbox">Enabled</label>
+          </div>
+
+          <p class="suboption-name">Auto Write Role</p>
+          <img src="assets/ui/warning.png" class="warning-sign" draggable="false">
+          <div>
+            <textarea rows="1" cols="25" placeholder="" class="warning"></textarea>
+          </div>
+          <div class="options">
+            <label><input type="checkbox">Enabled</label>
+          </div>
 
         </div>
 
@@ -239,17 +279,36 @@ Copyright (c) 2018 by 4dams. All Rights Reserved.
 
       <div id="Miscellaneous" class="tabcontent">
 
-        <div class="box">
+        <div class="box ">
 
           <!-- RESTORE PROFILE -->
-          <div class="center">
 
-            <p>Restore default profile</p>
+          <p class="option-name">Restore default profile</p>
 
-            <div>
-              <button type="button" id="reset" onClick="eventReset()">Restore Profile</button>
-            </div>
+          <div>
+            <button type="button" id="reset" onClick="eventReset()">Restore Profile</button>
+          </div>
 
+          <!-- CUSTOM PROFILES -->
+
+          <p class="option-name">Custom Profiles</p>
+
+          <p class="suboption-name">Profile 1</p>
+
+          <div>
+            <button type="button" id="reset" onClick="" class="float-left">Save</button><button type="button" id="reset" onClick="">Restore</button>
+          </div>
+
+          <p class="suboption-name">Profile 2</p>
+
+          <div>
+            <button type="button" id="reset" onClick="" class="float-left">Save</button><button type="button" id="reset" onClick="">Restore</button>
+          </div>
+
+          <p class="suboption-name">Profile 3</p>
+
+          <div>
+            <button type="button" id="reset" onClick="" class="float-left">Save</button><button type="button" id="reset" onClick="">Restore</button>
           </div>
 
         </div>
