@@ -6,11 +6,11 @@ This includes data like a player's level, rank, wins and losses and a bunch more
 
 However, all of these data is not changed on the "main server", but on the chat server, which allows other users to see your custom rank, level or other changed stuff, but does also not affect gameplay or matchmaking in any way.
 
-### The Reason Behind It
+## The Reason Behind It
 
 Goal of this application is to show the process of how the LCU handles a player's data and how it is possible to interfere this process.
 
-### Design
+## Design
 
 ![Preview](https://github.com/4dams/LeagueToolkit/blob/master/LeagueToolkit/images/previews/1.png)
 
@@ -23,10 +23,10 @@ For the design of the app, we wanted to stick to the clean and flawless design o
 * Design concepts by [React-Hextech](https://github.com/LeagueDevelopers/react-hextech)
 * Made possible thanks to [Electron](https://electronjs.org/)
 
-### License
+## License
 
 This project is licensed under the Apache-2.0 License - See the [LICENSE.md](LICENSE.md) file for details
 
-### Disclaimer
+## Disclaimer
 
 > This project isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends.
