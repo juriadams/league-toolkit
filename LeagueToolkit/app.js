@@ -70,8 +70,7 @@ app.on('ready', function() {
 		frame: false,
 		resizable: false,
 		movable: true,
-		radii: [5,5,5,5],
-		icon: path.join(__dirname, 'assets/icon.png')
+		icon: path.join(__dirname, 'images/icon.png')
 	});
 
 	// Load HTML file into the window
@@ -81,7 +80,22 @@ app.on('ready', function() {
 		slashes: true
 	}));
 
+  // Building Menu from template
+  const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
+
+  // Loading the menu to overwrite developer tools
+  Menu.setApplicationMenu(mainMenu);
+
 });
+
+// Template for creating menu
+const mainMenuTemplate = [
+	{
+		label: 'File',
+		submenu: [
+		]
+	}
+];
 
 app.on('window-all-closed', () => {
   app.quit()
