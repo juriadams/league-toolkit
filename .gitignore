@@ -2,3 +2,5 @@
 LeagueToolkit/build_win.bat
 LeagueToolkit/build_darwin.bat
 LeagueToolkit/start.bat
+LeagueToolkit/release-builds
+LeagueToolkit/node_modules
