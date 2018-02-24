@@ -5,9 +5,8 @@ More information will follow very soon.
 
 ## Interface Preview
 
-![Preview](https://github.com/4dams/LeagueToolkit/blob/master/LeagueToolkit/images/previews/1.png)
-
 A small preview of each tab can be found [here](https://github.com/4dams/LeagueToolkit/blob/master/PREVIEWS.md).
+![Preview](https://github.com/4dams/LeagueToolkit/blob/master/LeagueToolkit/images/previews/1.png)
 
 ## Development Progress
 
