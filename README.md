@@ -1,7 +1,9 @@
 # LeagueToolkit
 
-This project is still under heavy development.</br>
-More information will follow very soon.
+LeagueToolkit is an application made for extracting, reading, modifying and sending back data from the updated League of Legends client *(short LCU)*.</br>
+This includes data like a player's level, rank, wins and losses and a bunch more stuff, which can be changed with this app. However, all of these data is not changed on the "main server", but on the chat server, which allows other users to see your custom rank, level or other changed stuff, but not affecting gameplay in any way.
+
+Goal of this application is to show the process of how the LCU works works and handles data and how it is possible to interfere this process.
 
 ## Interface Preview
 
