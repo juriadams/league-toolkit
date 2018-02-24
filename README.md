@@ -10,14 +10,13 @@ This includes data like a player's level, rank, wins and losses and a bunch more
 
 Goal of this application is to show the process of how the LCU handles a player's data and how it is possible to interfere this process.
 
-## Interface Preview
-
-A small preview of each tab can be found [here](https://github.com/4dams/LeagueToolkit/blob/master/PREVIEWS.md).
-![Preview](https://github.com/4dams/LeagueToolkit/blob/master/LeagueToolkit/images/previews/1.png)
-
 ## Design
 
+![Preview](https://github.com/4dams/LeagueToolkit/blob/master/LeagueToolkit/images/previews/1.png)
+
 For the design of the app, we wanted to stick to the clean and flawless design of the LCU, as you can see on the [preview page](https://github.com/4dams/LeagueToolkit/blob/master/PREVIEWS.md) of this repository or simply in the app itself.
+
+A small preview of each tab can be found [here](https://github.com/4dams/LeagueToolkit/blob/master/PREVIEWS.md).
 
 ## Development Progress
 
