@@ -365,8 +365,8 @@ function autoUpdate() {
     setInterval(function() {
       if (!isActive) return;
       profileUpdate(); // update profile data without having to press update button.
-    }, 5000)
-  }, 10000)
+    }, 1000)
+  }, 2000)
 }
 
 window.addEventListener("load", autoUpdate, false);
