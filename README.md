@@ -10,7 +10,7 @@ A small preview of each tab can be found [here](https://github.com/4dams/LeagueT
 
 ## Development Progress
 
-You can see what we're currently working on and what's still left to do on this repositorys [project page](https://github.com/4dams/LeagueToolkit/projects/1).
+You can see what we're currently working on and what's still left to do on the [project page](https://github.com/4dams/LeagueToolkit/projects/1) of this repository.
 
 ## Disclaimer
 
