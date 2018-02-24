@@ -19,7 +19,7 @@ body {
 }
 
 .suboption-name {
-  /* font-size: 25px; */
+  font-size: 18px;
   color: #cdbe91;
   margin-bottom: 5px;
   margin-top: 25px;
@@ -300,6 +300,9 @@ textarea:disabled {
   background-color: #fff;
 }
 
+.dropdown option:disabled {
+  color: #756c53;
+}
 
 /*
     SECTIONS

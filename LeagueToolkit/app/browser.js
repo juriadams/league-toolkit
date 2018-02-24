@@ -359,7 +359,7 @@ function openTab(evt, tabName) {
 
 // Event listeners
 
-function autoUpdate() {
+function autoUpdate () {
   isActive = true;
   setTimeout(function() {
     setInterval(function() {
@@ -379,3 +379,11 @@ window.onfocus = function() {
 window.onblur = function() {
   isActive = false;
 };
+
+function toggleAutoAccept (element) {
+  if (element.checked) {
+    ipcRenderer.send('autoAccept', true)
+  } else {
+    ipcRenderer.send('autoAccept', false)
+  }
+}

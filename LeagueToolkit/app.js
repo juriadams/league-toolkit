@@ -14,6 +14,7 @@ var Summoner = require("./summoner");
 var LocalSummoner;
 var routes;
 
+var autoAccept_enabled = false;
 
 // Extracting some stuff from electron
 const {
@@ -275,6 +276,13 @@ ipcMain.on('profileUpdate', (event, wins, losses) => {
 	event.returnValue = LocalSummoner.getProfileData();
 });
 
+ipcMain.on('autoAccept', (event, int) => {
+	if (int) {
+		autoAccept_enabled = true
+	} else {
+		autoAccept_enabled = false
+	}
+});
 
 function IsJsonString(str) {
     try {
@@ -318,7 +326,10 @@ var autoAccept = function() {
 					let acceptCallback = function(error, response, body) {
 					};
 
-					request.post(acceptBody, acceptCallback);
+					if (autoAccept_enabled) {
+						request.post(acceptBody, acceptCallback);
+					}
+
 				}
 			}
 		};
