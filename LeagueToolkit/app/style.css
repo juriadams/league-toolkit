@@ -24,6 +24,7 @@ body {
   margin-bottom: 5px;
   margin-top: 25px;
 }
+
 .title {
   text-align: center;
   margin-top: 250px;
@@ -42,6 +43,15 @@ hr {
   margin-top: 40px;
   margin-bottom: 40px;
   border: 1px solid #cdbe91;
+}
+
+.tier {
+  width: 150px !important;
+}
+
+.division {
+  width: 40px !important;
+  margin-top: 3px;
 }
 
 .left {
@@ -178,8 +188,6 @@ button:hover {
     rgb(94.1%, 90.2%, 84.7%) 100%
     );
   border-image-slice: 1;
-  -webkit-box-shadow: 0px 0px 13px 0px rgba(205,190,145,0.39);
-  -moz-box-shadow: 0px 0px 13px 0px rgba(205,190,145,0.39);
   box-shadow: 0px 0px 13px 0px rgba(205,190,145,0.39);
   transition: color 100ms linear;
   /* filter: blur(4px); */
@@ -227,6 +235,12 @@ textarea:focus {
   background: linear-gradient(to bottom, rgba(7, 16, 25, 0.7), rgba(32, 39, 44, 0.7));
   border-image: linear-gradient(to bottom, #785a28, #c8aa6e) 1 stretch;
 }
+
+textarea:disabled {
+  color: rgba(230,33,66,0.7) !important;
+  border: 1px solid rgba(230,33,66,0.7);
+}
+
 
 /*
     DROPDOWNS
@@ -286,14 +300,6 @@ textarea:focus {
   background-color: #fff;
 }
 
-.tier {
-  width: 150px;
-}
-
-.division {
-  width: 40px;
-  margin-top: 3px;
-}
 
 /*
     SECTIONS
