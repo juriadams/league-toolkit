@@ -41,9 +41,6 @@ function getLocalSummoner() {
 		}
 	};
 	let callback = function(error, response, body) {
-		//console.log('error:', error);
-		//console.log('statusCode:', response && response.statusCode);
-		//console.log('body:', body);
 		LocalSummoner = new Summoner(body, routes);
 	};
 
@@ -102,9 +99,6 @@ ipcMain.on('minimize_app', function(){
 });
 
 ipcMain.on('submitTierDivison', (event, tier, division) => {
-	console.log(tier);
-	console.log(division);
-
 	let url = routes.Route("submitTierDivison");
 	let body = {
 		url: url,
@@ -120,9 +114,6 @@ ipcMain.on('submitTierDivison', (event, tier, division) => {
 		}
 	};
 	let callback = function(error, response, body) {
-		console.log('error:', error);
-		console.log('statusCode:', response && response.statusCode);
-		console.log('body:', body);
 	};
 
 	request.put(body, callback);
@@ -146,9 +137,6 @@ ipcMain.on('submitLevel', (event, level) => {
 		}
 	};
 	let callback = function(error, response, body) {
-		// console.log('error:', error);
-		// console.log('statusCode:', response && response.statusCode);
-		// console.log('body:', body);
 	};
 
 	request.put(body, callback);
@@ -169,9 +157,6 @@ ipcMain.on('submitStatus', (event, status) => {
 		}
 	};
 	let callback = function(error, response, body) {
-		// console.log('error:', error);
-		// console.log('statusCode:', response && response.statusCode);
-		// console.log('body:', body);
 	};
 
 	request.put(body, callback);
@@ -194,9 +179,6 @@ ipcMain.on('submitLeagueName', (event, leagueName) => {
 		}
 	};
 	let callback = function(error, response, body) {
-		// console.log('error:', error);
-		// console.log('statusCode:', response && response.statusCode);
-		// console.log('body:', body);
 	};
 
 	request.put(body, callback);
@@ -217,9 +199,6 @@ ipcMain.on('submitAvailability', (event, availability) => {
 		}
 	};
 	let callback = function(error, response, body) {
-		// console.log('error:', error);
-		// console.log('statusCode:', response && response.statusCode);
-		// console.log('body:', body);
 	};
 
 	request.put(body, callback);
@@ -240,9 +219,6 @@ ipcMain.on('submitIcon', (event, icon) => {
 		}
 	};
 	let callback = function(error, response, body) {
-		// console.log('error:', error);
-		// console.log('statusCode:', response && response.statusCode);
-		// console.log('body:', body);
 	};
 
 	request.put(body, callback);
@@ -263,9 +239,6 @@ ipcMain.on('submitSummoner', (event, name) => {
 		}
 	};
 	let callback = function(error, response, body) {
-		// console.log('error:', error);
-		// console.log('statusCode:', response && response.statusCode);
-		// console.log('body:', body);
 	};
 
 	request.put(body, callback);
@@ -291,9 +264,6 @@ ipcMain.on('submitWinsLosses', (event, wins, losses) => {
 		}
 	};
 	let callback = function(error, response, body) {
-		// console.log('error:', error);
-		// console.log('statusCode:', response && response.statusCode);
-		// console.log('body:', body);
 	};
 
 	request.put(body, callback);
@@ -317,8 +287,6 @@ function IsJsonString(str) {
 
 var autoAccept = function() {
 
-	//if (autoaccept) {
-
 	setInterval(function() {
 		if (!routes) return;
 
@@ -334,18 +302,9 @@ var autoAccept = function() {
 			if (!body || !IsJsonString(body)) return;
 			var data = JSON.parse(body);
 
-			// console.log(data["state"]);
-			// console.log(data["playerResponse"]);
-
 			if (data["state"] === "InProgress") {
 
-				console.log(data["state"] === "InProgress")
-
 				if (data["playerResponse"] === "None") {
-
-					console.log(data["playerResponse"] === "None")
-
-					console.log('\n\nFOUND GAME\n\n')
 
 					let acceptUrl = routes.Route("accept");
 					let acceptBody = {
@@ -357,9 +316,6 @@ var autoAccept = function() {
 						json: {}
 					}
 					let acceptCallback = function(error, response, body) {
-						console.log('error:', error);
-						console.log('statusCode:', response && response.statusCode);
-						console.log('body:', body);
 					};
 
 					request.post(acceptBody, acceptCallback);
