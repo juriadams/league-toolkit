@@ -5,321 +5,321 @@ Copyright (c) 2018 by 4dams. All Rights Reserved.
 <html>
 
 <head>
-  <title>League Toolkit</title>
-  <script src="browser.js"></script>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Patua+One" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=EB+Garamond:700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>League Toolkit</title>
+    <script src="browser.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Patua+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=EB+Garamond:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
 
-  <div class="content">
+    <div class="content">
 
-    <!-- BEGIN SECTIONS -->
+        <!-- BEGIN SECTIONS -->
 
-    <div class="sections">
+        <div class="sections">
 
-      <div class="tab-container">
-        <img src="assets/ui/selected.png" id="selected" class="selected" draggable="false"></img>
-        <div class="tab">
-          <button class="tablinks" onclick="openTab(event, 'Home')" id="defaultOpen">Home</button>
-          <button class="tablinks" onclick="openTab(event, 'Profile')">Profile</button>
-          <button class="tablinks" onclick="openTab(event, 'Champ Select')">Champ Select</button>
-          <button class="tablinks" onclick="openTab(event, 'Miscellaneous')">Miscellaneous</button>
+            <div class="tab-container">
+                <img src="assets/ui/selected.png" id="selected" class="selected" draggable="false"></img>
+                <div class="tab">
+                    <button class="tablinks" onclick="openTab(event, 'Home')" id="defaultOpen">Home</button>
+                    <button class="tablinks" onclick="openTab(event, 'Profile')">Profile</button>
+                    <button class="tablinks" onclick="openTab(event, 'Champ Select')">Champ Select</button>
+                    <button class="tablinks" onclick="openTab(event, 'Miscellaneous')">Miscellaneous</button>
+                </div>
+
+                <div class="controls">
+                    <button onclick="minimize_app();"><i class="material-icons icon">remove</i></button>
+                    <button><i class="material-icons icon">bug_report</i></button>
+                    <button onclick="exit_app();"><i class="material-icons icon">clear</i></button>
+                </div>
+            </div>
+
+            <!-- TABS AND THEIR CONTENTS -->
+
+            <div id="Home" class="tabcontent center">
+
+                <!-- PROGRAM TITLE -->
+                <div class="title">
+
+                    <h1>LEAGUE TOOLKIT</h1>
+                    <img src="assets/ui/underline.png" draggable="false">
+
+                </div>
+
+                <button type="button" onclick="openTab(event, 'Profile')" class="getstarted">Get Started</button>
+
+            </div>
+
+            <script>
+                document.getElementById("defaultOpen").click();
+            </script>
+
+            <div id="Profile" class="tabcontent">
+
+                <div class="info">
+                    <img src="assets/ui/info.png" draggable="false">
+                    <img src="assets/ui/default_icon.png" class="summonericon" id="profileSummonerIcon" draggable="false">
+                    <p class="info-name" id="profileName">Updating...</p>
+                    <img src="assets/states/online.png" class="info-status" draggable="false">
+                    <p class="info-bp offset" id="profileRankedTier">Updating...</p>
+                    <p class="info-bp" id="profileLeagueName">Updating...</p>
+                    <p class="info-bp" id="profileWL">Updating...</p>
+
+                </div>
+
+                <div class="box ">
+
+                    <!-- CUSTOM RANK -->
+                    <div class="option">
+
+                        <p class="option-name">Custom Rank</p>
+
+                        <div>
+
+                            <div class="float-left">
+                                <select onchange="tierChange()" id="tier" class="dropdown tier center-area">
+                                    <option value="UNRANKED">Unranked</option>
+                                    <option value="BRONZE">Bronze</option>
+                                    <option value="SILVER">Silver</option>
+                                    <option value="GOLD">Gold</option>
+                                    <option value="PLATINUM">Platinum</option>
+                                    <option value="DIAMOND">Diamond</option>
+                                    <option value="MASTER">Master</option>
+                                    <option value="CHALLENGER">Challenger</option>
+                                </select>
+                            </div>
+                            <div>
+                                <select onchange="divisionChange()" id="division" class="dropdown division center-area">
+                                    <option value="V">V</option>
+                                    <option value="IV">IV</option>
+                                    <option value="III">III</option>
+                                    <option value="II">II</option>
+                                    <option value="I">I</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <button type="button" onClick="submitTierDivison()">Save</button>
+
+                    </div>
+
+                    <!-- CUSTOM RANKED LEAGUE NAME -->
+                    <div class="option">
+
+                        <p class="option-name">Custom Ranked League Name</p>
+
+                        <div>
+                            <textarea rows="1" cols="20" placeholder="Bard's Awesome Dudes" id="leagueName"></textarea>
+                        </div>
+
+                        <button type="button" onClick="submitLeagueName()">Save</button>
+
+                    </div>
+
+                    <!-- CUSTOM LEVEL -->
+                    <div class="option">
+
+                        <p class="option-name">Custom Level</p>
+
+                        <div>
+                            <textarea rows="1" cols="10" placeholder="1337" id="level"></textarea>
+                        </div>
+
+                        <button type="button" onClick="submitLevel()">Save</button>
+
+                    </div>
+
+                    <!-- CUSTOM STATUS MESSAGE -->
+                    <div class="option">
+
+                        <p class="option-name">Custom Status Message (infinite length)</p>
+
+                        <div>
+                            <textarea rows="2" cols="35" placeholder="Most dedicated support player EUW!" id="status"></textarea>
+                        </div>
+
+                        <div class="options float-left">
+                            <label><input id="italics" type="checkbox">Italics</label>
+                        </div>
+                        <div class="options">
+                            <label><input id="bold" type="checkbox">Bold</label>
+                        </div>
+
+                        <button type="button" onClick="submitStatus()">Save</button>
+
+                    </div>
+
+                    <!-- CUSTOM AVAILABILIY -->
+                    <div class="option">
+
+                        <p class="option-name">Custom Availability</p>
+
+                        <div>
+                            <select id="availability" class="dropdown">
+                                <option value="chat">Online</option>
+                                <option value="away">Do Not Disturb</option>
+                                <option value="mobile">Mobile</option>
+                                <option value="offline">Offline</option>
+                                <option value="" disabled>In Queue</option>
+                                <option value="" disabled>In Champ Select</option>
+                                <option value="" disabled>In Game</option>
+                            </select>
+                        </div>
+
+                        <button type="button" onClick="submitAvailability()">Save</button>
+
+                    </div>
+
+                    <!-- CUSTOM SUMMONER NAME -->
+                    <div class="option">
+
+                        <p class="option-name">Custom Summoner Name (local)</p>
+
+                        <div>
+                            <textarea rows="1" cols="20" placeholder="Scarlet" id="summoner"></textarea>
+                        </div>
+
+                        <button type="button" onClick="submitSummoner()">Save</button>
+
+                    </div>
+
+                    <!-- CUSTOM SUMMONER ICON -->
+                    <div class="option">
+
+                        <p class="option-name">Custom Summoner Icon (local)</p>
+
+                        <div>
+                            <textarea rows="1" cols="20" placeholder="Icon ID" id="icon"></textarea>
+                        </div>
+
+                        <button type="button" onClick="submitIcon()">Save</button>
+
+                    </div>
+
+                    <!-- CUSTOM RANKED WINS/LOSSES -->
+                    <div class="option">
+
+                        <p class="option-name">Custom Ranked Wins/Losses</p>
+
+                        <div>
+                            <textarea rows="1" cols="5" placeholder="Wins" id="wins" class="float-left"></textarea> <textarea rows="1" cols="5" placeholder="Losses" id="losses"></textarea>
+                        </div>
+
+                        <button type="button" onClick="submitWinsLosses()">Save</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div id="Champ Select" class="tabcontent">
+
+                <!-- <div class="info">
+                    <img src="assets/ui/info.png" draggable="false">
+                    <img src="assets/maps/sr.png" class="summonericon" id="profileSummonerIcon" draggable="false">
+                    <p class="info-name" id="profileName">Updating...</p>
+                    <img src="assets/states/ingame.png" class="info-status" draggable="false">
+                    <p class="info-bp offset">SUMMONER'S RIFT</p>
+                    <p class="info-bp">Bard</p>
+                    <p class="info-bp">12:42</p>
+                </div> -->
+
+                <div class="box ">
+
+                    <!-- QUEUE -->
+
+                    <p class="option-name">Queue</p>
+
+                    <p class="suboption-name">Automatically Accept</p>
+                    <div class="options">
+                        <label><input type="checkbox">Enabled</label>
+                    </div>
+
+                    <!-- CHAMP SELECT -->
+
+                    <p class="option-name">Champion Select</p>
+
+                    <p class="suboption-name">Auto Ban Champion</p>
+                    <img src="assets/ui/warning.png" class="warning-sign" draggable="false">
+                    <div>
+                        <textarea rows="1" cols="25" placeholder="" disabled></textarea>
+                    </div>
+                    <div class="options">
+                        <label><input type="checkbox" disabled>Enabled</label>
+                    </div>
+
+                    <p class="suboption-name">Auto Pick Champion</p>
+                    <img src="assets/ui/warning.png" class="warning-sign" draggable="false">
+                    <div>
+                        <textarea rows="1" cols="25" placeholder="" disabled></textarea>
+                    </div>
+                    <div class="options">
+                        <label><input type="checkbox" disabled>Enabled</label>
+                    </div>
+
+                    <p class="suboption-name">Auto Write Role</p>
+                    <img src="assets/ui/warning.png" class="warning-sign" draggable="false">
+                    <div>
+                        <textarea rows="1" cols="25" placeholder="" disabled></textarea>
+                    </div>
+                    <div class="options">
+                        <label><input type="checkbox" disabled>Enabled</label>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div id="Miscellaneous" class="tabcontent">
+
+                <div class="box ">
+
+                    <!-- RESTORE PROFILE -->
+
+                    <p class="option-name">Restore default profile</p>
+
+                    <div>
+                        <button type="button" id="reset" onClick="eventReset()">Restore Profile</button>
+                    </div>
+
+                    <!-- CUSTOM PROFILES -->
+
+                    <p class="option-name">Custom Profiles</p>
+
+                    <p class="suboption-name">Profile 1</p>
+
+                    <div>
+                        <button type="button" id="reset" onClick="" class="float-left">Save</button><button type="button" id="reset" onClick="">Restore</button>
+                    </div>
+
+                    <p class="suboption-name">Profile 2</p>
+
+                    <div>
+                        <button type="button" id="reset" onClick="" class="float-left">Save</button><button type="button" id="reset" onClick="">Restore</button>
+                    </div>
+
+                    <p class="suboption-name">Profile 3</p>
+
+                    <div>
+                        <button type="button" id="reset" onClick="" class="float-left">Save</button><button type="button" id="reset" onClick="">Restore</button>
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
 
-        <div class="controls">
-          <button onclick="minimize_app();"><i class="material-icons icon">remove</i></button>
-          <button><i class="material-icons icon">bug_report</i></button>
-          <button onclick="exit_app();"><i class="material-icons icon">clear</i></button>
-        </div>
-      </div>
-
-      <!-- TABS AND THEIR CONTENTS -->
-
-      <div id="Home" class="tabcontent center">
-
-        <!-- PROGRAM TITLE -->
-        <div class="title">
-
-          <h1>LEAGUE TOOLKIT</h1>
-          <img src="assets/ui/underline.png" draggable="false">
-
-        </div>
-
-        <button type="button" onclick="openTab(event, 'Profile')" class="getstarted">Get Started</button>
-
-      </div>
-
-      <script>
-        document.getElementById("defaultOpen").click();
-      </script>
-
-      <div id="Profile" class="tabcontent">
-
-        <div class="info">
-          <img src="assets/ui/info.png" draggable="false">
-          <img src="assets/ui/default_icon.png" class="summonericon" id="profileSummonerIcon" draggable="false">
-          <p class="info-name" id="profileName">Updating...</p>
-          <img src="assets/states/online.png" class="info-status" draggable="false">
-          <p class="info-bp offset" id="profileRankedTier">Updating...</p>
-          <p class="info-bp" id="profileLeagueName">Updating...</p>
-          <p class="info-bp" id="profileWL">Updating...</p>
-
-        </div>
-
-        <div class="box ">
-
-          <!-- CUSTOM RANK -->
-          <div class="option">
-
-            <p class="option-name">Custom Rank</p>
-
-            <div>
-
-              <div class="float-left">
-                <select onchange="tierChange()" id="tier" class="dropdown tier center-area">
-                    <option value="UNRANKED">Unranked</option>
-                    <option value="BRONZE">Bronze</option>
-                    <option value="SILVER">Silver</option>
-                    <option value="GOLD">Gold</option>
-                    <option value="PLATINUM">Platinum</option>
-                    <option value="DIAMOND">Diamond</option>
-                    <option value="MASTER">Master</option>
-                    <option value="CHALLENGER">Challenger</option>
-                  </select>
-              </div>
-              <div>
-                <select onchange="divisionChange()" id="division" class="dropdown division center-area">
-                    <option value="V">V</option>
-                    <option value="IV">IV</option>
-                    <option value="III">III</option>
-                    <option value="II">II</option>
-                    <option value="I">I</option>
-                  </select>
-              </div>
-
-            </div>
-
-            <button type="button" onClick="submitTierDivison()">Save</button>
-
-          </div>
-
-          <!-- CUSTOM RANKED LEAGUE NAME -->
-          <div class="option">
-
-            <p class="option-name">Custom Ranked League Name</p>
-
-            <div>
-              <textarea rows="1" cols="20" placeholder="Bard's Awesome Dudes" id="leagueName"></textarea>
-            </div>
-
-            <button type="button" onClick="submitLeagueName()">Save</button>
-
-          </div>
-
-          <!-- CUSTOM LEVEL -->
-          <div class="option">
-
-            <p class="option-name">Custom Level</p>
-
-            <div>
-              <textarea rows="1" cols="10" placeholder="1337" id="level"></textarea>
-            </div>
-
-            <button type="button" onClick="submitLevel()">Save</button>
-
-          </div>
-
-          <!-- CUSTOM STATUS MESSAGE -->
-          <div class="option">
-
-            <p class="option-name">Custom Status Message (infinite length)</p>
-
-            <div>
-              <textarea rows="2" cols="35" placeholder="Most dedicated support player EUW!" id="status"></textarea>
-            </div>
-
-            <div class="options float-left">
-              <label><input id="italics" type="checkbox">Italics</label>
-            </div>
-            <div class="options">
-              <label><input id="bold" type="checkbox">Bold</label>
-            </div>
-
-            <button type="button" onClick="submitStatus()">Save</button>
-
-          </div>
-
-          <!-- CUSTOM AVAILABILIY -->
-          <div class="option">
-
-            <p class="option-name">Custom Availability</p>
-
-            <div>
-              <select id="availability" class="dropdown">
-                  <option value="chat">Online</option>
-                  <option value="away">Do Not Disturb</option>
-                  <option value="mobile">Mobile</option>
-                  <option value="offline">Offline</option>
-                  <option value="" disabled>In Queue</option>
-                  <option value="" disabled>In Champ Select</option>
-                  <option value="" disabled>In Game</option>
-                </select>
-            </div>
-
-            <button type="button" onClick="submitAvailability()">Save</button>
-
-          </div>
-
-          <!-- CUSTOM SUMMONER NAME -->
-          <div class="option">
-
-            <p class="option-name">Custom Summoner Name (local)</p>
-
-            <div>
-              <textarea rows="1" cols="20" placeholder="Scarlet" id="summoner"></textarea>
-            </div>
-
-            <button type="button" onClick="submitSummoner()">Save</button>
-
-          </div>
-
-          <!-- CUSTOM SUMMONER ICON -->
-          <div class="option">
-
-            <p class="option-name">Custom Summoner Icon (local)</p>
-
-            <div>
-              <textarea rows="1" cols="20" placeholder="Icon ID" id="icon"></textarea>
-            </div>
-
-            <button type="button" onClick="submitIcon()">Save</button>
-
-          </div>
-
-          <!-- CUSTOM RANKED WINS/LOSSES -->
-          <div class="option">
-
-            <p class="option-name">Custom Ranked Wins/Losses</p>
-
-            <div>
-              <textarea rows="1" cols="5" placeholder="Wins" id="wins" class="float-left"></textarea> <textarea rows="1" cols="5" placeholder="Losses" id="losses"></textarea>
-            </div>
-
-            <button type="button" onClick="submitWinsLosses()">Save</button>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      <div id="Champ Select" class="tabcontent">
-
-        <div class="info">
-          <img src="assets/ui/info.png" draggable="false">
-          <img src="assets/maps/sr.png" class="summonericon" id="profileSummonerIcon" draggable="false">
-          <p class="info-name" id="profileName">Updating...</p>
-          <img src="assets/states/ingame.png" class="info-status" draggable="false">
-          <p class="info-bp offset">SUMMONER'S RIFT</p>
-          <p class="info-bp">Bard</p>
-          <p class="info-bp">12:42</p>
-        </div>
-
-        <div class="box ">
-
-          <!-- QUEUE -->
-
-          <p class="option-name">Queue</p>
-
-          <p class="suboption-name">Automatically Accept</p>
-          <div class="options">
-            <label><input type="checkbox">Enabled</label>
-          </div>
-
-          <!-- CHAMP SELECT -->
-
-          <p class="option-name">Champion Select</p>
-
-          <p class="suboption-name">Auto Ban Champion</p>
-          <img src="assets/ui/warning.png" class="warning-sign" draggable="false">
-          <div>
-            <textarea rows="1" cols="25" placeholder="" disabled></textarea>
-          </div>
-          <div class="options">
-            <label><input type="checkbox" disabled>Enabled</label>
-          </div>
-
-          <p class="suboption-name">Auto Pick Champion</p>
-          <img src="assets/ui/warning.png" class="warning-sign" draggable="false">
-          <div>
-            <textarea rows="1" cols="25" placeholder="" disabled></textarea>
-          </div>
-          <div class="options">
-            <label><input type="checkbox" disabled>Enabled</label>
-          </div>
-
-          <p class="suboption-name">Auto Write Role</p>
-          <img src="assets/ui/warning.png" class="warning-sign" draggable="false">
-          <div>
-            <textarea rows="1" cols="25" placeholder="" disabled></textarea>
-          </div>
-          <div class="options">
-            <label><input type="checkbox" disabled>Enabled</label>
-          </div>
-
-        </div>
-
-      </div>
-
-      <div id="Miscellaneous" class="tabcontent">
-
-        <div class="box ">
-
-          <!-- RESTORE PROFILE -->
-
-          <p class="option-name">Restore default profile</p>
-
-          <div>
-            <button type="button" id="reset" onClick="eventReset()">Restore Profile</button>
-          </div>
-
-          <!-- CUSTOM PROFILES -->
-
-          <p class="option-name">Custom Profiles</p>
-
-          <p class="suboption-name">Profile 1</p>
-
-          <div>
-            <button type="button" id="reset" onClick="" class="float-left">Save</button><button type="button" id="reset" onClick="">Restore</button>
-          </div>
-
-          <p class="suboption-name">Profile 2</p>
-
-          <div>
-            <button type="button" id="reset" onClick="" class="float-left">Save</button><button type="button" id="reset" onClick="">Restore</button>
-          </div>
-
-          <p class="suboption-name">Profile 3</p>
-
-          <div>
-            <button type="button" id="reset" onClick="" class="float-left">Save</button><button type="button" id="reset" onClick="">Restore</button>
-          </div>
-
-        </div>
-
-      </div>
+        <!-- END SECTIONS -->
 
     </div>
-
-    <!-- END SECTIONS -->
-
-  </div>
 
 </body>
 
