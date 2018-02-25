@@ -4,7 +4,8 @@ LeagueToolkit is an application made for extracting, reading, modifying and send
 
 This includes data like a player's level, rank, wins and losses and a bunch more stuff, which can be changed with this app.
 
-However, all of these data is not changed on the "main server", but on the chat server, which allows other users to see your custom rank, level or other changed stuff, but does also not affect gameplay or matchmaking in any way.
+If you want to know more about this process and how it works exactly, please check out [this post on the Riot Games Engineering Blog](https://engineering.riotgames.com/news/architecture-league-client-update)!
+
 
 ## The Reason Behind It
 
