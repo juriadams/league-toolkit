@@ -1,8 +1,9 @@
 <p align="center">
   <img src="https://i.4da.ms/ATiJEh.png"><br>
   <b>Important Links:</b><br>
-  <a href="https://github.com/4dams/LeagueToolkit/blob/master/PREVIEWS.md">Preview</a> |
   <a href="https://engineering.riotgames.com/news/architecture-league-client-update">Inspiration</a> |
+  <a href="https://github.com/4dams/LeagueToolkit/wiki/Previews">Preview</a> |
+  <a href="https://github.com/4dams/LeagueToolkit/wiki/Features">Features</a> |
   <a href="https://github.com/4dams/LeagueToolkit/releases">Download</a>
   <br><br>
 </p>
@@ -20,7 +21,7 @@ Goal of this application is to show the process of how the LCU handles a player'
 
 ![Preview](https://github.com/4dams/LeagueToolkit/blob/master/LeagueToolkit/images/previews/1.png)
 
-For the design of the app, we wanted to stick to the clean and flawless design of the LCU, as you can see on the [preview page](https://github.com/4dams/LeagueToolkit/blob/master/PREVIEWS.md) of this repository or simply in the app itself.
+For the design of the app, we wanted to stick to the clean and flawless design of the LCU, as you can see on the [preview page](https://github.com/4dams/LeagueToolkit/wiki/Previews) of this repository or simply in the app itself.
 
 ## Acknowledgments
 
