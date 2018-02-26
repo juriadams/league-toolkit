@@ -1,5 +1,5 @@
 <p align="center">
-# LeagueToolkit
+<h1>LeagueToolkit</h1>
 
 LeagueToolkit is an application made for extracting, reading, modifying and sending back data from the updated League of Legends client.
 This includes data like a player's level, rank, wins and losses and a bunch more stuff, which can be changed with this app.
