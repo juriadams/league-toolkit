@@ -26,7 +26,7 @@ For the design of the app, we wanted to stick to the clean and flawless design o
 
 ## License
 
-This project is licensed under the Apache-2.0 License - See the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the Apache-2.0 License - See the [LICENSE.md](LICENSE.md) file for details.
 
 ## Editing
 
