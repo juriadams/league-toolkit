@@ -28,6 +28,10 @@ For the design of the app, we wanted to stick to the clean and flawless design o
 
 This project is licensed under the Apache-2.0 License - See the [LICENSE.md](LICENSE.md) file for details
 
+## Editing
+
+This application is **not** meant to be edited. The main purpose of having the source public is to show the capabilities of the libraries, and to allow others to understand the process behind it. If you want to help working on this project or have any other ideas you think would be a great addition to the app, consider [making a feature request via opening an issue](https://github.com/4dams/LeagueToolkit/issues/new).
+
 ## Disclaimer
 
 > This project isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends.
