@@ -1,6 +1,6 @@
 <p align="center">
-  <img src="https://i.4da.ms/ATiJEh.png">
-  <b>Some Links:</b><br>
+  <img src="https://i.4da.ms/ATiJEh.png"><br>
+  <b>Important Links:</b><br>
   <a href="https://github.com/4dams/LeagueToolkit/blob/master/PREVIEWS.md">Preview</a> |
   <a href="https://engineering.riotgames.com/news/architecture-league-client-update">Inspiration</a> |
   <a href="https://github.com/4dams/LeagueToolkit/releases">Download</a>
