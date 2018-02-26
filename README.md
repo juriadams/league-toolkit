@@ -1,10 +1,11 @@
+<p align="center">
 # LeagueToolkit
 
 LeagueToolkit is an application made for extracting, reading, modifying and sending back data from the updated League of Legends client.
 This includes data like a player's level, rank, wins and losses and a bunch more stuff, which can be changed with this app.
 
 If you want to know more about this process and how it works exactly, please check out [this post on the Riot Games Engineering Blog](https://engineering.riotgames.com/news/architecture-league-client-update)!
-
+</p>
 
 ## The Reason Behind It
 
