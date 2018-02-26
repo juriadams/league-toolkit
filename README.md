@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://i.4da.ms/ATiJEh.png"><br>
+  <img src="https://github.com/4dams/LeagueToolkit/blob/master/LeagueToolkit/images/logo.png"><br>
   <b>Important Links:</b><br>
   <a href="https://engineering.riotgames.com/news/architecture-league-client-update">Inspiration</a> |
   <a href="https://github.com/4dams/LeagueToolkit/wiki/Previews">Preview</a> |
