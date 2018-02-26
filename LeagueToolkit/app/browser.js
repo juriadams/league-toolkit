@@ -298,8 +298,10 @@ function minimize_app() {
 
 async function profileUpdate() {
   let data;
+
   try {
     data = ipcRenderer.sendSync("profileUpdate");
+
     if (!data) return;
     let rankedTier = data.rankedTier || document.getElementById("profileRankedTier").innerHTML;
     let leagueName = data.leagueName || document.getElementById("profileLeagueName").innerHTML;
@@ -315,6 +317,7 @@ async function profileUpdate() {
     console.log("And error occured updating the profile information: " + e);
   }
 }
+
 /*
     SECTIONS
 */

@@ -17,13 +17,20 @@ class summoner {
 	}
 
 	receivedRankedStats(data) {
+
 		let rankedData = data.rankedData[0]; // 5 vs 5 solo-duo
-		this.division = rankedData.division;
-		this.wins = rankedData.wins;
-		this.rankedTier = rankedData.rankedTier;
-		this.leagueName = rankedData.leagueName;
-		this.rankerQueue = rankedData.rankedQueue;
-		this.lp = rankedData.lp;
+
+		if (rankedData == !null) { // Checking if summoner is unranked
+
+			this.division = rankedData.division;
+			this.wins = rankedData.wins;
+			this.rankedTier = rankedData.rankedTier;
+			this.leagueName = rankedData.leagueName;
+			this.rankerQueue = rankedData.rankedQueue;
+			this.lp = rankedData.lp;
+
+		}
+
 	}
 
 	IsJsonString(str) {
