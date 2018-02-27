@@ -8,6 +8,7 @@ class summoner {
 
 		if (!this.IsJsonString(data)) return;
 		data = JSON.parse(data)
+		console.log(data)
 		this.APIRoutes = APIRoutes;
 		this.level = this.level || data.summonerLevel;
 		this.name = this.name || data.displayName;
@@ -20,27 +21,25 @@ class summoner {
 
 		let rankedData = data.rankedData[0]; // 5 vs 5 solo-duo
 
-		if (rankedData == !null) { // Checking if summoner is unranked
-
+		if (rankedData) { // Checking if summoner is unranked
 			this.division = rankedData.division;
 			this.wins = rankedData.wins;
 			this.rankedTier = rankedData.rankedTier;
 			this.leagueName = rankedData.leagueName;
 			this.rankerQueue = rankedData.rankedQueue;
 			this.lp = rankedData.lp;
-
 		}
 
 	}
 
 	IsJsonString(str) {
-    try {
-        JSON.parse(str);
-    } catch (e) {
-        return false;
-    }
-    return true;
-}
+		try {
+			JSON.parse(str);
+		} catch (e) {
+			return false;
+		}
+	    return true;
+	}
 
 	getProfileData() {
 		let arr = {
@@ -48,7 +47,8 @@ class summoner {
 			iconID: this.iconID,
 			leagueName: this.leagueName,
 			leagueWins: this.wins,
-			rankedTier: this.rankedTier + " " + this.division
+			rankedTier: this.rankedTier + " " + this.division,
+			level: this.level
 		}
 		return arr
 	}
