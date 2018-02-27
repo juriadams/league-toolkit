@@ -303,15 +303,17 @@ async function profileUpdate() {
     data = ipcRenderer.sendSync("profileUpdate");
 
     if (!data) return;
-    let rankedTier = data.rankedTier || document.getElementById("profileRankedTier").innerHTML;
-    let leagueName = data.leagueName || document.getElementById("profileLeagueName").innerHTML;
-    let profileWL = data.leagueWins + " Wins" || document.getElementById("profileWL").innerHTML;
+    let rankedTier = data.rankedTier || document.getElementById("profileRankedTier").innerHTML || "Not logged in.";
+    console.log(rankedTier)
+    let leagueName = data.leagueName || document.getElementById("profileLeagueName").innerHTML || "";
+    //let profileWL = data.leagueWins + " Wins" || document.getElementById("profileWL").innerHTML;
+    let profileLevel = ("Level " + data.level) || document.getElementById("profileWL").innerHTML || "";
 
     document.getElementById("profileName").innerHTML = data.name;
     document.getElementById("profileRankedTier").innerHTML = rankedTier;
     document.getElementById("profileLeagueName").innerHTML = leagueName;
-    document.getElementById("profileWL").innerHTML = profileWL;
-    document.getElementById("profileSummonerIcon").src = "http://ddragon.leagueoflegends.com/cdn/8.3.1/img/profileicon/" + data.iconID + ".png";
+    document.getElementById("profileWL").innerHTML = profileLevel;
+    document.getElementById("profileSummonerIcon").src = "http://ddragon.leagueoflegends.com/cdn/8.3.1/img/profileicon/" + (data.iconID || "1") + ".png";
 
   } catch (e) {
     console.log("And error occured updating the profile information: " + e);
