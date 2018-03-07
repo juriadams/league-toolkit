@@ -24,6 +24,14 @@ function divisionChange() {
 }
 
 function submitTierDivison() {
+
+  if (selectedTier == "GOTCHA") {
+    selectedDivision = "";
+  } else {
+    division = document.getElementById("division").value;
+    selectedDivision = division;
+  }
+
   ipcRenderer.send('submitTierDivison', selectedTier, selectedDivision);
 }
 
