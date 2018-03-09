@@ -315,13 +315,13 @@ async function profileUpdate() {
     console.log(rankedTier)
     let leagueName = data.leagueName || document.getElementById("profileLeagueName").innerHTML || "";
     //let profileWL = data.leagueWins + " Wins" || document.getElementById("profileWL").innerHTML;
-    let profileLevel = ("Level " + data.level) || document.getElementById("profileWL").innerHTML || "";
+    let profileLevel = (data.level) || document.getElementById("profileWL").innerHTML || "";
 
     document.getElementById("profileName").innerHTML = data.name;
     document.getElementById("profileRankedTier").innerHTML = rankedTier;
     document.getElementById("profileLeagueName").innerHTML = leagueName;
-    document.getElementById("profileWL").innerHTML = profileLevel;
-    document.getElementById("profileSummonerIcon").src = "http://ddragon.leagueoflegends.com/cdn/8.3.1/img/profileicon/" + (data.iconID || "1") + ".png";
+    document.getElementById("profileLevel").innerHTML = profileLevel;
+    document.getElementById("profileSummonerIcon").src = "http://ddragon.leagueoflegends.com/cdn/8.4.1/img/profileicon/" + (data.iconID || "1") + ".png";
 
   } catch (e) {
     console.log("And error occured updating the profile information: " + e);
@@ -341,15 +341,15 @@ function openTab(evt, tabName) {
   }
 
   if (tabName == "Profile") {
-    document.getElementById("selected").style.marginLeft = "118px";
+    document.getElementById("selected").style.marginLeft = "120px";
   }
 
   if (tabName == "Champ Select") {
-    document.getElementById("selected").style.marginLeft = "270px";
+    document.getElementById("selected").style.marginLeft = "278px";
   }
 
   if (tabName == "Miscellaneous") {
-    document.getElementById("selected").style.marginLeft = "458px";
+    document.getElementById("selected").style.marginLeft = "473px";
   }
 
   // Get all elements with class="tabcontent" and hide them

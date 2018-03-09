@@ -1,9 +1,20 @@
+@font-face {
+    font-family: "beaufort-bold";
+    src:url("assets/fonts/Beaufort-Bold.ttf");
+}
+
+@font-face {
+    font-family: "beaufort-regular";
+    src:url("assets/fonts/Beaufort-Regular.ttf");
+}
+
 body {
   background: linear-gradient(to bottom, rgba(125,185,232,0) -1%,rgba(50,96,122,0) 65%,rgba(10,49,64,0.8) 100%), url(https://i.4da.ms/Gch1r6.png);
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
-  font-family: 'Patua One', cursive;
+  /* font-family: 'Patua One', cursive; */
+  font-family: "beaufort-bold";
   text-transform: uppercase;
   margin: 0 auto;
   /* text-align: center; */
@@ -50,7 +61,7 @@ hr {
 }
 
 .division {
-  width: 40px !important;
+  width: 50px !important;
   margin-top: 3px;
 }
 
@@ -159,7 +170,7 @@ hr {
 button {
   display: inline-block;
   position: relative;
-  font-family: 'Patua One', cursive;
+  font-family: 'beaufort-bold', cursive;
   /* font-family: 'Beaufort', 'Times New Roman', serif; */
   text-transform: uppercase;
   color: #CDBE91;
@@ -252,7 +263,7 @@ textarea:disabled {
 	position: relative;
 	cursor: pointer;
 	width: 200px;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'beaufort-bold', sans-serif;
 	color: rgb(62.7%, 60.8%, 54.9%);;
 	letter-spacing: 0.025rem;
 	outline: none;
@@ -268,6 +279,8 @@ textarea:disabled {
   box-sizing: border-box;
   -webkit-appearance: none;
   -moz-appearance: none;
+  
+  text-align-last: center;
 }
 
 .dropdown:active {
@@ -295,6 +308,7 @@ textarea:disabled {
   border-image: -webkit-linear-gradient(bottom,#695625,#463714) 1;
   border-image: linear-gradient(0deg,#695625,#463714) 1;
   font-size: 13px;
+  height: 20px;
 }
 
 .dropdown option:hover {
@@ -406,7 +420,7 @@ textarea:disabled {
 }
 
 .offset {
-  margin-top: 20px !important;
+  margin-top: 25px !important;
 }
 
 .info-bp {
@@ -420,15 +434,39 @@ textarea:disabled {
 .info-status {
   display: block;
   margin-left: auto;
-  margin-right: auto
+  margin-right: auto;
 }
 
 .info-name {
   text-align: center;
-  margin-top: -175px;
+  margin-top: -165px;
   font-size: 25px;
   color: #f0e6d2;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
+}
+
+.level-badge {
+  /* top: 155px; */
+  /* left: 88px; */
+  display: block;
+  margin-left: auto;
+  margin-right: auto
+}
+
+.level-level {
+  margin: 0px;
+  margin-top: -27px;
+  text-align: center;
+  font-size: 15px;
+  color: #f0e6d2;
+  /* margin-top: -204px; */
+}
+
+.level-box {
+  position: absolute;
+  top: 155px;
+  width: 246px;
+  height: 25px;
 }
 
 /*
@@ -436,7 +474,7 @@ textarea:disabled {
 */
 
 .options {
-  font-family: 'Roboto';
+  font-family: 'beaufort-bold';
   text-transform: none;
   margin: 10px;
   margin-left: 0px;
