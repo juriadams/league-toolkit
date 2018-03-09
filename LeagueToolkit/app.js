@@ -81,10 +81,10 @@ app.on('ready', function() {
 	}));
 
   // Building Menu from template
-  //const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
+  const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
 
   // Loading the menu to overwrite developer tools
-  //Menu.setApplicationMenu(mainMenu);
+  Menu.setApplicationMenu(mainMenu);
 
 });
 
