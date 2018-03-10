@@ -423,3 +423,9 @@ ipcRenderer.on('versions', (event, appVersion, leagueGameVersion) => {
     document.getElementById("version-tag").innerHTML = "V" + currentVersion + " (beta)"
   }
 })
+
+function saveIgnored () {
+  let ignored = document.getElementById("ignored").value;
+  let names = ignored.split(", ");
+  ipcRenderer.send('saveIgnored', names)
+}

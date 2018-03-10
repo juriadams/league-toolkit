@@ -16,6 +16,7 @@ var routes;
 
 var autoAccept_enabled = false;
 var invDecline_enabled = false;
+var ignoredDeclines = [];
 
 // Extracting some stuff from electron
 const {
@@ -82,10 +83,10 @@ app.on('ready', function() {
 	}));
 
   // Building Menu from template
-  // const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
+  const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
 
   // Loading the menu to overwrite developer tools
-  // Menu.setApplicationMenu(mainMenu);
+  Menu.setApplicationMenu(mainMenu);
 
 });
 
@@ -385,18 +386,21 @@ function invDecline() {
 			if (data.length > 0) {
 				if (typeof data[0].invitationId !== 'undefined') {
 
-					let declineUrl = routes.Route("invDecline") + "/" + data[0].invitationId + "/decline";
-					let declineBody = {
-						url: declineUrl,
-						"rejectUnauthorized": false,
-						headers: {
-							Authorization: routes.getAuth()
-						},
-						json: {}
-					}
+					if (!ignoredDeclines.includes(data[0].fromSummonerName)) {
 
-					if (invDecline_enabled) {
-						request.post(declineBody);
+						let declineUrl = routes.Route("invDecline") + "/" + data[0].invitationId + "/decline";
+						let declineBody = {
+							url: declineUrl,
+							"rejectUnauthorized": false,
+							headers: {
+								Authorization: routes.getAuth()
+							},
+							json: {}
+						}
+						if (invDecline_enabled) {
+							request.post(declineBody);
+						}
+
 					}
 				}
 			}
@@ -408,6 +412,10 @@ function invDecline() {
 }
 
 invDecline();
+
+ipcMain.on('saveIgnored', (event, names) => {
+	ignoredDeclines = names;
+})
 
 ipcMain.on('requestVersionCheck', (event) => {
 	request('https://raw.githubusercontent.com/4dams/LeagueToolkit/master/LeagueToolkit/version.json', (error, response, body) => {

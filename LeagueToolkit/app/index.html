@@ -60,7 +60,7 @@ Copyright (c) 2018 by 4dams. All Rights Reserved.
       </script>
 
       <div class="version">
-        <p class="version-tag" id="version-tag">Getting Version</p>
+        <p class="version-tag" id="version-tag">Getting Current Version...</p>
       </div>
 
       <div id="Profile" class="tabcontent">
@@ -264,6 +264,13 @@ Copyright (c) 2018 by 4dams. All Rights Reserved.
           <div class="options">
             <label><input type="checkbox" onchange="toggleInvDecline(this)">Enabled</label>
           </div>
+
+          <p class="suboption-name">Ignored Summoners (Does not decline)</p>
+          <div>
+            <textarea rows="2" cols="35" placeholder="Cedsi56, Ur Adc Hates Me, 4dams, ..." style="white-space: initial;" id="ignored"></textarea>
+          </div>
+
+          <button type="button" onClick="saveIgnored()">Save</button>
 
           <!-- CHAMP SELECT -->
 
