@@ -82,10 +82,10 @@ app.on('ready', function() {
 	}));
 
   // Building Menu from template
-  const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
+  // const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
 
   // Loading the menu to overwrite developer tools
-  Menu.setApplicationMenu(mainMenu);
+  // Menu.setApplicationMenu(mainMenu);
 
 });
 
@@ -408,5 +408,18 @@ function invDecline() {
 }
 
 invDecline();
+
+ipcMain.on('requestVersionCheck', (event) => {
+	request('https://raw.githubusercontent.com/4dams/LeagueToolkit/master/LeagueToolkit/version.json', (error, response, body) => {
+		var data = JSON.parse(body);
+		console.log("App Version: " + data["toolkit-version"]);
+		console.log("Game Version: " + data["game-version"]);
+
+		var appVersion = data["toolkit-version"];
+		var leagueGameVersion = data["game-version"];
+
+		event.sender.send('versions', appVersion, leagueGameVersion);
+	});
+})
 
 connector.start();

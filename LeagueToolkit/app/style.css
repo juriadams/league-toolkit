@@ -93,8 +93,8 @@ hr {
 }
 
 .version {
-  position: absolute;
-  bottom: 0px;
+  position: fixed;
+  bottom: 15px;
   left: 15px;
 }
 

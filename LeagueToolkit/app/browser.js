@@ -2,6 +2,9 @@
 // Copyright (c) 2018 by 4dams. All Rights Reserved.
 //
 
+var currentVersion = 0.3;
+var gameVersion;
+
 const electron = require('electron');
 const {
   ipcRenderer
@@ -312,16 +315,14 @@ async function profileUpdate() {
 
     if (!data) return;
     let rankedTier = data.rankedTier || document.getElementById("profileRankedTier").innerHTML || "Not logged in.";
-    console.log(rankedTier)
     let leagueName = data.leagueName || document.getElementById("profileLeagueName").innerHTML || "";
-    //let profileWL = data.leagueWins + " Wins" || document.getElementById("profileWL").innerHTML;
     let profileLevel = (data.level) || document.getElementById("profileWL").innerHTML || "";
 
     document.getElementById("profileName").innerHTML = data.name;
     document.getElementById("profileRankedTier").innerHTML = rankedTier;
     document.getElementById("profileLeagueName").innerHTML = leagueName;
     document.getElementById("profileLevel").innerHTML = profileLevel;
-    document.getElementById("profileSummonerIcon").src = "http://ddragon.leagueoflegends.com/cdn/8.4.1/img/profileicon/" + (data.iconID || "1") + ".png";
+    document.getElementById("profileSummonerIcon").src = "http://ddragon.leagueoflegends.com/cdn/" + gameVersion + "/img/profileicon/" + (data.iconID || "1") + ".png";
 
   } catch (e) {
     console.log("And error occured updating the profile information: " + e);
@@ -408,3 +409,17 @@ function toggleInvDecline (element) {
     ipcRenderer.send('invDecline', false)
   }
 }
+
+ipcRenderer.send('requestVersionCheck');
+
+ipcRenderer.on('versions', (event, appVersion, leagueGameVersion) => {
+  gameVersion = leagueGameVersion;
+
+  if (appVersion == currentVersion) {
+    document.getElementById("version-tag").innerHTML = "V" + currentVersion + " (latest)";
+  } else if (appVersion > currentVersion) {
+    document.getElementById("version-tag").innerHTML = "V" + currentVersion + " (update available)";
+  } else if (appVersion < currentVersion) {
+    document.getElementById("version-tag").innerHTML = "V" + currentVersion + " (beta)"
+  }
+})
