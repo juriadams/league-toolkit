@@ -290,8 +290,6 @@ textarea:disabled {
   box-sizing: border-box;
   -webkit-appearance: none;
   -moz-appearance: none;
-
-  text-align-last: center;
 }
 
 .dropdown:active {
