@@ -92,6 +92,18 @@ hr {
   -webkit-app-region: no-drag;
 }
 
+.version {
+  position: absolute;
+  bottom: 0px;
+  left: 15px;
+}
+
+.version-tag {
+  margin: 0px;
+  color: #a09b8c;
+  opacity: 0.5;
+}
+
 .icon {
   font-size: 20px !important;
 }
