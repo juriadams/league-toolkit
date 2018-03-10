@@ -15,6 +15,7 @@ class routes {
 			lolchatv1me: "/lol-chat/v1/me",
 			lolmatchmakingv1readycheck: "/lol-matchmaking/v1/ready-check",
 			lolmatchmakingv1readycheckaccept: "/lol-matchmaking/v1/ready-check/accept",
+			lollobbyv2receivedinvitations: "/lol-lobby/v2/received-invitations",
 			lolsummonerv1currentsummoner: "/lol-summoner/v1/current-summoner",
 			lolrankedstatsv1statsByID: "/lol-ranked-stats/v1/stats/"
 		}
@@ -36,6 +37,9 @@ class routes {
 
 			// lolsummonerv1currentsummoner
 			localSummoner: this.routes["lolsummonerv1currentsummoner"],
+
+			// lollobbyv2receivedinvitations
+			invDecline: this.routes["lollobbyv2receivedinvitations"],
 
 			// lolrankedstatsv1statsByID:
 			getRankedStats: function(instance, id) {return instance.routes["lolrankedstatsv1statsByID"] + id}

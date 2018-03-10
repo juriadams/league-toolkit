@@ -15,6 +15,7 @@ var LocalSummoner;
 var routes;
 
 var autoAccept_enabled = false;
+var invDecline_enabled = false;
 
 // Extracting some stuff from electron
 const {
@@ -298,6 +299,14 @@ ipcMain.on('autoAccept', (event, int) => {
 	}
 });
 
+ipcMain.on('invDecline', (event, int) => {
+	if (int) {
+		invDecline_enabled = true
+	} else {
+		invDecline_enabled = false
+	}
+});
+
 function IsJsonString(str) {
     try {
         JSON.parse(str);
@@ -353,5 +362,51 @@ var autoAccept = function() {
 }
 
 autoAccept();
+
+function invDecline() {
+
+	setInterval(function() {
+		if (!routes) return;
+
+		let url = routes.Route("invDecline");
+		let body = {
+			url: url,
+			"rejectUnauthorized": false,
+			headers: {
+				Authorization: routes.getAuth()
+			},
+		};
+		let callback = function(error, response, body) {
+			if (!body || !IsJsonString(body)) return;
+			var data = JSON.parse(body);
+
+			//console.log(data);
+
+			if (data.length > 0) {
+				if (typeof data[0].invitationId !== 'undefined') {
+
+					let declineUrl = routes.Route("invDecline") + "/" + data[0].invitationId + "/decline";
+					let declineBody = {
+						url: declineUrl,
+						"rejectUnauthorized": false,
+						headers: {
+							Authorization: routes.getAuth()
+						},
+						json: {}
+					}
+
+					if (invDecline_enabled) {
+						request.post(declineBody);
+					}
+				}
+			}
+		};
+
+		request.get(body, callback);
+	}, 500);
+
+}
+
+invDecline();
 
 connector.start();

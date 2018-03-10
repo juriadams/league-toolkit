@@ -400,3 +400,11 @@ function toggleAutoAccept (element) {
     ipcRenderer.send('autoAccept', false)
   }
 }
+
+function toggleInvDecline (element) {
+  if (element.checked) {
+    ipcRenderer.send('invDecline', true)
+  } else {
+    ipcRenderer.send('invDecline', false)
+  }
+}

@@ -8,7 +8,7 @@ class summoner {
 
 		if (!this.IsJsonString(data)) return;
 		data = JSON.parse(data)
-		console.log(data)
+		//console.log(data)
 		this.APIRoutes = APIRoutes;
 		this.level = this.level || data.summonerLevel;
 		this.name = this.name || data.displayName;
@@ -111,9 +111,9 @@ class summoner {
 			}
 		}
 		let callback = function(error, response, body) {
-			console.log('error:', error);
-			console.log('statusCode:', response && response.statusCode);
-			console.log('body:', body);
+			// console.log('error:', error);
+			// console.log('statusCode:', response && response.statusCode);
+			// console.log('body:', body);
 		};
 		this.request.put(body, callback);
 	}
