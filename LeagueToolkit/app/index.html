@@ -62,8 +62,10 @@ Copyright (c) 2018 by 4dams. All Rights Reserved.
             <div id="Profile" class="tabcontent">
 
                 <div class="info">
-                    <img src="assets/ui/info.png" draggable="false">
-                    <img src="assets/ui/default_icon.png" class="summonericon" id="profileSummonerIcon" draggable="false">
+                    <img src="assets/ui/info2.png" draggable="false">
+                    <div class="icon-box">
+                      <img src="assets/ui/default_icon.png" class="summonericon" id="profileSummonerIcon" draggable="false">
+                    </div>
                     <div class="level-box">
                       <img src="assets/ui/level.png" class="level-badge" draggable="false">
                       <p class="level-level" id="profileLevel">--</p>
@@ -79,7 +81,9 @@ Copyright (c) 2018 by 4dams. All Rights Reserved.
                     <!-- CUSTOM RANK -->
                     <div class="option">
 
-                        <p class="option-name">Custom Rank</p>
+                        <p class="option-name">Player Preview Card</p>
+
+                        <p class="suboption-name">Custom Rank</p>
 
                         <div>
 
@@ -115,23 +119,10 @@ Copyright (c) 2018 by 4dams. All Rights Reserved.
 
                     </div>
 
-                    <!-- CUSTOM RANKED LEAGUE NAME -->
-                    <div class="option">
-
-                        <p class="option-name">Custom Ranked League Name</p>
-
-                        <div>
-                            <textarea rows="1" cols="20" placeholder="Bard's Awesome Dudes" id="leagueName"></textarea>
-                        </div>
-
-                        <button type="button" onClick="submitLeagueName()">Save</button>
-
-                    </div>
-
                     <!-- CUSTOM LEVEL -->
                     <div class="option">
 
-                        <p class="option-name">Custom Level</p>
+                        <p class="suboption-name">Custom Level</p>
 
                         <div>
                             <textarea rows="1" cols="10" placeholder="1337" id="level"></textarea>
@@ -144,7 +135,7 @@ Copyright (c) 2018 by 4dams. All Rights Reserved.
                     <!-- CUSTOM STATUS MESSAGE -->
                     <div class="option">
 
-                        <p class="option-name">Custom Status Message (infinite length)</p>
+                        <p class="suboption-name">Custom Status Message (infinite length)</p>
 
                         <div>
                             <textarea rows="2" cols="35" placeholder="Most dedicated support player EUW!" id="status"></textarea>
@@ -164,7 +155,7 @@ Copyright (c) 2018 by 4dams. All Rights Reserved.
                     <!-- CUSTOM AVAILABILIY -->
                     <div class="option">
 
-                        <p class="option-name">Custom Availability</p>
+                        <p class="suboption-name">Custom Availability</p>
 
                         <div>
                             <select id="availability" class="dropdown">
@@ -185,7 +176,7 @@ Copyright (c) 2018 by 4dams. All Rights Reserved.
                     <!-- CUSTOM SUMMONER NAME -->
                     <div class="option">
 
-                        <p class="option-name">Custom Summoner Name (local)</p>
+                        <p class="suboption-name">Custom Summoner Name (local)</p>
 
                         <div>
                             <textarea rows="1" cols="20" placeholder="Scarlet" id="summoner"></textarea>
@@ -198,7 +189,7 @@ Copyright (c) 2018 by 4dams. All Rights Reserved.
                     <!-- CUSTOM SUMMONER ICON -->
                     <div class="option">
 
-                        <p class="option-name">Custom Summoner Icon (local)</p>
+                        <p class="suboption-name">Custom Summoner Icon (local)</p>
 
                         <div>
                             <textarea rows="1" cols="20" placeholder="Icon ID" id="icon"></textarea>
@@ -208,10 +199,25 @@ Copyright (c) 2018 by 4dams. All Rights Reserved.
 
                     </div>
 
+                    <p class="option-name">Ranked Information</p>
+
+                    <!-- CUSTOM RANKED LEAGUE NAME -->
+                    <div class="option">
+
+                        <p class="suboption-name">Custom Ranked League Name</p>
+
+                        <div>
+                            <textarea rows="1" cols="20" placeholder="Bard's Awesome Dudes" id="leagueName"></textarea>
+                        </div>
+
+                        <button type="button" onClick="submitLeagueName()">Save</button>
+
+                    </div>
+
                     <!-- CUSTOM RANKED WINS/LOSSES -->
                     <div class="option">
 
-                        <p class="option-name">Custom Ranked Wins/Losses</p>
+                        <p class="suboption-name">Custom Ranked Wins/Losses</p>
 
                         <div>
                             <textarea rows="1" cols="5" placeholder="Wins" id="wins" class="float-left"></textarea> <textarea rows="1" cols="5" placeholder="Losses" id="losses"></textarea>
