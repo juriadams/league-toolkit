@@ -373,7 +373,7 @@ function openTab(evt, tabName) {
 
 // Event listeners
 
-function autoUpdate () {
+function autoUpdate() {
   isActive = true;
   setTimeout(function() {
     setInterval(function() {
@@ -394,7 +394,7 @@ window.onblur = function() {
   isActive = false;
 };
 
-function toggleAutoAccept (element) {
+function toggleAutoAccept(element) {
   if (element.checked) {
     ipcRenderer.send('autoAccept', true)
   } else {
@@ -402,7 +402,7 @@ function toggleAutoAccept (element) {
   }
 }
 
-function toggleInvDecline (element) {
+function toggleInvDecline(element) {
   if (element.checked) {
     ipcRenderer.send('invDecline', true)
   } else {
@@ -424,7 +424,7 @@ ipcRenderer.on('versions', (event, appVersion, leagueGameVersion) => {
   }
 })
 
-function saveIgnored () {
+function saveIgnored() {
   let ignored = document.getElementById("ignored").value;
   let names = ignored.split(", ");
   ipcRenderer.send('saveIgnored', names)

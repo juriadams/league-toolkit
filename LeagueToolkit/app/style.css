@@ -1,15 +1,15 @@
 @font-face {
-    font-family: "beaufort-bold";
-    src:url("assets/fonts/Beaufort-Bold.ttf");
+  font-family: "beaufort-bold";
+  src: url("assets/fonts/Beaufort-Bold.ttf");
 }
 
 @font-face {
-    font-family: "beaufort-regular";
-    src:url("assets/fonts/Beaufort-Regular.ttf");
+  font-family: "beaufort-regular";
+  src: url("assets/fonts/Beaufort-Regular.ttf");
 }
 
 body {
-  background: linear-gradient(to bottom, rgba(125,185,232,0) -1%,rgba(50,96,122,0) 65%,rgba(10,49,64,0.8) 100%), url(https://i.4da.ms/Gch1r6.png);
+  background: linear-gradient(to bottom, rgba(125, 185, 232, 0) -1%, rgba(50, 96, 122, 0) 65%, rgba(10, 49, 64, 0.8) 100%), url(https://i.4da.ms/Gch1r6.png);
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
@@ -115,6 +115,7 @@ hr {
 }
 
 /* Style the buttons that are used to open the tab content */
+
 .controls button {
   background-color: transparent;
   float: left;
@@ -131,6 +132,7 @@ hr {
 }
 
 /* Change background color of buttons on hover */
+
 .controls button:hover {
   color: #f0e6d2;
   border: none;
@@ -142,6 +144,7 @@ hr {
 }
 
 /* Create an active/current tablink class */
+
 .controls button.active {
   color: #f0e6d2;
 }
@@ -155,29 +158,29 @@ hr {
 */
 
 ::-webkit-scrollbar {
-    width: 7px;
-    border-radius: 5px;
+  width: 7px;
+  border-radius: 5px;
 }
 
 ::-webkit-scrollbar * {
-    background:transparent;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-track-piece:start {
-    background:transparent;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-track-piece:end {
-    background:transparent;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #9b722c;
-    border-radius: 10px;
+  background: #9b722c;
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #d4b373;
+  background: #d4b373;
 }
 
 /*
@@ -209,15 +212,9 @@ button {
 button:hover {
   color: #F0E6D2;
   border: 2px solid transparent;
-  border-image:
-    linear-gradient(to top,
-    rgb(78.4%, 61.2%, 23.5%) 0%,
-    rgb(86.3%, 75.7%, 53.3%) 50%,
-    rgb(88.2%, 78.8%, 59.6%) 71%,
-    rgb(94.1%, 90.2%, 84.7%) 100%
-    );
+  border-image: linear-gradient(to top, rgb(78.4%, 61.2%, 23.5%) 0%, rgb(86.3%, 75.7%, 53.3%) 50%, rgb(88.2%, 78.8%, 59.6%) 71%, rgb(94.1%, 90.2%, 84.7%) 100%);
   border-image-slice: 1;
-  box-shadow: 0px 0px 13px 0px rgba(205,190,145,0.39);
+  box-shadow: 0px 0px 13px 0px rgba(205, 190, 145, 0.39);
   transition: color 100ms linear;
   /* filter: blur(4px); */
 }
@@ -239,13 +236,12 @@ button:after {
   transition: all 0.8s
 }
 
-
 /*
     TEXT FIELDS
 */
 
 textarea {
-  overflow:hidden;
+  overflow: hidden;
   white-space: nowrap;
   resize: none;
   font-family: 'Open Sans', sans-serif;
@@ -254,10 +250,10 @@ textarea {
   display: block;
   box-sizing: border-box;
   border: 1px solid #785A28;
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0, 0, 0, 0.7);
   appearance: none;
   outline: none;
-  box-shadow: 0 0 0 1px rgba(0,0,0,0.25) inset,0 0 0 1px rgba(0,0,0,0.25);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25) inset, 0 0 0 1px rgba(0, 0, 0, 0.25);
 }
 
 textarea:focus {
@@ -266,10 +262,9 @@ textarea:focus {
 }
 
 textarea:disabled {
-  color: rgba(230,33,66,0.7) !important;
-  border: 1px solid rgba(230,33,66,0.7);
+  color: rgba(230, 33, 66, 0.7) !important;
+  border: 1px solid rgba(230, 33, 66, 0.7);
 }
-
 
 /*
     DROPDOWNS
@@ -277,17 +272,18 @@ textarea:disabled {
 
 .dropdown {
   display: inline-block;
-	position: relative;
-	cursor: pointer;
-	width: 200px;
-	font-family: 'beaufort-bold', sans-serif;
-	color: rgb(62.7%, 60.8%, 54.9%);;
-	letter-spacing: 0.025rem;
-	outline: none;
+  position: relative;
+  cursor: pointer;
+  width: 200px;
+  font-family: 'beaufort-bold', sans-serif;
+  color: rgb(62.7%, 60.8%, 54.9%);
+  ;
+  letter-spacing: 0.025rem;
+  outline: none;
   padding: 10px 14px;
-  background-color: rgba(30,35,40,0.5);
+  background-color: rgba(30, 35, 40, 0.5);
   border: 1px solid transparent;
-  border-image: linear-gradient(to top,#695625 0%,#A9852D 23%,#B88D35 93%,#C8AA6E 100%) 1;
+  border-image: linear-gradient(to top, #695625 0%, #A9852D 23%, #B88D35 93%, #C8AA6E 100%) 1;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -299,15 +295,15 @@ textarea:disabled {
 }
 
 .dropdown:active {
-  background: rgba(30,35,40,0.5);
+  background: rgba(30, 35, 40, 0.5);
   color: #463714;
   border: 1px solid #463714;
 }
 
 .dropdown:focus {
-  background: linear-gradient(to top,rgba(88,83,66,0.5),rgba(30,35,40,0.5));
+  background: linear-gradient(to top, rgba(88, 83, 66, 0.5), rgba(30, 35, 40, 0.5));
   border: 1px solid transparent;
-  border-image: linear-gradient(to top,#c89b3c,#f0e6d2) 1;
+  border-image: linear-gradient(to top, #c89b3c, #f0e6d2) 1;
 }
 
 .dropdown option {
@@ -319,9 +315,9 @@ textarea:disabled {
   text-overflow: ellipsis;
   white-space: nowrap;
   background: #010a13;
-  -o-border-image: linear-gradient(0deg,#695625,#463714) 1;
-  border-image: -webkit-linear-gradient(bottom,#695625,#463714) 1;
-  border-image: linear-gradient(0deg,#695625,#463714) 1;
+  -o-border-image: linear-gradient(0deg, #695625, #463714) 1;
+  border-image: -webkit-linear-gradient(bottom, #695625, #463714) 1;
+  border-image: linear-gradient(0deg, #695625, #463714) 1;
   font-size: 13px;
   height: 20px;
 }
@@ -352,7 +348,8 @@ textarea:disabled {
   border-top: 2px solid #735828;
   border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   height: 100px;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 80%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 80%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   -webkit-app-region: drag;
 }
 
@@ -369,6 +366,7 @@ textarea:disabled {
 }
 
 /* Style the buttons that are used to open the tab content */
+
 .tab button {
   background-color: transparent;
   float: left;
@@ -386,16 +384,19 @@ textarea:disabled {
 }
 
 /* Change background color of buttons on hover */
+
 .tab button:hover {
   color: #f0e6d2;
 }
 
 /* Create an active/current tablink class */
+
 .tab button.active {
   color: #f0e6d2;
 }
 
 /* Style the tab content */
+
 .tabcontent {
   display: none;
   border-top: none;
@@ -509,14 +510,14 @@ textarea:disabled {
 
 .warning {
   /* box-shadow: 0px 0px 13px -1px rgba(230,33,66,0.7); */
-  color: rgba(230,33,66,0.7) !important;
-  border: 1px solid rgba(230,33,66,0.7);
+  color: rgba(230, 33, 66, 0.7) !important;
+  border: 1px solid rgba(230, 33, 66, 0.7);
 }
 
 .warning:hover {
   /* box-shadow: 0px 0px 13px -1px rgba(230,33,66,0.7); */
-  color: rgba(230,33,66,0.7) !important;
-  border: 1px solid rgba(230,33,66,0.7);
+  color: rgba(230, 33, 66, 0.7) !important;
+  border: 1px solid rgba(230, 33, 66, 0.7);
 }
 
 .warning-sign {
