@@ -3,8 +3,7 @@
   <b>Important Links:</b><br>
   <a href="https://engineering.riotgames.com/news/architecture-league-client-update">Inspiration</a> |
   <a href="https://github.com/4dams/LeagueToolkit/wiki/Previews">Preview</a> |
-  <a href="https://github.com/4dams/LeagueToolkit/wiki/Features">Features</a> |
-  <a href="https://github.com/4dams/LeagueToolkit/releases">Download</a>
+  <a href="https://github.com/4dams/LeagueToolkit/wiki/Features">Features</a>
   <br><br>
 </p>
 
