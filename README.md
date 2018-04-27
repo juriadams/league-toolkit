@@ -5,7 +5,7 @@
   <a href="https://github.com/4dams/LeagueToolkit/wiki/Previews">Preview</a> |
   <a href="https://github.com/4dams/LeagueToolkit/wiki/Features">Features</a>
   <br>
-  <a href="https://github.com/4dams/LeagueToolkit/releases"><b><u>Newest Release</u></b></a>
+  <a href="https://github.com/4dams/LeagueToolkit/releases" style="text-decoration: underline;"><b>Latest Release</b></a>
   <br>
 </p>
 
