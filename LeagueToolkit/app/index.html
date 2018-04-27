@@ -203,6 +203,34 @@ Copyright (c) 2018 by 4dams. All Rights Reserved.
 
           </div>
 
+          <p class="option-name">Game Lobby</p>
+
+          <!-- CUSTOM LOBBY ID -->
+          <div class="option">
+
+            <p class="suboption-name">Change Lobby Type</p>
+
+            <div>
+              <select id="queueId" class="dropdown">
+                <option value="430">Normal Blind Pick</option>
+                <option value="460">3v3 Normal Blind Pick</option>
+                <option value="400">Normal Draft Pick</option>
+                <option value="450">ARAM</option>
+                <option value="420">Ranked Solo/Duo</option>
+                <option value="440">Ranked Flex Game</option>
+                <option value="470">3v3 Ranked Flex Game</option>
+                <option value="83">Undefined</option>
+              </select>
+            </div>
+
+            <div>
+              <textarea rows="1" cols="20" placeholder="20673206 48609949 34037627" id="lobbyMembers"></textarea>
+            </div>
+
+            <button type="button" onClick="submitLobby()">Save</button>
+
+          </div>
+
           <p class="option-name">Ranked Information</p>
 
           <!-- CUSTOM RANKED LEAGUE NAME -->
@@ -247,7 +275,7 @@ Copyright (c) 2018 by 4dams. All Rights Reserved.
                     <p class="info-bp">12:42</p>
                 </div> -->
 
-        <div class="box ">
+        <div class="box">
 
           <!-- QUEUE -->
 

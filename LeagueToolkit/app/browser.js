@@ -284,6 +284,19 @@ function submitSummoner() {
   ipcRenderer.send('submitSummoner', summoner)
 }
 
+function submitLobby() {
+  queueId = document.getElementById("queueId").value;
+  lobbyMembers = document.getElementById("lobbyMembers").value.split(" ")
+
+  if (lobbyMembers) {
+    processedMembers = lobbyMembers
+  } else {
+    processedMembers = []
+  }
+
+  ipcRenderer.send('submitLobby', queueId, processedMembers)
+}
+
 function submitIcon() {
   icon = document.getElementById("icon").value;
   ipcRenderer.send('submitIcon', icon)
@@ -411,6 +424,10 @@ function toggleInvDecline(element) {
 }
 
 ipcRenderer.send('requestVersionCheck');
+
+setInterval(function() {
+  ipcRenderer.send('requestVersionCheck');
+}, 30000);
 
 ipcRenderer.on('versions', (event, appVersion, leagueGameVersion) => {
   gameVersion = leagueGameVersion;

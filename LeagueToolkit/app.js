@@ -306,6 +306,27 @@ function IsJsonString(str) {
   return true;
 }
 
+ipcMain.on('submitLobby', (event, queueId, members) => {
+
+  let url = routes.Route("submitSummoner");
+  let body = {
+    url: url,
+    "rejectUnauthorized": false,
+    headers: {
+      Authorization: routes.getAuth()
+    },
+    json: {
+      "lol": {
+        "pty": "{\"partyId\":\"404debc0-91a0-4b62-9335-aae99e6d8b48\",\"queueId\":" + queueId + ",\"summoners\":" + members + "}",
+      }
+    }
+  };
+  let callback = function(error, response, body) {};
+
+  request.put(body, callback);
+
+});
+
 var autoAccept = function() {
 
   setInterval(function() {
