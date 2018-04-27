@@ -1,11 +1,11 @@
 <p align="center">
   <img src="https://github.com/4dams/LeagueToolkit/blob/master/LeagueToolkit/images/logo.png"><br>
-  <b>Important Links:</b><br>
+  <b>Useful Links:</b><br>
   <a href="https://engineering.riotgames.com/news/architecture-league-client-update">Inspiration</a> |
   <a href="https://github.com/4dams/LeagueToolkit/wiki/Previews">Preview</a> |
   <a href="https://github.com/4dams/LeagueToolkit/wiki/Features">Features</a>
   <br>
-  <a href="https://github.com/4dams/LeagueToolkit/releases"><b>Newest Release</b></a>
+  <a href="https://github.com/4dams/LeagueToolkit/releases"><b><u>Newest Release</u></b></a>
   <br>
 </p>
 
