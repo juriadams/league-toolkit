@@ -2,54 +2,54 @@
 // Copyright (c) 2018 by 4dams. All Rights Reserved.
 //
 
-var currentVersion = 0.3;
-var gameVersion;
+var currentVersion = 0.3
+var gameVersion
 
-const electron = require('electron');
+const electron = require('electron')
 const {
   ipcRenderer
-} = electron;
+} = electron
 
-var isActive;
+var isActive
 
-var selectedTier = "UNRANKED";
-var selectedDivision = "V";
-var selectedLevel;
+var selectedTier = "UNRANKED"
+var selectedDivision = "V"
+var selectedLevel
 
 function tierChange() {
-  tier = document.getElementById("tier").value;
-  selectedTier = tier;
+  tier = document.getElementById("tier").value
+  selectedTier = tier
 }
 
 function divisionChange() {
-  division = document.getElementById("division").value;
-  selectedDivision = division;
+  division = document.getElementById("division").value
+  selectedDivision = division
 }
 
 function submitTierDivison() {
 
   if (selectedTier == "GOTCHA") {
-    selectedDivision = "";
+    selectedDivision = ""
   } else {
-    division = document.getElementById("division").value;
-    selectedDivision = division;
+    division = document.getElementById("division").value
+    selectedDivision = division
   }
 
-  ipcRenderer.send('submitTierDivison', selectedTier, selectedDivision);
+  ipcRenderer.send('submitTierDivison', selectedTier, selectedDivision)
 }
 
 function submitLeagueName() {
-  leagueName = document.getElementById("leagueName").value;
-  ipcRenderer.send('submitLeagueName', leagueName);
+  leagueName = document.getElementById("leagueName").value
+  ipcRenderer.send('submitLeagueName', leagueName)
 }
 
 function submitLevel() {
-  level = document.getElementById("level").value;
-  ipcRenderer.send('submitLevel', level);
+  level = document.getElementById("level").value
+  ipcRenderer.send('submitLevel', level)
 }
 
 function submitStatus() {
-  status = document.getElementById("status").value;
+  status = document.getElementById("status").value
 
   if (document.getElementById("italics").checked && document.getElementById("bold").checked) {
 
@@ -108,19 +108,19 @@ function submitStatus() {
       X: '\u{1d61f}',
       Y: '\u{1d620}',
       Z: '\u{1d621}'
-    };
-
-    var length = status.length;
-    var result = new Array(length);
-
-    for (var i = 0; i < length; i++) {
-      var c = status.charAt(i);
-      var r = bold_italics[c];
-
-      result[i] = r != undefined ? r : c;
     }
 
-    var status_converted = result.join('');
+    var length = status.length
+    var result = new Array(length)
+
+    for (var i = 0; i < length; i++) {
+      var c = status.charAt(i)
+      var r = bold_italics[c]
+
+      result[i] = r != undefined ? r : c
+    }
+
+    var status_converted = result.join('')
 
   } else if (document.getElementById("italics").checked) {
 
@@ -179,19 +179,19 @@ function submitStatus() {
       X: '\u{1d61f}',
       Y: '\u{1d620}',
       Z: '\u{1d621}'
-    };
-
-    var length = status.length;
-    var result = new Array(length);
-
-    for (var i = 0; i < length; i++) {
-      var c = status.charAt(i);
-      var r = italics[c];
-
-      result[i] = r != undefined ? r : c;
     }
 
-    var status_converted = result.join('');
+    var length = status.length
+    var result = new Array(length)
+
+    for (var i = 0; i < length; i++) {
+      var c = status.charAt(i)
+      var r = italics[c]
+
+      result[i] = r != undefined ? r : c
+    }
+
+    var status_converted = result.join('')
 
   } else if (document.getElementById("bold").checked) {
 
@@ -250,42 +250,42 @@ function submitStatus() {
       X: '\u{1d5eb}',
       Y: '\u{1d5ec}',
       Z: '\u{1d5ed}'
-    };
-
-    var length = status.length;
-    var result = new Array(length);
-
-    for (var i = 0; i < length; i++) {
-      var c = status.charAt(i);
-      var r = bold[c];
-
-      result[i] = r != undefined ? r : c;
     }
 
-    var status_converted = result.join('');
+    var length = status.length
+    var result = new Array(length)
+
+    for (var i = 0; i < length; i++) {
+      var c = status.charAt(i)
+      var r = bold[c]
+
+      result[i] = r != undefined ? r : c
+    }
+
+    var status_converted = result.join('')
 
   } else {
 
-    var status_converted = status;
+    var status_converted = status
 
   }
 
 
-  ipcRenderer.send('submitStatus', status_converted);
+  ipcRenderer.send('submitStatus', status_converted)
 }
 
 function submitAvailability() {
-  availability = document.getElementById("availability").value;
+  availability = document.getElementById("availability").value
   ipcRenderer.send('submitAvailability', availability)
 }
 
 function submitSummoner() {
-  summoner = document.getElementById("summoner").value;
+  summoner = document.getElementById("summoner").value
   ipcRenderer.send('submitSummoner', summoner)
 }
 
 function submitLobby() {
-  queueId = document.getElementById("queueId").value;
+  queueId = document.getElementById("queueId").value
   lobbyMembers = document.getElementById("lobbyMembers").value.split(" ")
 
   if (lobbyMembers) {
@@ -298,47 +298,47 @@ function submitLobby() {
 }
 
 function submitIcon() {
-  icon = document.getElementById("icon").value;
+  icon = document.getElementById("icon").value
   ipcRenderer.send('submitIcon', icon)
 }
 
 function submitWinsLosses() {
-  wins = document.getElementById("wins").value;
-  losses = document.getElementById("losses").value;
+  wins = document.getElementById("wins").value
+  losses = document.getElementById("losses").value
   ipcRenderer.send('submitWinsLosses', wins, losses)
 }
 
 function eventReset() {
-  ipcRenderer.send('reset');
+  ipcRenderer.send('reset')
 }
 
 function exit_app() {
-  ipcRenderer.send('exit_app');
+  ipcRenderer.send('exit_app')
 }
 
 function minimize_app() {
-  ipcRenderer.send('minimize_app');
+  ipcRenderer.send('minimize_app')
 }
 
 async function profileUpdate() {
-  let data;
+  let data
 
   try {
-    data = ipcRenderer.sendSync("profileUpdate");
+    data = ipcRenderer.sendSync("profileUpdate")
 
-    if (!data) return;
-    let rankedTier = data.rankedTier || document.getElementById("profileRankedTier").innerHTML || "Not logged in.";
-    let leagueName = data.leagueName || document.getElementById("profileLeagueName").innerHTML || "";
-    let profileLevel = (data.level) || document.getElementById("profileWL").innerHTML || "";
+    if (!data) return
+    let rankedTier = data.rankedTier || document.getElementById("profileRankedTier").innerHTML || "Not logged in."
+    let leagueName = data.leagueName || document.getElementById("profileLeagueName").innerHTML || ""
+    let profileLevel = (data.level) || document.getElementById("profileWL").innerHTML || ""
 
-    document.getElementById("profileName").innerHTML = data.name;
-    document.getElementById("profileRankedTier").innerHTML = rankedTier;
-    document.getElementById("profileLeagueName").innerHTML = leagueName;
-    document.getElementById("profileLevel").innerHTML = profileLevel;
-    document.getElementById("profileSummonerIcon").src = "http://ddragon.leagueoflegends.com/cdn/" + gameVersion + "/img/profileicon/" + (data.iconID || "1") + ".png";
+    document.getElementById("profileName").innerHTML = data.name
+    document.getElementById("profileRankedTier").innerHTML = rankedTier
+    document.getElementById("profileLeagueName").innerHTML = leagueName
+    document.getElementById("profileLevel").innerHTML = profileLevel
+    document.getElementById("profileSummonerIcon").src = "http://ddragon.leagueoflegends.com/cdn/" + gameVersion + "/img/profileicon/" + (data.iconID || "1") + ".png"
 
   } catch (e) {
-    console.log("And error occured updating the profile information: " + e);
+    console.log("And error occured updating the profile information: " + e)
   }
 }
 
@@ -348,64 +348,64 @@ async function profileUpdate() {
 
 function openTab(evt, tabName) {
   // Declare all variables
-  var i, tabcontent, tablinks;
+  var i, tabcontent, tablinks
 
   if (tabName == "Home") {
-    document.getElementById("selected").style.marginLeft = "0px";
+    document.getElementById("selected").style.marginLeft = "0px"
   }
 
   if (tabName == "Profile") {
-    document.getElementById("selected").style.marginLeft = "120px";
+    document.getElementById("selected").style.marginLeft = "120px"
   }
 
   if (tabName == "Champ Select") {
-    document.getElementById("selected").style.marginLeft = "278px";
+    document.getElementById("selected").style.marginLeft = "278px"
   }
 
   if (tabName == "Miscellaneous") {
-    document.getElementById("selected").style.marginLeft = "473px";
+    document.getElementById("selected").style.marginLeft = "473px"
   }
 
   // Get all elements with class="tabcontent" and hide them
-  tabcontent = document.getElementsByClassName("tabcontent");
+  tabcontent = document.getElementsByClassName("tabcontent")
   for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
+    tabcontent[i].style.display = "none"
   }
 
   // Get all elements with class="tablinks" and remove the class "active"
-  tablinks = document.getElementsByClassName("tablinks");
+  tablinks = document.getElementsByClassName("tablinks")
   for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
+    tablinks[i].className = tablinks[i].className.replace(" active", "")
   }
 
   // Show the current tab, and add an "active" class to the button that opened the tab
-  document.getElementById(tabName).style.display = "block";
-  evt.currentTarget.className += " active";
+  document.getElementById(tabName).style.display = "block"
+  evt.currentTarget.className += " active"
 }
 
 
 // Event listeners
 
 function autoUpdate() {
-  isActive = true;
+  isActive = true
   setTimeout(function() {
     setInterval(function() {
-      if (!isActive) return;
-      profileUpdate(); // update profile data without having to press update button.
+      if (!isActive) return
+      profileUpdate()
     }, 1000)
   }, 2000)
 }
 
-window.addEventListener("load", autoUpdate, false);
+window.addEventListener("load", autoUpdate, false)
 
 
 window.onfocus = function() {
-  isActive = true;
-};
+  isActive = true
+}
 
 window.onblur = function() {
-  isActive = false;
-};
+  isActive = false
+}
 
 function toggleAutoAccept(element) {
   if (element.checked) {
@@ -423,26 +423,26 @@ function toggleInvDecline(element) {
   }
 }
 
-ipcRenderer.send('requestVersionCheck');
+ipcRenderer.send('requestVersionCheck')
 
 setInterval(function() {
-  ipcRenderer.send('requestVersionCheck');
-}, 30000);
+  ipcRenderer.send('requestVersionCheck')
+}, 30000)
 
 ipcRenderer.on('versions', (event, appVersion, leagueGameVersion) => {
-  gameVersion = leagueGameVersion;
+  gameVersion = leagueGameVersion
 
   if (appVersion == currentVersion) {
-    document.getElementById("version-tag").innerHTML = "V" + currentVersion + " (latest)";
+    document.getElementById("version-tag").innerHTML = "V" + currentVersion + " (latest)"
   } else if (appVersion > currentVersion) {
-    document.getElementById("version-tag").innerHTML = "V" + currentVersion + " (update available)";
+    document.getElementById("version-tag").innerHTML = "V" + currentVersion + " (update available)"
   } else if (appVersion < currentVersion) {
     document.getElementById("version-tag").innerHTML = "V" + currentVersion + " (beta)"
   }
 })
 
 function saveIgnored() {
-  let ignored = document.getElementById("ignored").value;
-  let names = ignored.split(", ");
+  let ignored = document.getElementById("ignored").value
+  let names = ignored.split(", ")
   ipcRenderer.send('saveIgnored', names)
 }

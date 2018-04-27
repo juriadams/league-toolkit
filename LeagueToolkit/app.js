@@ -2,21 +2,22 @@
 // Copyright (c) 2018 by 4dams. All Rights Reserved.
 //
 
-var electron = require('electron');
-var url = require('url');
-var path = require('path');
-var request = require('request');
-var LCUConnector = require('lcu-connector');
-var connector = new LCUConnector();
+var electron = require('electron')
+var url = require('url')
+var path = require('path')
+var request = require('request')
+var LCUConnector = require('lcu-connector')
+var connector = new LCUConnector()
 
-var APIClient = require("./routes");
-var Summoner = require("./summoner");
-var LocalSummoner;
-var routes;
+var APIClient = require("./routes")
+var Summoner = require("./summoner")
+var LocalSummoner
+var routes
 
-var autoAccept_enabled = false;
-var invDecline_enabled = false;
-var ignoredDeclines = [];
+// Setting default settings
+var autoAccept_enabled = false
+var invDecline_enabled = false
+var ignoredDeclines = []
 
 // Extracting some stuff from electron
 const {
@@ -24,43 +25,46 @@ const {
   BrowserWindow,
   Menu,
   ipcMain
-} = electron;
+} = electron
 
 
-// Defining some variables
-let mainWindow;
-let addWindow;
-var userAuth; // NOT THE ACCOUNT USERNAME.
-var passwordAuth; // NOT THE ACCOUNT PASSWORD.
-var requestUrl;
+// Defining global variables
+let mainWindow
+let addWindow
+var userAuth
+var passwordAuth
+var requestUrl
 
 function getLocalSummoner() {
-  let url = routes.Route("localSummoner");
+
+  let url = routes.Route("localSummoner")
+
   let body = {
     url: url,
     "rejectUnauthorized": false,
     headers: {
       Authorization: routes.getAuth()
     }
-  };
-  let callback = function(error, response, body) {
-    LocalSummoner = new Summoner(body, routes);
-  };
+  }
 
-  request.get(body, callback);
+  let callback = function(error, response, body) {
+    LocalSummoner = new Summoner(body, routes)
+  }
+
+  request.get(body, callback)
 }
 
 connector.on('connect', (data) => {
-  requestUrl = data.protocol + '://' + data.address + ':' + data.port;
-  routes = new APIClient(requestUrl, data.username, data.password);
+  requestUrl = data.protocol + '://' + data.address + ':' + data.port
+  routes = new APIClient(requestUrl, data.username, data.password)
 
-  getLocalSummoner();
+  getLocalSummoner()
 
-  userAuth = data.username;
-  passwordAuth = data.password;
+  userAuth = data.username
+  passwordAuth = data.password
 
-  console.log('Request base url set to: ' + routes.getAPIBase());
-});
+  console.log('Request base url set to: ' + routes.getAPIBase())
+})
 
 // Listen for the app to be ready
 app.on('ready', function() {
@@ -73,47 +77,49 @@ app.on('ready', function() {
     resizable: false,
     movable: true,
     icon: path.join(__dirname, 'images/icon.png')
-  });
+  })
 
   // Load HTML file into the window
   mainWindow.loadURL(url.format({
     pathname: path.join(__dirname, './app/index.html'),
     protocol: 'file:',
     slashes: true
-  }));
+  }))
 
   // Building Menu from template
-  const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
+  const mainMenu = Menu.buildFromTemplate(mainMenuTemplate)
 
   // Loading the menu to overwrite developer tools
-  Menu.setApplicationMenu(mainMenu);
+  Menu.setApplicationMenu(mainMenu)
 
-});
+})
 
-// Template for creating menu
+// Menu template
 const mainMenuTemplate = [{
   label: 'File',
   submenu: []
-}];
+}]
 
 app.on('window-all-closed', () => {
   app.quit()
-});
+})
 
 ipcMain.on('reset', function() {
-  LocalSummoner.reset();
-});
+  LocalSummoner.reset()
+})
 
 ipcMain.on('exit_app', function() {
-  app.quit();
-});
+  app.quit()
+})
 
 ipcMain.on('minimize_app', function() {
-  mainWindow.minimize();
-});
+  mainWindow.minimize()
+})
 
 ipcMain.on('submitTierDivison', (event, tier, division) => {
-  let url = routes.Route("submitTierDivison");
+
+  let url = routes.Route("submitTierDivison")
+
   let body = {
     url: url,
     "rejectUnauthorized": false,
@@ -126,17 +132,16 @@ ipcMain.on('submitTierDivison', (event, tier, division) => {
         "rankedLeagueDivision": division
       }
     }
-  };
-  let callback = function(error, response, body) {};
+  }
 
-  request.put(body, callback);
+  request.put(body)
 
-});
+})
 
 ipcMain.on('submitLevel', (event, level) => {
 
-  let url = routes.Route("submitLevel");
-  let desiredLevel = level.toString();
+  let url = routes.Route("submitLevel")
+
   let body = {
     url: url,
     "rejectUnauthorized": false,
@@ -145,19 +150,19 @@ ipcMain.on('submitLevel', (event, level) => {
     },
     json: {
       "lol": {
-        "level": desiredLevel
+        "level": level.toString()
       }
     }
-  };
-  let callback = function(error, response, body) {};
+  }
 
-  request.put(body, callback);
+  request.put(body)
 
-});
+})
 
 ipcMain.on('submitStatus', (event, status) => {
 
-  let url = routes.Route("submitStatus");
+  let url = routes.Route("submitStatus")
+
   let body = {
     url: url,
     "rejectUnauthorized": false,
@@ -167,16 +172,16 @@ ipcMain.on('submitStatus', (event, status) => {
     json: {
       "statusMessage": status
     }
-  };
-  let callback = function(error, response, body) {};
+  }
 
-  request.put(body, callback);
+  request.put(body)
 
-});
+})
 
 ipcMain.on('submitLeagueName', (event, leagueName) => {
 
-  let url = routes.Route("submitLeagueName");
+  let url = routes.Route("submitLeagueName")
+
   let body = {
     url: url,
     "rejectUnauthorized": false,
@@ -188,16 +193,16 @@ ipcMain.on('submitLeagueName', (event, leagueName) => {
         "rankedLeagueName": leagueName
       }
     }
-  };
-  let callback = function(error, response, body) {};
+  }
 
-  request.put(body, callback);
+  request.put(body)
 
-});
+})
 
 ipcMain.on('submitAvailability', (event, availability) => {
 
-  let url = routes.Route("submitAvailability");
+  let url = routes.Route("submitAvailability")
+
   let body = {
     url: url,
     "rejectUnauthorized": false,
@@ -207,16 +212,16 @@ ipcMain.on('submitAvailability', (event, availability) => {
     json: {
       "availability": availability
     }
-  };
-  let callback = function(error, response, body) {};
+  }
 
-  request.put(body, callback);
+  request.put(body)
 
-});
+})
 
 ipcMain.on('submitIcon', (event, icon) => {
 
-  let url = routes.Route("submitIcon");
+  let url = routes.Route("submitIcon")
+
   let body = {
     url: url,
     "rejectUnauthorized": false,
@@ -226,16 +231,16 @@ ipcMain.on('submitIcon', (event, icon) => {
     json: {
       "icon": icon
     }
-  };
-  let callback = function(error, response, body) {};
+  }
 
-  request.put(body, callback);
+  request.put(body)
 
-});
+})
 
 ipcMain.on('submitSummoner', (event, name) => {
 
-  let url = routes.Route("submitSummoner");
+  let url = routes.Route("submitSummoner")
+
   let body = {
     url: url,
     "rejectUnauthorized": false,
@@ -245,18 +250,16 @@ ipcMain.on('submitSummoner', (event, name) => {
     json: {
       "name": name
     }
-  };
-  let callback = function(error, response, body) {};
+  }
 
-  request.put(body, callback);
+  request.put(body, )
 
-});
+})
 
 ipcMain.on('submitWinsLosses', (event, wins, losses) => {
 
-  let url = routes.Route("submitWinsLosses");
-  let desiredWins = wins.toString();
-  let desiredLosses = losses.toString();
+  let url = routes.Route("submitWinsLosses")
+
   let body = {
     url: url,
     "rejectUnauthorized": false,
@@ -265,21 +268,20 @@ ipcMain.on('submitWinsLosses', (event, wins, losses) => {
     },
     json: {
       "lol": {
-        "rankedWins": desiredWins,
-        "rankedLosses": desiredLosses
+        "rankedWins": wins.toString(),
+        "rankedLosses": losses.toString()
       }
     }
-  };
-  let callback = function(error, response, body) {};
+  }
 
-  request.put(body, callback);
+  request.put(body)
 
-});
+})
 
 ipcMain.on('profileUpdate', (event, wins, losses) => {
-  getLocalSummoner();
-  event.returnValue = LocalSummoner.getProfileData();
-});
+  getLocalSummoner()
+  event.returnValue = LocalSummoner.getProfileData()
+})
 
 ipcMain.on('autoAccept', (event, int) => {
   if (int) {
@@ -287,7 +289,7 @@ ipcMain.on('autoAccept', (event, int) => {
   } else {
     autoAccept_enabled = false
   }
-});
+})
 
 ipcMain.on('invDecline', (event, int) => {
   if (int) {
@@ -295,20 +297,21 @@ ipcMain.on('invDecline', (event, int) => {
   } else {
     invDecline_enabled = false
   }
-});
+})
 
 function IsJsonString(str) {
   try {
-    JSON.parse(str);
+    JSON.parse(str)
   } catch (e) {
-    return false;
+    return false
   }
-  return true;
+  return true
 }
 
 ipcMain.on('submitLobby', (event, queueId, members) => {
 
-  let url = routes.Route("submitSummoner");
+  let url = routes.Route("submitSummoner")
+
   let body = {
     url: url,
     "rejectUnauthorized": false,
@@ -320,35 +323,33 @@ ipcMain.on('submitLobby', (event, queueId, members) => {
         "pty": "{\"partyId\":\"404debc0-91a0-4b62-9335-aae99e6d8b48\",\"queueId\":" + queueId + ",\"summoners\":" + members + "}",
       }
     }
-  };
-  let callback = function(error, response, body) {};
+  }
 
-  request.put(body, callback);
-
-});
+  request.put(body)
+})
 
 var autoAccept = function() {
-
   setInterval(function() {
-    if (!routes) return;
+    if (!routes) return
 
-    let url = routes.Route("autoAccept");
+    let url = routes.Route("autoAccept")
+
     let body = {
       url: url,
       "rejectUnauthorized": false,
       headers: {
         Authorization: routes.getAuth()
       },
-    };
+    }
+
     let callback = function(error, response, body) {
-      if (!body || !IsJsonString(body)) return;
-      var data = JSON.parse(body);
+      if (!body || !IsJsonString(body)) return
+      var data = JSON.parse(body)
 
       if (data["state"] === "InProgress") {
 
         if (data["playerResponse"] === "None") {
-
-          let acceptUrl = routes.Route("accept");
+          let acceptUrl = routes.Route("accept")
           let acceptBody = {
             url: acceptUrl,
             "rejectUnauthorized": false,
@@ -357,47 +358,46 @@ var autoAccept = function() {
             },
             json: {}
           }
-          let acceptCallback = function(error, response, body) {};
+
+          let acceptCallback = function(error, response, body) {}
 
           if (autoAccept_enabled) {
-            request.post(acceptBody, acceptCallback);
+            request.post(acceptBody, acceptCallback)
           }
 
         }
       }
-    };
+    }
 
-    request.get(body, callback);
-  }, 1000);
+    request.get(body, callback)
+  }, 1000)
 }
 
-autoAccept();
-
-function invDecline() {
-
+function autoDecline() {
   setInterval(function() {
-    if (!routes) return;
+    if (!routes) return
 
-    let url = routes.Route("invDecline");
+    let url = routes.Route("invDecline")
     let body = {
       url: url,
       "rejectUnauthorized": false,
       headers: {
         Authorization: routes.getAuth()
       },
-    };
-    let callback = function(error, response, body) {
-      if (!body || !IsJsonString(body)) return;
-      var data = JSON.parse(body);
+    }
 
-      //console.log(data);
+    let callback = function(error, response, body) {
+      if (!body || !IsJsonString(body)) return
+
+      var data = JSON.parse(body)
 
       if (data.length > 0) {
         if (typeof data[0].invitationId !== 'undefined') {
 
           if (!ignoredDeclines.includes(data[0].fromSummonerName)) {
 
-            let declineUrl = routes.Route("invDecline") + "/" + data[0].invitationId + "/decline";
+            let declineUrl = routes.Route("invDecline") + "/" + data[0].invitationId + "/decline"
+
             let declineBody = {
               url: declineUrl,
               "rejectUnauthorized": false,
@@ -406,37 +406,33 @@ function invDecline() {
               },
               json: {}
             }
+
             if (invDecline_enabled) {
-              request.post(declineBody);
+              request.post(declineBody)
             }
 
           }
         }
       }
-    };
+    }
 
-    request.get(body, callback);
-  }, 500);
+    request.get(body, callback)
+  }, 500)
 
 }
 
-invDecline();
+autoAccept()
+autoDecline()
 
 ipcMain.on('saveIgnored', (event, names) => {
-  ignoredDeclines = names;
+  ignoredDeclines = names
 })
 
 ipcMain.on('requestVersionCheck', (event) => {
   request('https://raw.githubusercontent.com/4dams/LeagueToolkit/master/LeagueToolkit/version.json', (error, response, body) => {
-    var data = JSON.parse(body);
-    console.log("App Version: " + data["toolkit-version"]);
-    console.log("Game Version: " + data["game-version"]);
-
-    var appVersion = data["toolkit-version"];
-    var leagueGameVersion = data["game-version"];
-
-    event.sender.send('versions', appVersion, leagueGameVersion);
-  });
+    var data = JSON.parse(body)
+    event.sender.send('versions', data["toolkit-version"], data["game-version"])
+  })
 })
 
-connector.start();
+connector.start()
