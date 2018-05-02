@@ -2,7 +2,7 @@
 // Copyright (c) 2018 by 4dams. All Rights Reserved.
 //
 
-var currentVersion = 0.3
+var currentVersion = 0.4
 var gameVersion
 
 const electron = require('electron')
@@ -44,6 +44,7 @@ function submitLeagueName() {
 }
 
 let submitedLevel;
+
 function submitLevel() {
   level = document.getElementById("level").value;
   ipcRenderer.send('submitLevel', level);
