@@ -8,7 +8,6 @@ class summoner {
 
     if (!this.IsJsonString(data)) return;
     data = JSON.parse(data)
-    //console.log(data)
     this.APIRoutes = APIRoutes;
     this.level = this.level || data.summonerLevel;
     this.name = this.name || data.displayName;
@@ -18,18 +17,34 @@ class summoner {
   }
 
   receivedRankedStats(data) {
+    let searchingSolo = false;
 
-    let rankedData = data.rankedData[0]; // 5 vs 5 solo-duo
+    for (let i = 0; i < data.rankedData.length && searchingSolo; i++) {
+      let rankedData = data.rankedData[i];
 
-    if (rankedData) { // Checking if summoner is unranked
-      this.division = this.returnRomanDivision(rankedData.division);
-      this.wins = rankedData.wins;
-      this.rankedTier = rankedData.rankedTier;
-      this.leagueName = rankedData.leagueName;
-      this.rankedQueue = rankedData.rankedQueue;
-      this.lp = rankedData.lp;
+      if (rankedData.rankedQueue === "RANKED_SOLO_5x5") {
+        searchingSolo = true;
+        this.division = this.returnRomanDivision(rankedData.division);
+        this.wins = rankedData.wins;
+        this.rankedTier = rankedData.rankedTier;
+        this.leagueName = rankedData.leagueName;
+        this.rankedQueue = rankedData.rankedQueue;
+        this.lp = rankedData.lp;
+      }
     }
 
+    if (!searchingSolo) {
+      let rankedData = data.rankedData[0]; // 5 vs 5 solo-duo
+
+      if (rankedData) { // Checking if summoner is unranked
+        this.division = this.returnRomanDivision(rankedData.division);
+        this.wins = rankedData.wins;
+        this.rankedTier = rankedData.rankedTier;
+        this.leagueName = rankedData.leagueName;
+        this.rankedQueue = rankedData.rankedQueue;
+        this.lp = rankedData.lp;
+      }
+    }
   }
 
   IsJsonString(str) {
