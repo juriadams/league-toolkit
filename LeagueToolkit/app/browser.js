@@ -392,7 +392,7 @@ function autoUpdate() {
     setInterval(function() {
       if (!isActive) return
       profileUpdate()
-    }, 1000)
+    }, 60000)
   }, 2000)
 }
 
