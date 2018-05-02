@@ -19,9 +19,9 @@ class summoner {
   receivedRankedStats(data) {
     let searchingSolo = false;
 
-    for (let i = 0; i < data.rankedData.length && searchingSolo; i++) {
+    for (let i = 0; i < data.rankedData.length && !searchingSolo; i++) {
       let rankedData = data.rankedData[i];
-
+      
       if (rankedData.rankedQueue === "RANKED_SOLO_5x5") {
         searchingSolo = true;
         this.division = this.returnRomanDivision(rankedData.division);
