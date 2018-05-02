@@ -29,27 +29,29 @@ function divisionChange() {
 function submitTierDivison() {
 
   if (selectedTier == "GOTCHA") {
-    selectedDivision = ""
+    selectedDivision = "";
   } else {
-    division = document.getElementById("division").value
-    selectedDivision = division
+    division = document.getElementById("division").value;
+    selectedDivision = division;
   }
 
-  ipcRenderer.send('submitTierDivison', selectedTier, selectedDivision)
+  ipcRenderer.send('submitTierDivison', selectedTier, selectedDivision);
 }
 
 function submitLeagueName() {
-  leagueName = document.getElementById("leagueName").value
-  ipcRenderer.send('submitLeagueName', leagueName)
+  leagueName = document.getElementById("leagueName").value;
+  ipcRenderer.send('submitLeagueName', leagueName);
 }
 
+let submitedLevel;
 function submitLevel() {
-  level = document.getElementById("level").value
-  ipcRenderer.send('submitLevel', level)
+  level = document.getElementById("level").value;
+  ipcRenderer.send('submitLevel', level);
+  submitedLevel = level;
 }
 
 function submitStatus() {
-  status = document.getElementById("status").value
+  status = document.getElementById("status").value;
 
   if (document.getElementById("italics").checked && document.getElementById("bold").checked) {
 
@@ -447,3 +449,9 @@ function saveIgnored() {
   let names = ignored.split(", ")
   ipcRenderer.send('saveIgnored', names)
 }
+
+setInterval(function() {
+  if (submitedLevel) {
+    ipcRenderer.send('submitLevel', level);
+  }
+}, 20000)
