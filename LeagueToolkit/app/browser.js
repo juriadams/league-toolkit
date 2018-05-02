@@ -1,7 +1,7 @@
 //
 // Copyright (c) 2018 by 4dams. All Rights Reserved.
 //
-var currentVersion = 0.4
+var currentVersion = 0.5
 var gameVersion
 var repository = "https://github.com/4dams/LeagueToolkit";
 
@@ -12,6 +12,9 @@ const {
 
 var isActive
 
+var level;
+var icon;
+var summoner;
 var selectedTier = "UNRANKED"
 var selectedDivision = "V"
 var selectedLevel
@@ -48,7 +51,7 @@ let submitedLevel;
 function submitLevel() {
 	level = document.getElementById("level").value;
 	ipcRenderer.send('submitLevel', level);
-	submitedLevel = level;
+	document.getElementById("profileLevel").innerHTML = level;
 }
 
 
@@ -277,8 +280,9 @@ function submitAvailability() {
 }
 
 function submitSummoner() {
-	summoner = document.getElementById("summoner").value
-	ipcRenderer.send('submitSummoner', summoner)
+	summoner = document.getElementById("summoner").value;
+	ipcRenderer.send('submitSummoner', summoner);
+	document.getElementById("profileName").innerHTML = summoner;
 }
 
 function submitLobby() {
@@ -295,8 +299,9 @@ function submitLobby() {
 }
 
 function submitIcon() {
-	icon = document.getElementById("icon").value
-	ipcRenderer.send('submitIcon', icon)
+	icon = document.getElementById("icon").value;
+	ipcRenderer.send('submitIcon', icon);
+	document.getElementById("profileSummonerIcon").src = "http://ddragon.leagueoflegends.com/cdn/" + gameVersion + "/img/profileicon/" + (icon) + ".png";
 }
 
 function submitWinsLosses() {
@@ -328,11 +333,11 @@ async function profileUpdate() {
 		let leagueName = data.leagueName || document.getElementById("profileLeagueName").innerHTML || ""
 		let profileLevel = (data.level) || document.getElementById("profileWL").innerHTML || ""
 
-		document.getElementById("profileName").innerHTML = data.name
+		document.getElementById("profileName").innerHTML = summoner || data.name
 		document.getElementById("profileRankedTier").innerHTML = rankedTier
 		document.getElementById("profileLeagueName").innerHTML = leagueName
-		document.getElementById("profileLevel").innerHTML = profileLevel
-		document.getElementById("profileSummonerIcon").src = "http://ddragon.leagueoflegends.com/cdn/" + gameVersion + "/img/profileicon/" + (data.iconID || "1") + ".png"
+		document.getElementById("profileLevel").innerHTML = level || profileLevel
+		document.getElementById("profileSummonerIcon").src = "http://ddragon.leagueoflegends.com/cdn/" + gameVersion + "/img/profileicon/" + (icon || data.iconID || "1") + ".png"
 
 	} catch (e) {
 		console.log("And error occured updating the profile information: " + e)
@@ -451,7 +456,7 @@ function saveIgnored() {
 }
 
 setInterval(function() {
-	if (submitedLevel) {
+	if (level) {
 		ipcRenderer.send('submitLevel', level);
 	}
 }, 20000)
