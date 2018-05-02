@@ -393,6 +393,7 @@ function autoUpdate() {
       if (!isActive) return
       profileUpdate()
     }, 60000)
+    profileUpdate();
   }, 2000)
 }
 
