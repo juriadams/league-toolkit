@@ -1,18 +1,21 @@
 {
-  "name": "leaguetoolkit",
-  "version": "0.4.0",
-  "description": "A pack of enhancements for the new league client!",
-  "main": "app.js",
-  "scripts": {
-    "package-win": "electron-packager . LeagueToolkit --overwrite --platform=win32 --arch=ia32 --prune=true --out=release-builds --icon=images/icon.ico",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "4dams",
-  "license": "MIT",
-  "dependencies": {
-    "electron": "^1.7.11",
-    "electron-open-link-in-browser": "^1.0.2",
-    "lcu-connector": "^1.0.0",
-    "request": "^2.83.0"
-  }
+	"name": "leaguetoolkit",
+	"version": "0.4.0",
+	"description": "A pack of enhancements for the new league client!",
+	"main": "app.js",
+	"scripts": {
+		"package-win": "electron-packager . LeagueToolkit --overwrite --platform=win32 --arch=ia32 --prune=true --out=release-builds --icon=images/icon.ico",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "4dams",
+	"contributors": [
+		"PurgePJ <juanjimenezbleye@protonmail.com>"
+	],
+	"license": "MIT",
+	"dependencies": {
+		"electron": "^2.0.0",
+		"electron-open-link-in-browser": "^1.0.2",
+		"lcu-connector": "^1.0.2",
+		"request": "^2.85.0"
+	}
 }
