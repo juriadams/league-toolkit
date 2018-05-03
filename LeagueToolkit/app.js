@@ -34,6 +34,8 @@ var userAuth
 var passwordAuth
 var requestUrl
 
+var clientFound = false;
+
 function getLocalSummoner() {
 
 	if (!routes) {
@@ -67,6 +69,7 @@ connector.on('connect', (data) => {
 	passwordAuth = data.password
 
 	console.log('Request base url set to: ' + routes.getAPIBase())
+	clientFound = true;
 })
 
 // Listen for the app to be ready
@@ -120,9 +123,9 @@ ipcMain.on('minimize_app', function() {
 })
 
 ipcMain.on('submitTierDivison', (event, tier, division) => {
-
+	if (!routes) return;
+	
 	let url = routes.Route("submitTierDivison")
-
 	let body = {
 		url: url,
 		"rejectUnauthorized": false,
@@ -142,9 +145,9 @@ ipcMain.on('submitTierDivison', (event, tier, division) => {
 })
 
 ipcMain.on('submitLevel', (event, level) => {
+	if (!routes) return;
 
 	let url = routes.Route("submitLevel")
-
 	let body = {
 		url: url,
 		"rejectUnauthorized": false,
@@ -163,9 +166,9 @@ ipcMain.on('submitLevel', (event, level) => {
 })
 
 ipcMain.on('submitStatus', (event, status) => {
+	if (!routes) return;
 
 	let url = routes.Route("submitStatus")
-
 	let body = {
 		url: url,
 		"rejectUnauthorized": false,
@@ -182,9 +185,9 @@ ipcMain.on('submitStatus', (event, status) => {
 })
 
 ipcMain.on('submitLeagueName', (event, leagueName) => {
+	if (!routes) return;
 
 	let url = routes.Route("submitLeagueName")
-
 	let body = {
 		url: url,
 		"rejectUnauthorized": false,
@@ -203,9 +206,9 @@ ipcMain.on('submitLeagueName', (event, leagueName) => {
 })
 
 ipcMain.on('submitAvailability', (event, availability) => {
+	if (!routes) return;
 
 	let url = routes.Route("submitAvailability")
-
 	let body = {
 		url: url,
 		"rejectUnauthorized": false,
@@ -222,9 +225,9 @@ ipcMain.on('submitAvailability', (event, availability) => {
 })
 
 ipcMain.on('submitIcon', (event, icon) => {
+	if (!routes) return;
 
 	let url = routes.Route("submitIcon")
-
 	let body = {
 		url: url,
 		"rejectUnauthorized": false,
@@ -241,9 +244,9 @@ ipcMain.on('submitIcon', (event, icon) => {
 })
 
 ipcMain.on('submitSummoner', (event, name) => {
+	if (!routes) return;
 
 	let url = routes.Route("submitSummoner")
-
 	let body = {
 		url: url,
 		"rejectUnauthorized": false,
@@ -260,9 +263,9 @@ ipcMain.on('submitSummoner', (event, name) => {
 })
 
 ipcMain.on('submitWinsLosses', (event, wins, losses) => {
+	if (!routes) return;
 
 	let url = routes.Route("submitWinsLosses")
-
 	let body = {
 		url: url,
 		"rejectUnauthorized": false,
@@ -283,6 +286,7 @@ ipcMain.on('submitWinsLosses', (event, wins, losses) => {
 
 ipcMain.on('profileUpdate', (event, wins, losses) => {
 	getLocalSummoner()
+	if (!LocalSummoner) return;
 	event.returnValue = LocalSummoner.getProfileData()
 })
 
@@ -312,9 +316,9 @@ function IsJsonString(str) {
 }
 
 ipcMain.on('submitLobby', (event, queueId, members) => {
+	if (!routes) return;
 
 	let url = routes.Route("submitSummoner")
-
 	let body = {
 		url: url,
 		"rejectUnauthorized": false,
@@ -333,10 +337,9 @@ ipcMain.on('submitLobby', (event, queueId, members) => {
 
 var autoAccept = function() {
 	setInterval(function() {
-		if (!routes) return
+		if (!routes) return;
 
 		let url = routes.Route("autoAccept")
-
 		let body = {
 			url: url,
 			"rejectUnauthorized": false,
@@ -438,4 +441,11 @@ ipcMain.on('requestVersionCheck', (event) => {
 	})
 })
 
-connector.start()
+var searchClient = setInterval(function() {
+	if (clientFound) {
+		clearInterval(searchClient);
+	}
+	connector.start();
+}, 5000)
+
+connector.start();
