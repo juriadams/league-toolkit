@@ -1,7 +1,7 @@
 //
 // Copyright (c) 2018 by 4dams. All Rights Reserved.
 //
-var currentVersion = 0.5
+var currentVersion = 0.4.1
 var gameVersion
 var repository = "https://github.com/4dams/LeagueToolkit";
 
