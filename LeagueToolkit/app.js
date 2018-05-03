@@ -8,8 +8,8 @@ var request = require('request')
 var LCUConnector = require('lcu-connector')
 var connector = new LCUConnector()
 
-var APIClient = require("./routes")
-var Summoner = require("./summoner")
+var APIClient = require("./src/routes")
+var Summoner = require("./src/summoner")
 var LocalSummoner
 var routes
 
@@ -36,21 +36,25 @@ var requestUrl
 
 function getLocalSummoner() {
 
-	let url = routes.Route("localSummoner")
+	if (!routes) {
+		console.log("League of Legends client not found.");
+	} else {
+		let url = routes.Route("localSummoner")
 
-	let body = {
-		url: url,
-		"rejectUnauthorized": false,
-		headers: {
-			Authorization: routes.getAuth()
+		let body = {
+			url: url,
+			"rejectUnauthorized": false,
+			headers: {
+				Authorization: routes.getAuth()
+			}
 		}
-	}
 
-	let callback = function(error, response, body) {
-		LocalSummoner = new Summoner(body, routes)
-	}
+		let callback = function(error, response, body) {
+			LocalSummoner = new Summoner(body, routes)
+		}
 
-	request.get(body, callback)
+		request.get(body, callback)
+	}
 }
 
 connector.on('connect', (data) => {
