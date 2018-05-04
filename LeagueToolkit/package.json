@@ -1,6 +1,6 @@
 {
 	"name": "leaguetoolkit",
-	"version": "0.5.0",
+	"version": "0.4.1",
 	"description": "A pack of enhancements for the new league client!",
 	"main": "app.js",
 	"scripts": {
