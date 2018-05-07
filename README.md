@@ -1,3 +1,4 @@
+[![Open Source Helpers](https://www.codetriage.com/4dams/leaguetoolkit/badges/users.svg)](https://www.codetriage.com/4dams/leaguetoolkit)
 <p align="center">
   <img src="https://github.com/4dams/LeagueToolkit/blob/master/LeagueToolkit/images/logo.png"><br>
   <b>Useful Links:</b><br>
