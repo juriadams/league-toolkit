@@ -1,3 +1,4 @@
+[![Open Source Helpers](https://www.codetriage.com/4dams/leaguetoolkit/badges/users.svg)](https://www.codetriage.com/4dams/leaguetoolkit)
 <p align="center">
   <img src="https://github.com/4dams/LeagueToolkit/blob/master/LeagueToolkit/images/logo.png"><br>
   <b>Useful Links:</b><br>
@@ -7,7 +8,6 @@
   <br>
   <a href="https://github.com/4dams/LeagueToolkit/releases" style="text-decoration: underline;"><b>Latest Release</b></a>
   <br>
-  [![Open Source Helpers](https://www.codetriage.com/4dams/leaguetoolkit/badges/users.svg)](https://www.codetriage.com/4dams/leaguetoolkit)
 </p>
 
 LeagueToolkit is an application made for extracting, reading, modifying and sending back data from the updated League of Legends client. This includes data like a player's level, rank, wins and losses and a bunch more stuff, which can be changed with this app.
