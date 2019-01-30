@@ -26,7 +26,7 @@ For the design of the app, we wanted to stick to the clean and flawless design o
 
 ## Acknowledgments
 
-* [PurgePJ](https://github.com/PurgePJ) for helping me a lot with the backend of this app
+* [Xh4H](https://github.com/Xh4H) for helping me a lot with the backend of this app
 * Connecting via [LCU Connector](https://www.npmjs.com/package/lcu-connector)
 * Material icons provided by [Material.io](https://material.io/icons/)
 * Design concepts by [React-Hextech](https://github.com/LeagueDevelopers/react-hextech)
